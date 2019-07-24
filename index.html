@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/first/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/2019-7-24/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gigg">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/24/first/" itemprop="url">first</a></h1>
+                <a class="post-title-link" href="/2019/07/24/2019-7-24/" itemprop="url">2019.7.24</a></h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T09:05:41+08:00">
-                2018-10-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-24T15:07:46+08:00">
+                2019-07-24
               </time>
             
 
@@ -300,63 +300,7 @@
       
         
           
-            <p>总结</p>
-<p>《A Novel Top-k Strategy for Influence Maximization in Complex Networks with Community Structure》</p>
-<p>Suggest：在具有社区结构的网络中寻找重要节点群的方法。</p>
-<p>相关论文：</p>
-<p>  Authors             Theme                                       paper<br>  Kempe et al         A Hill-climbing strategy to choose k spreaders.    《Maximizing the spread of influence through a social network》<br>  Narayanam et al.    A SPIN heuristic algorithm for the top-k nodes problem.    《A shapley value-based approach to discover influential nodes in social networks》<br>  Zhao et al.         Made an attempt to find effective multiple spreaders in complex networks by generalizing the idea of the coloring problem in graph theory to complex networks.    《Identifying effective multiple spreaders by coloring complex networks》<br>  Chen et al.         degree discount heuristics.                 《                                                            Efficient influence maximization in social networks》<br>  Zhang et al.        A novel method for identifying influential nodes in complex networks with community structure. The method uses the information transfer probability between any pair of nodes and the k-medoid clustering algorithm.    《Identifying influential nodes in complex networks with communitystructure》</p>
-<p>复杂网络中寻找多个传播节点的两种基准方法：</p>
-<p>  method                                      advantage    disadvantage<br>  chooses the top k influential nodes as spreaders according to a centrality index    simple       most of these k spreaders may be clustered in a community.<br>  chooses k unconnected spreaders according to a centrality index                 many spreaders may still locate in a community.</p>
-<p>Methods:</p>
-<ol>
-<li><p>从整个网络中选取super node的步骤（Blondel method）：</p>
-</li>
-<li><p>each community adjusts their nodes according to the increment of modularity</p>
-</li>
-<li>each community is replaced by a new node called “super node”</li>
-<li><p>The two steps are repeated until the modularity can not be improved<br>（to obtain a great many communities, the two steps are iterated only once）        </p>
-</li>
-<li><p>红黑树：</p>
-</li>
-</ol>
-<p>所有的super nodes存储在一棵红黑树中，一个super node的key是节点的编号，values包含它的大小（包含的节点数目）、其中的节点和指示节点是否被访问过的状态变量。</p>
-<ol start="3">
-<li><p>选取重要节点群的步骤：</p>
-</li>
-<li><p>首先从红黑树中选取最大的super node。</p>
-</li>
-<li>然后从这个super node中根据一种中心性指标选取最有影响力的节点。</li>
-<li>以相同方法从红黑树中选取下一个super node，然后从这个super node中选取最有影响力的节点，这个最有影响力的节点不能和已经选取过最有影响力节点的super node有边相连。</li>
-<li>如果所有super node都已经访问过并且选出来的传播节点的数量不够，则根据大小降序访问所有super node并且选取剩余传播节点。</li>
-<li>重复以上步骤直到k个传播节点都被选取。</li>
-</ol>
-<p>（实际上，super node的数量远大于k，k个传播节点往往在第一遍搜索时都可以被找到）</p>
-<ol start="4">
-<li>计算复杂度</li>
-</ol>
-<p>SIR Model</p>
-<p>用SIR model模拟传播过程。</p>
-<p>测试一</p>
-<p>  Big Real Networks<br>       Gowalla<br>        Dblp<br>       Youtube     </p>
-<pre><code>  method         explanation                             
-Super-node                                               
-</code></pre><p>  Influential-node    chooses the top k influential nodes as spreaders according to a centrality index.<br>   Disperse-node      first computes a ranking list of nodes based on a centrality index and then selects k unconnected spreaders from the ranking list.</p>
-<p>  centrality index<br>  degree centrality<br>       k-core<br>     ClusterRank   </p>
-<p>定义的增长率指标</p>
-<p>growth ratio=\frac{p_{our\ method}-p_{other\ method}}{p_{other\ method}}(p_{our\ method} is the proportion of infected nodes in a network for our method and p_{other\ method}for benchmark method.)</p>
-<p>测试二</p>
-<p>  method        explanation                                 time complexity<br>  Super-node                                                O(m+n+(k+l)logl),m is the number of edges in network.n is the number of nodes in network.l is the number of super nodes.k is the number of the speakers.<br>  K-medoid      Chooses k spreaders from communities.Each edge(u, v) is randomly designated either “open” with probability \beta_{uv} or “closed” with probability 1-\beta_{uv} independently. The \beta_{uv} is defined as \beta_{uv}=1-(1-\beta)^{w_{uv}},w_{uv} is the weight of edge(u,v) and \beta is a designated propagation probability.For two nodes p and q,if there is at least a path between them which is composed of “open” edges, ω(p,q) = 1, otherwise 0.Then the element m_{pq}of information transfer probability matrix M is defined as m_{pq}=\frac{1}{N}\sum^N_{i=1}\omega(p,q),N is the number of sampling. The network is first divided into k communities based on M and then k medoids are chosen as k spreaders.    O(k(n-k)^2), n is the number of nodes in network.k is the number of the speakers.</p>
-<p>  Small Real Network<br>        Karate<br>       Football     </p>
-<p>  centrality index<br>  degree centrality<br>       k-core<br>     ClusterRank   </p>
-<p>测试三</p>
-<p>  Synthetic Network<br>        LFR1<br>        LFR2<br>        LFR3       </p>
-<p>  centrality index<br>  degree centrality<br>       K-core<br>     ClusterRank   </p>
-<pre><code>  method     
-Super-node   
-</code></pre><p>  Influential-node<br>   Disperse-node  </p>
-<p>定义的覆盖率指标(量化k个传播节点的分散程度)</p>
-<p>coverage ratio=\frac{\sharp super-node’}{\sharp super-node}，\sharp super-node is the number of all super nodes in network and \sharp super-node’ is the number of super nodes which contain at least one spreader in network.</p>
-
+            
           
         
       
@@ -478,7 +422,7 @@ Super-node
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
