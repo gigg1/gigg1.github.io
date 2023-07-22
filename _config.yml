@@ -144,10 +144,9 @@ navbar-var-length: false
 # Light blue
 # #6699FF
 # heavy blue
-#333399
-# 
+# 333399
 # 9999FF
-navbar-col: "#333399"
+navbar-col: "#000066"
 # White
 navbar-text-col: "#FFFFFF"
 # medium purple
