@@ -6,7 +6,11 @@ title: About me
 
 Hello there! My name is **Mutong LIU**. Now, I am a Ph.D. student in the Department of Computer Science at Hong Kong Baptist University. If you are interested in my research work or any other aspects, you can reach me via my personal email address (<a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a>).
 
-### Personal Information
+------
+
+
+
+### Basic Information
 
 - Name: Mutong LIU
 
@@ -14,25 +18,20 @@ Hello there! My name is **Mutong LIU**. Now, I am a Ph.D. student in the Departm
 
   <!--There is a CV-->
 
-
-
 ------
 
 
 
 ### Research Interests
 
-
-
-
+- Machine Learning for Epidemic/Pandemic Prediction
+- Computational Epidemiology, Infectious Disease Modeling
 
 ------
 
 
 
 ### Education and Academic Qualification
-
-
 
 
 
