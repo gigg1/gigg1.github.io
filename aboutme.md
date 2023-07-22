@@ -31,15 +31,11 @@ Hello there! My name is **Mutong LIU**. Now, I am a Ph.D. student in the Departm
 
 ### Education and Academic Qualification
 
-Jan.2021 - Dec. 2024 (expected) | PhD Candidate in Computer Science, Hong Kong Baptist University, Hong Kong, China | 
-
-|—|—|—|
-
-Sept.2016 - Jul. 2020 | B.E. in Network Engineering, Southwest University, Chongqing, China | Major: Network Engineering |
-
-|—|—|—|
-
-Sept.2015 - Jul. 2016 | Student in Plant Protection Faculty, Southwest University, Chongqing, China | Major: Plant Protection
+| Period                          | Degree                                                       | Major               |
+| ------------------------------- | ------------------------------------------------------------ | ------------------- |
+| Jan.2021 - Dec. 2024 (expected) | PhD Candidate in Computer Science, Hong Kong Baptist University, Hong Kong, China | Computer Science    |
+| Sept.2016 - Jul. 2020           | B.E. in Network Engineering, Southwest University, Chongqing, China | Network Engineering |
+| Sept.2015 - Jul. 2016           | Student in Plant Protection Faculty, Southwest University, Chongqing, China | Plant Protection    |
 
 
 
