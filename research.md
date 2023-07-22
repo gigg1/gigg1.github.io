@@ -32,9 +32,3 @@ title: Research
 
 
 #### Brief Introduction:
-
-
-
-------
-
-
