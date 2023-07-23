@@ -4,7 +4,7 @@ title: About me
 <!-- subtitle: This is a page to show my basic information :> -->
 ---
 
-Hello there! My name is **Mutong LIU**. Now, I am a Ph.D. student in the Department of Computer Science at Hong Kong Baptist University. If you are interested in my research work or any other aspects, you can reach me via my personal email address (<a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a>).
+Hello there! My name is **Mutong LIU**. Now, I am a Ph.D. student in the Department of Computer Science at Hong Kong Baptist University. If you are interested in my research work or any other aspects, you can reach me via my email address (<a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a> or  <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a>).
 
 ------
 
@@ -13,7 +13,9 @@ Hello there! My name is **Mutong LIU**. Now, I am a Ph.D. student in the Departm
 ### Basic Information
 
 - Name: Mutong LIU
-- Academic email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a>
+- Academic email address:
+  - (Academic) <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a>
+  - (Personal) <a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a>
 - CV
 
 ------
@@ -31,17 +33,11 @@ Hello there! My name is **Mutong LIU**. Now, I am a Ph.D. student in the Departm
 
 ### Education and Academic Qualification
 
-Jan.2021 - Dec. 2024 (expected) | PhD Candidate in Computer Science, Hong Kong Baptist University, Hong Kong, China | 
-
-|—|—|—|
-
-Sept.2016 - Jul. 2020 | B.E. in Network Engineering, Southwest University, Chongqing, China | Major: Network Engineering |
-
-|—|—|—|
-
-Sept.2015 - Jul. 2016 | Student in Plant Protection Faculty, Southwest University, Chongqing, China | Major: Plant Protection
-
-
+| Period                          | Degree                                                       | Major               |
+| ------------------------------- | ------------------------------------------------------------ | ------------------- |
+| Jan.2021 - Dec. 2024 (expected) | PhD Candidate in Computer Science, **Hong Kong Baptist University**, Hong Kong, China | Computer Science    |
+| Sept.2016 - Jul. 2020           | B.E. in Network Engineering, **Southwest University**, Chongqing, China | Network Engineering |
+| Sept.2015 - Jul. 2016           | Student in Plant Protection Faculty, **Southwest University**, Chongqing, China | Plant Protection    |
 
 ------
 
@@ -50,5 +46,5 @@ Sept.2015 - Jul. 2016 | Student in Plant Protection Faculty, Southwest Universit
 ### Publications ([Google Scholar](https://scholar.google.com/citations?user=erU2odMAAAAJ&hl=en))
 
 - **Mutong LIU**, Yang Liu, Ly Po, Shang Xia, Rekol Huy, Xiao-Nong Zhou, and Jiming Liu. (2023). [Assessing the spatiotemporal malaria transmission intensity with heterogeneous risk factors: A modeling study in Cambodia](https://www.sciencedirect.com/science/article/pii/S2468042723000064). *Infectious Disease Modelling*, 8(1), 253-269.
-- Jinfu Ren, **Mutong Liu*, Yang Liu, and Jiming Liu (2022). [Optimal resource allocation with spatiotemporal transmission discovery for effective disease control](https://pubmed.ncbi.nlm.nih.gov/35331329/). *Infectious diseases of poverty*, 11(1), 1-11.
+- Jinfu Ren, **Mutong Liu**, Yang Liu, and Jiming Liu (2022). [Optimal resource allocation with spatiotemporal transmission discovery for effective disease control](https://pubmed.ncbi.nlm.nih.gov/35331329/). *Infectious diseases of poverty*, 11(1), 1-11.
 - Jinfu Ren, **Mutong Liu**, Yang Liu, and Jiming Liu (2023). [TransCode: Uncovering COVID-19 transmission patterns via deep learning](https://idpjournal.biomedcentral.com/articles/10.1186/s40249-023-01052-9). *Infectious Diseases of Poverty*, 12(1), 1-20.
