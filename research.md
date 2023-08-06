@@ -29,6 +29,6 @@ title: Research
 
 #### Related Published Paper:
 
-
+> - Mutong LIU, Yang Liu, Jiming Liu. Machine Learning for Infectious Disease Risk Prediction: A Survey. (Under review)
 
 #### Brief Introduction:
