@@ -301,7 +301,7 @@ kramdown:
 defaults:
   -
     scope:
-      path: "./posts/"
+      path: "/posts"
       type: "posts"
     values:
       layout: "post"
@@ -309,7 +309,7 @@ defaults:
       social-share: true # add social media sharing buttons to all blog posts
   -
     scope:
-      path: "./pages/" # any file that's not a post will be a "page" layout by default
+      path: "/pages" # any file that's not a post will be a "page" layout by default
     values:
       layout: "page"
 
