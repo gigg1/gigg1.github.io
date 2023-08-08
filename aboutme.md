@@ -45,8 +45,14 @@ Hello there! My name is **Mutong LIU**. Now, I am a Ph.D. student in the Departm
 
 ### Publications ([Google Scholar](https://scholar.google.com/citations?user=erU2odMAAAAJ&hl=en))
 
+Published:
+
 - **Mutong LIU**, Yang Liu, Ly Po, Shang Xia, Rekol Huy, Xiao-Nong Zhou, and Jiming Liu. (2023). [Assessing the spatiotemporal malaria transmission intensity with heterogeneous risk factors: A modeling study in Cambodia](https://www.sciencedirect.com/science/article/pii/S2468042723000064). *Infectious Disease Modelling*, 8(1), 253-269.
 - Jinfu Ren\*, **Mutong Liu**\*, Yang Liu, and Jiming Liu (2022). [Optimal resource allocation with spatiotemporal transmission discovery for effective disease control](https://pubmed.ncbi.nlm.nih.gov/35331329/). *Infectious diseases of poverty*, 11(1), 1-11.
 - Jinfu Ren, **Mutong Liu**, Yang Liu, and Jiming Liu (2023). [TransCode: Uncovering COVID-19 transmission patterns via deep learning](https://idpjournal.biomedcentral.com/articles/10.1186/s40249-023-01052-9). *Infectious Diseases of Poverty*, 12(1), 1-20.
+
+Submitted:
+
+- Mutong Liu, Yang Liu, Jiming Liu. [Machine Learning for Infectious Disease Risk Prediction: A Survey](https://arxiv.org/abs/2308.03037). (Under review)
 
 \* Contributed equally.
