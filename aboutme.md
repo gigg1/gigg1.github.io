@@ -13,7 +13,7 @@ Hello there! My name is **Mutong LIU**. Now, I am a Ph.D. student in the Departm
 ### Basic Information
 
 - Name: Mutong LIU
-- Academic email address:
+- Email address:
   - (Academic) <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a>
   - (Personal) <a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a>
 - CV
