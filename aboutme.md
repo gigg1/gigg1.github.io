@@ -4,7 +4,7 @@ title: About me
 <!-- subtitle: This is a page to show my basic information :> -->
 ---
 
-Hello there! My name is **Mutong LIU**. Now, I am a Ph.D. student in the [Department of Computer Science at Hong Kong Baptist University](https://www.comp.hkbu.edu.hk/v1/). If you are interested in my research work or any other aspects, you can reach me via my email address (<a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a> or  <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a>).
+Hello there! My name is **Mutong LIU** (刘牧潼). Now, I am a Ph.D. student supervised by [Dr. LIU Yang](https://www.comp.hkbu.edu.hk/v1/?page=profile&id=csygliu) and co-supervised by [Prof. LIU Jiming](https://www.comp.hkbu.edu.hk/v1/?page=profile&id=jiming) in the [Department of Computer Science at Hong Kong Baptist University](https://www.comp.hkbu.edu.hk/v1/). If you are interested in my research work or any other aspects, you can reach me via my email address (<a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a> or  <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a>).
 
 ------
 
@@ -16,7 +16,6 @@ Hello there! My name is **Mutong LIU**. Now, I am a Ph.D. student in the [Depart
 - Email address:
   - (Academic) <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a>
   - (Personal) <a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a>
-- CV
 
 ------
 
