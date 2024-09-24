@@ -27,4 +27,6 @@ title: Research
 
 ### Disease Control and Resource Allocation
 
+#### Related Papers:
+
 > - Jinfu Ren\*, **Mutong Liu**\*, Yang Liu, and Jiming Liu (2022). [Optimal resource allocation with spatiotemporal transmission discovery for effective disease control](https://pubmed.ncbi.nlm.nih.gov/35331329/). *Infectious diseases of poverty*, 11(1), 1-11. [[paper](./papers/2022-Optimal-IDP.pdf)]
