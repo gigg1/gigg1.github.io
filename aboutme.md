@@ -23,7 +23,7 @@ Hello there! My name is **Mutong LIU** (刘牧潼). Now, I am a Ph.D. student su
 
 ### Research Interests
 
-Machine Learning, Reinforcement Learning, Spatiotemporal Analytics, Epidemic Prediction, Infectious Disease Modeling and Control
+- Machine Learning, Reinforcement Learning, Spatiotemporal Analytics, Epidemic Prediction, Infectious Disease Modeling and Control
 
 ------
 
