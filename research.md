@@ -23,7 +23,7 @@ title: Research
 #### Related Papers:
 
 > - **Mutong Liu**, Yang Liu, and Jiming Liu (2025). [Machine Learning for Infectious Disease Risk Prediction: A Survey](https://dl.acm.org/doi/10.1145/3719663). *ACM Computing Survey Just Accepted (February 2025)*. https://doi.org/10.1145/3719663.
-> - **Mutong Liu**, Yang Liu, Jiming Liu (2023).  [Epidemiology-aware Deep Learning for Infectious Disease Dynamics Prediction](https://dl.acm.org/doi/10.1145/3583780.3615139). In *Proceedings of the 32nd ACM International Conference on Information and Knowledge Management* (CIKM '23). [[paper](./papers/2023-Epidemiology-CIKM-Short.pdf)]&nbsp;[[poster](./posters/2023-Epidemiology-CIKM-Short-poster.pdf)]&nbsp;[[code](https://github.com/gigg1/CIKM2023EpiDL)]
+> - **Mutong Liu**, Yang Liu, Jiming Liu (2023).  [Epidemiology-aware Deep Learning for Infectious Disease Dynamics Prediction](https://dl.acm.org/doi/10.1145/3583780.3615139). In *Proceedings of the 32nd ACM International Conference on Information and Knowledge Management* (CIKM '23). [[poster](./posters/2023-Epidemiology-CIKM-Short-poster.pdf)]&nbsp;[[code](https://github.com/gigg1/CIKM2023EpiDL)]
 
 ### Disease Control and Resource Allocation
 
