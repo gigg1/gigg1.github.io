@@ -5,7 +5,7 @@
   year: 2025
   status: published
   links:
-    pdf: "./papers/2026-Empowering-WI.pdf"
+    pdf: "/papers/2026-Empowering-WI.pdf"
     doi: "https://arxiv.org/abs/2603.25771"
   img: "/assets/img/papers/2026-Empowering-WI.png"
 
@@ -15,8 +15,8 @@
   year: 2025
   status: published
   links:
-    pdf: "./papers/2025-Machine-ACMCSUR.pdf"
-    supp: "./papers/2025-Machine-ACMCSUR-supp.pdf"
+    pdf: "/papers/2025-Machine-ACMCSUR.pdf"
+    supp: "/papers/2025-Machine-ACMCSUR-supp.pdf"
     doi: "https://dl.acm.org/doi/10.1145/3719663"
   img: "/assets/img/papers/2025-Machine-ACMCSUR.png"
 
@@ -26,8 +26,8 @@
   year: 2023
   status: published
   links:
-    pdf: "./papers/2023-Epidemiology-aware-CIKM.pdf"
-    poster: "./posters/2023-Epidemiology-CIKM-Short-poster.pdf"
+    pdf: "/papers/2023-Epidemiology-aware-CIKM.pdf"
+    poster: "/posters/2023-Epidemiology-CIKM-Short-poster.pdf"
     code: "https://github.com/gigg1/CIKM2023EpiDL"
     doi: "https://dl.acm.org/doi/10.1145/3583780.3615139"
   img: "/assets/img/papers/2023-Epidemiology-aware-CIKM.png"
@@ -38,7 +38,7 @@
   year: 2023
   status: published
   links:
-    pdf: "./papers/2023-Assessing-IDM.pdf"
+    pdf: "/papers/2023-Assessing-IDM.pdf"
     doi: "https://www.sciencedirect.com/science/article/pii/S2468042723000064"
   img: "/assets/img/papers/2023-Assessing-IDM.png"
 
@@ -48,7 +48,7 @@
   year: 2022
   status: published
   links:
-    pdf: "./papers/2022-Optimal-IDP.pdf"
+    pdf: "/papers/2022-Optimal-IDP.pdf"
     doi: "https://pubmed.ncbi.nlm.nih.gov/35331329/"
   img: "/assets/img/papers/2022-Optimal-IDP.png"
 
@@ -58,7 +58,7 @@
   year: 2023
   status: published
   links:
-    pdf: "./papers/2023-TransCode-IDP.pdf"
+    pdf: "/papers/2023-TransCode-IDP.pdf"
     doi: "https://idpjournal.biomedcentral.com/articles/10.1186/s40249-023-01052-9"
   img: "/assets/img/papers/2023-TransCode-IDP.png"
 
@@ -68,7 +68,7 @@
   year: 2022
   status: published
   links:
-    pdf: "./papers/2022-Identifying-Frontiers.pdf"
+    pdf: "/papers/2022-Identifying-Frontiers.pdf"
     doi: "https://www.frontiersin.org/journals/physics/articles/10.3389/fphy.2021.766615/full"
   img: "/assets/img/papers/2022-Identifying-Frontiers.png"
 
