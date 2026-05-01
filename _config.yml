@@ -164,7 +164,8 @@ page-col: "#FFFFFF"
 # text-col: "#404040"
 text-col: "Black"
 # Heavy blue
-link-col: "#333366"
+# link-col: "#333366"
+link-col: "#3399FF"
 # light purple
 hover-col: "#CCCCFF"
 
