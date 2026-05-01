@@ -60,7 +60,6 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
 ------
 ### Publications ([Google Scholar](https://scholar.google.com/citations?user=erU2odMAAAAJ&hl=en))
 
-{% raw %}
 {% assign pubs = site.data.publications %}
 
 {% comment %} 分组：Published 和 Under Review {% endcomment %}
@@ -117,4 +116,3 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
 {% endfor %}
 
 \* Co-first author (Contributed equally).
-{% endraw %}
