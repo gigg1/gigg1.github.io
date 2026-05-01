@@ -12,13 +12,13 @@ My work aims to solve complex real-world problems such as infectious disease tra
 My research spans AI/ML methodology development and application deployment in the context of infectious disease dynamics:
 
 * **Assessment of infectious disease risk and inference of transmission patterns:**  
-	[Malaria risk Intensity Assessment (IDM’23)](./papers/2023-Assessing-IDM.pdf) · [TransCode (IDP’23)](./papers/2023-TransCode-IDP.pdf)
+	[Malaria Risk Intensity Assessment (IDM’23)](./papers/2023-Assessing-IDM.pdf) · [TransCode (IDP’23)](./papers/2023-TransCode-IDP.pdf)
 
 * **ML for Epidemic Dynamics Prediction:**  
   [Survey on ML for Infectious Disease Risk Prediction (ACM CSUR’25)](./papers/2025-Machine-ACMCSUR.pdf) · [EpiDL (CIKM’23)](./papers/2023-Epidemiology-aware-CIKM.pdf)
 	
 * **ML & RL for Infectious Disease Control:**  
-	[Empowering Epidemic Response (WI‑IAT’25)](./papers/2026-Empowering-WI.pdf) ·  [Optimal Resource Allocation (IDP’22)](./papers/2022-Optimal-IDP.pdf)
+	[Empowering Epidemic Response (WI‑IAT’25)](./papers/2026-Empowering-WI.pdf) · [Resource Allocation for Effective Disease Control (IDP’22)](./papers/2022-Optimal-IDP.pdf)
 	
 * **Learning effective coordination in cooperative Multi-agent RL:**  
 	Probing Diametric Coordination Graphs for Multi-Agent Reinforcement Learning [Under Review]
@@ -35,7 +35,7 @@ My research spans AI/ML methodology development and application deployment in th
 <!--If you are interested in my research work or any other aspects, you can reach me via my email address (<a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a> or  <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a>).-->
 
 ------
-Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a> (Academic) / <a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a> (Personal)
+Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a> (Academic)  ·  <a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a> (Personal)
 
 ------
 
