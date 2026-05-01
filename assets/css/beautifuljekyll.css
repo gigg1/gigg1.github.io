@@ -1121,3 +1121,7 @@ pre {
     display: inline-block;
   }
 }
+
+.container-md {
+  max-width: 85% !important;
+}
