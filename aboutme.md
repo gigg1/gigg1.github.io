@@ -18,7 +18,7 @@ My research spans AI/ML methodology development and application deployment in th
   [Survey on ML for Infectious Disease Risk Prediction (ACM CSUR’25)](./papers/2025-Machine-ACMCSUR.pdf) · [EpiDL (CIKM’23)](./papers/2023-Epidemiology-aware-CIKM.pdf)
 	
 * **ML & RL for Infectious Disease Control:**  
-	[Empowering Epidemic Response (WI‑IAT’25)](./papers/2026-Empowering-WI.pdf) · [Resource Allocation for Effective Disease Control (IDP’22)](./papers/2022-Optimal-IDP.pdf)
+	[RLs in Infectious Disease Control (WI‑IAT’25)](./papers/2026-Empowering-WI.pdf) · [Resource Allocation for Effective Disease Control (IDP’22)](./papers/2022-Optimal-IDP.pdf)
 	
 * **Learning effective coordination in cooperative Multi-agent RL:**  
 	Probing Diametric Coordination Graphs for Multi-Agent Reinforcement Learning [Under Review]
