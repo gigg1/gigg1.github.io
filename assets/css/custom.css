@@ -1,0 +1,16 @@
+/* 全局字体大小调整 */
+body {
+    font-size: 14px;           /* 默认通常是 16px，改为更小的值 */
+    line-height: 1.5;          /* 控制行高，默认约 1.6-1.7 */
+}
+
+/* 段落间距调整 */
+p {
+    margin-bottom: 0.8rem;     /* 默认通常是 1.5rem，调小这个值 */
+}
+
+/* 容器宽度调整——让每一行内容更长（适用于所有页面） */
+.container-md, 
+.container {
+    max-width: 1200px !important;  /* 默认约 950px，调大这个值 */
+}

@@ -55,9 +55,9 @@ round-avatar: true
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
   email: "gigg0@icloud.com"
-  rss: true  # remove this line if you don't want to show an RSS link at the bottom
+  # rss: true  # remove this line if you don't want to show an RSS link at the bottom
   # facebook: deanattali
-  # github: daattali
+  github: "https://github.com/gigg1"
   # twitter: daattali
   # patreon: DeanAttali
   # youtube: c/daattali
@@ -77,7 +77,7 @@ social-network-links:
 #  calendly: yourname
 #  mastodon: instance.url/@username
 #  ORCID: your ORCID ID
-#  google-scholar: your google scholar
+ google-scholar: "https://scholar.google.com/citations?user=erU2odMAAAAJ&hl=en"
 #  discord: "invite_code" or "users/userid" or "invite/invite_code" 
 #  kaggle: yourname
 #  hackerrank: yourname
