@@ -12,7 +12,7 @@ My work aims to solve complex real-world problems such as infectious disease tra
 My research spans AI/ML methodology development and application deployment in the context of infectious disease dynamics:
 
 * **Assessment of infectious disease risk and inference of transmission patterns:**  
-	[Malaria Risk Intensity Assessment (IDM’23)](./papers/2023-Assessing-IDM.pdf) · [TransCode (IDP’23)](./papers/2023-TransCode-IDP.pdf)
+	[Malaria Transmission Intensity Assessment (IDM’23)](./papers/2023-Assessing-IDM.pdf) · [TransCode for COVID‑19 Transmission Patterns (IDP’23)](./papers/2023-TransCode-IDP.pdf)
 
 * **ML for Epidemic Dynamics Prediction:**  
   [Survey on ML for Infectious Disease Risk Prediction (ACM CSUR’25)](./papers/2025-Machine-ACMCSUR.pdf) · [EpiDL (CIKM’23)](./papers/2023-Epidemiology-aware-CIKM.pdf)
