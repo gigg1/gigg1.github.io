@@ -5,10 +5,12 @@ title: About me
 ---
 
 Hello there! I am **Mutong LIU** (刘牧潼), a Ph.D. candidate in the [Department of Computer Science at Hong Kong Baptist University](https://www.comp.hkbu.edu.hk/v1/), supervised by [Prof. Yang LIU](https://www.comp.hkbu.edu.hk/v1/?page=profile&id=csygliu) and co-supervised by [Prof. Jiming LIU](https://www.comp.hkbu.edu.hk/v1/?page=profile&id=jiming).
-My current research mainly focuses on **Artificial Intelligence at Public Health**, specifically developing and leveraging methodology in machine learning (ML) and reinforcement learning (RL) combined with epidemiological modeling to assess, predict, and control infectious diseases risk. I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.
+My primary research interests inlcudes **artificial intelligence, machine learning, computional epidemiology, and complex system modeling**, specifically developing multi-agent reinforcement learning, physical/epidemiological-informed machine learning, and spatiotemporal analysis methods.
+<!--I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.-->
+<!--developing and leveraging methodology in machine learning (ML) and reinforcement learning (RL) combined with epidemiological modeling to assess, predict, and control infectious diseases risk. I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.-->
 
 <!--I believe that data-driven, spatiotemporally aware methods are key to building resilient public health systems.-->
-My work aims to solve complex real-world problems such as infectious disease transmission risk assessment, epidemic risk prediction, effective resource allocation, and adaptive intervention strategy learning.
+My work of developing algorithms aims to solve complex real-world problems such as infectious disease transmission risk assessment and prediction, adaptive intervention strategy inference, and collaborated behavior learning in multi-agent system.
 My research spans AI/ML methodology development and application deployment in the context of infectious disease dynamics:
 
 * **Assessment of infectious disease risk and inference of transmission patterns:**  
