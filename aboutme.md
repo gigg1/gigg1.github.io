@@ -13,7 +13,7 @@ My primary research interests inlcudes **artificial intelligence, machine learni
 My works developing algorithms aims to solve complex real-world problems such as infectious disease transmission risk assessment and prediction, adaptive intervention strategy inference, and effective cooperative behavior learning in multi-agent systems.
 My research spans AI/ML methodology development and application deployment in the context of infectious disease dynamics:
 
-* **MLs for Assessing infectious disease risk and Inferring Transmission Patterns:**  
+* **MLs for Assessing Infectious Disease Risk and Inferring Transmission Patterns:**  
 	[Malaria Transmission Intensity Assessment (IDM’23)](./papers/2023-Assessing-IDM.pdf) · [TransCode for COVID‑19 Transmission Patterns (IDP’23)](./papers/2023-TransCode-IDP.pdf)
 
 * **MLs for Epidemic Dynamics Prediction:**  
