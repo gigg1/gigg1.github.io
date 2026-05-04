@@ -10,7 +10,7 @@ My primary research interests inlcudes **artificial intelligence, machine learni
 <!--developing and leveraging methodology in machine learning (ML) and reinforcement learning (RL) combined with epidemiological modeling to assess, predict, and control infectious diseases risk. I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.-->
 
 <!--I believe that data-driven, spatiotemporally aware methods are key to building resilient public health systems.-->
-My works developing algorithms aims to solve complex real-world problems such as infectious disease transmission risk assessment and prediction, adaptive intervention strategy inference, and effective cooperative behavior learning in multi-agent systems.
+My works aims to solve complex real-world problems such as infectious disease transmission risk assessment and prediction, adaptive intervention strategy inference, and effective cooperative behavior learning in multi-agent systems.
 My research spans AI/ML methodology development and application deployment in the context of infectious disease dynamics:
 
 * **MLs for Assessing Infectious Disease Risk and Inferring Transmission Patterns:**  
