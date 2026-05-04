@@ -57,6 +57,7 @@
   authors: "Jinfu Ren, Mutong Liu, Yang Liu, and Jiming Liu"
   venue: "Infectious Diseases of Poverty, 12(1), 1-20"
   year: 2023
+  extra_note: "Feature article"
   status: published
   links:
     pdf: "/papers/2023-TransCode-IDP.pdf"
