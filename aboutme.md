@@ -22,7 +22,7 @@ My research spans AI/ML methodology development and application deployment in th
 * **MLs & RLs for Infectious Disease Control:**  
 	[RLs in Infectious Disease Control (WI‑IAT’25)](./papers/2026-Empowering-WI.pdf) · [Resource Allocation for Effective Disease Control (IDP’22)](./papers/2022-Optimal-IDP.pdf)
 	
-* **MARL for Learning Cooperative Behavior in the Multi-agent Systems:**  
+* **MARL for Learning Cooperative Behavior in Multi-agent Systems:**  
 	Probing Diametric Coordination Graphs for Multi-Agent Reinforcement Learning [Under Review]
 	
 <!--	effective coordination in cooperative Multi-agent RL-->
