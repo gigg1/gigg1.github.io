@@ -5,7 +5,7 @@ title: About me
 ---
 
 Hello there! I am **Mutong LIU** (刘牧潼), a Ph.D. candidate in the [Department of Computer Science at Hong Kong Baptist University](https://www.comp.hkbu.edu.hk/v1/), supervised by [Prof. Yang LIU](https://www.comp.hkbu.edu.hk/v1/?page=profile&id=csygliu) and co-supervised by [Prof. Jiming LIU](https://www.comp.hkbu.edu.hk/v1/?page=profile&id=jiming).
-My primary research interests inlcudes **artificial intelligence, machine learning, computional epidemiology, and complex system modeling**, specifically focus on developing multi-agent reinforcement learning, physical/epidemiological-informed machine learning, and spatiotemporal analysis methods.
+My primary research interests inlcudes **artificial intelligence, machine learning, computational epidemiology, and complex system modeling**, specifically focus on developing multi-agent reinforcement learning, physical/epidemiological-informed machine learning, and spatiotemporal analysis methods.
 <!--I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.-->
 <!--developing and leveraging methodology in machine learning (ML) and reinforcement learning (RL) combined with epidemiological modeling to assess, predict, and control infectious diseases risk. I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.-->
 
