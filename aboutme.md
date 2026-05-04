@@ -10,20 +10,22 @@ My primary research interests inlcudes **artificial intelligence, machine learni
 <!--developing and leveraging methodology in machine learning (ML) and reinforcement learning (RL) combined with epidemiological modeling to assess, predict, and control infectious diseases risk. I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.-->
 
 <!--I believe that data-driven, spatiotemporally aware methods are key to building resilient public health systems.-->
-My work of developing algorithms aims to solve complex real-world problems such as infectious disease transmission risk assessment and prediction, adaptive intervention strategy inference, and collaborated behavior learning in multi-agent system.
+My work of developing algorithms aims to solve complex real-world problems such as infectious disease transmission risk assessment and prediction, adaptive intervention strategy inference, and collaborated behavior learning in multi-agent systems.
 My research spans AI/ML methodology development and application deployment in the context of infectious disease dynamics:
 
-* **Assessment of infectious disease risk and inference of transmission patterns:**  
+* **MLs for Assessing infectious disease risk and Inferring Transmission Patterns:**  
 	[Malaria Transmission Intensity Assessment (IDM’23)](./papers/2023-Assessing-IDM.pdf) · [TransCode for COVID‑19 Transmission Patterns (IDP’23)](./papers/2023-TransCode-IDP.pdf)
 
-* **ML for Epidemic Dynamics Prediction:**  
+* **MLs for Epidemic Dynamics Prediction:**  
   [Survey on ML for Infectious Disease Risk Prediction (ACM CSUR’25)](./papers/2025-Machine-ACMCSUR.pdf) · [EpiDL (CIKM’23)](./papers/2023-Epidemiology-aware-CIKM.pdf)
 	
-* **ML & RL for Infectious Disease Control:**  
+* **MLs & RLs for Infectious Disease Control:**  
 	[RLs in Infectious Disease Control (WI‑IAT’25)](./papers/2026-Empowering-WI.pdf) · [Resource Allocation for Effective Disease Control (IDP’22)](./papers/2022-Optimal-IDP.pdf)
 	
-* **Learning effective coordination in cooperative Multi-agent RL:**  
+* **MARL for Learning Cooperative Behavior in the Multi-agent Systems:**  
 	Probing Diametric Coordination Graphs for Multi-Agent Reinforcement Learning [Under Review]
+	
+<!--	effective coordination in cooperative Multi-agent RL-->
 
 
 <!--* **Application/Deployment for Public Health:**  
