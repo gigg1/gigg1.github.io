@@ -98,64 +98,9 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     {% if pub.links.code %}
       [<a href="{{ pub.links.code }}">code</a>]
     {% endif %}
-  </div>
-</div>
-{% endfor %}
-
-**Under Review:**
-
-{% for pub in under_review_pubs %}
-<div style="display: flex; margin-bottom: 1.8rem; gap: 1rem; align-items: flex-start;">
-  <div style="flex: 0 0 140px;">
-    <img src="{{ pub.img }}" alt="{{ pub.title }}" style="width: 100%; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-  </div>
-  <div style="flex: 1;">
-    {% assign authors_highlighted = pub.authors | replace: "Mutong Liu", "<strong>Mutong Liu</strong>" %}
-    {{ authors_highlighted }} ({{ pub.year }}).
-    {{ pub.title }}.
-    <em>{{ pub.venue }}</em>.
-    {% comment %} Under review 条目没有链接，所以不输出任何 [paper] 等 {% endcomment %}
-  </div>
-</div>
-{% endfor %}
-
-{% assign pubs = site.data.publications %}
-
-{% comment %} 分组：Published 和 Under Review {% endcomment %}
-{% assign published_pubs = pubs | where: "status", "published" %}
-{% assign under_review_pubs = pubs | where: "status", "under_review" %}
-
-**Published:**
-
-{% for pub in published_pubs %}
-<div style="display: flex; margin-bottom: 1.8rem; gap: 1rem; align-items: flex-start;">
-  <div style="flex: 0 0 140px;">
-    <img src="{{ pub.img }}" alt="{{ pub.title }}" style="width: 100%; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-  </div>
-  <div style="flex: 1;">
-    {% assign authors_highlighted = pub.authors | replace: "Mutong Liu", "<strong>Mutong Liu</strong>" %}
-    {{ authors_highlighted }} ({{ pub.year }}).
-    {% if pub.links.doi %}
-      <a href="{{ pub.links.doi }}">{{ pub.title }}</a>.
-    {% else %}
-      {{ pub.title }}.
-    {% endif %}
-    <em>{{ pub.venue }}</em>.
-    {% if pub.links.pdf %}
-      [<a href="{{ pub.links.pdf }}">paper</a>]
-    {% endif %}
-    {% if pub.links.supp %}
-      [<a href="{{ pub.links.supp }}">supplementary</a>]
-    {% endif %}
-    {% if pub.links.poster %}
-      [<a href="{{ pub.links.poster }}">poster</a>]
-    {% endif %}
-    {% if pub.links.code %}
-      [<a href="{{ pub.links.code }}">code</a>]
-    {% endif %}
     {% comment %} ★ 在链接末尾添加自定义介绍（例如：“(CIKM '23 接收率20%)”） ★ {% endcomment %}
-    {% if pub.acceptance_note %}
-      ({{ pub.acceptance_note }})
+    {% if pub.extra_note %}
+      ({{ pub.extra_note }})
     {% endif %}
   </div>
 </div>
@@ -174,8 +119,8 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     {{ pub.title }}.
     <em>{{ pub.venue }}</em>.
     {% comment %} ★ 对于 under review，也可以加上相同的介绍字段（如果有的话） ★ {% endcomment %}
-    {% if pub.acceptance_note %}
-      ({{ pub.acceptance_note }})
+    {% if pub.extra_note %}
+      ({{ pub.extra_note }})
     {% endif %}
   </div>
 </div>
