@@ -29,7 +29,7 @@
     pdf: "/papers/2025-Machine-ACMCSUR.pdf"
     supp: "/papers/2025-Machine-ACMCSUR-supp.pdf"
     doi: "https://dl.acm.org/doi/10.1145/3719663"
-  img: "/assets/img/papers/2025-Machine-ACMCSUR.png"
+  img: "/assets/img/papers/2025-Machine-ACMCSUR2.png"
 
 - title: "Epidemiology-aware Deep Learning for Infectious Disease Dynamics Prediction"
   authors: "Mutong Liu, Yang Liu, Jiming Liu"
