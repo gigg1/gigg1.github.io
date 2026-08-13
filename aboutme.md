@@ -106,7 +106,7 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
 </div>
 {% endfor %}
 
-**Under Review:**
+<!--**Under Review:**
 
 {% for pub in under_review_pubs %}
 <div style="display: flex; margin-bottom: 1.8rem; gap: 1rem; align-items: flex-start;">
@@ -124,6 +124,6 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     {% endif %}
   </div>
 </div>
-{% endfor %}
+{% endfor %}-->
 
 \* Co-first author (Contributed equally).
