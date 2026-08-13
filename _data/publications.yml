@@ -5,7 +5,7 @@
   year: 2026
   status: published
   links: 
-    paper: "{https://www.sciencedirect.com/science/article/pii/S0004370226001293}"
+    paper: "https://www.sciencedirect.com/science/article/pii/S0004370226001293"
     doi: "10.1016/j.artint.2026.104603"
   img: "/assets/img/papers/2026-Probing-AIJ.png"
 
