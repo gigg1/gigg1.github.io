@@ -152,32 +152,32 @@ navbar-var-length: false
 #333399
 
 #9999FF
-navbar-col: "#333366"
+# Dusty rose (柔玫瑰，白色文字清晰且更耐看)
+navbar-col: "#b58b94"
 # White
 navbar-text-col: "#FFFFFF"
-# medium purple
-navbar-border-col: "#DDDDDD"
+# Light rose border
+navbar-border-col: "#d3aeb6"
 
 # White
 page-col: "#FFFFFF"
 # Gray
 # text-col: "#404040"
 text-col: "Black"
-# Heavy blue
+# Rose brown (正文链接玫瑰棕)
 # link-col: "#333366"
-link-col: "#3399FF"
-# light purple
-hover-col: "#CCCCFF"
+link-col: "#805762"
+# Deep rose
+hover-col: "#6f4d57"
 
-# Light blue
-footer-col: "#99CCFF"
-# White
-footer-text-col: "#FFFFFF"
-# Heavy blue
-#000066
-footer-link-col: "#333366"
-# light purple
-footer-hover-col: "#CCCCFF"
+# Light rose (页脚浅粉)
+footer-col: "#f6d9e0"
+# Rose brown text (深玫瑰棕文字)
+footer-text-col: "#805762"
+# Rose brown link
+footer-link-col: "#805762"
+# Deep rose
+footer-hover-col: "#6f4d57"
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
@@ -327,6 +327,7 @@ exclude:
   - README.md
   - screenshot.png
   - docs/
+  - vendor/
 
 plugins:
   - jekyll-paginate

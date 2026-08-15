@@ -3,6 +3,7 @@
   authors: "Mutong Liu, Tiantian He, Yang Liu, Jiming Liu, and Yew-Soon Ong"
   venue: "Artificial Intelligence, Aug 2026, 104603 (In press)"
   year: 2026
+  extra_note: "CCF-A"
   status: published
   links:
     doi: "https://www.sciencedirect.com/science/article/pii/S0004370226001293"
@@ -23,7 +24,7 @@
   venue: "ACM Computing Survey, 57(8), Article 212"
   year: 2025
   status: published
-  extra_note: "2024 Impact Factor: 28.0 (ranked 1/147 in Computer Science Theory & Methods)"
+  extra_note: "2025 Impact Factor: 30.4 (ranked 1/147 in Computer Science Theory & Methods)"
   links:
     pdf: "/papers/2025-Machine-ACMCSUR.pdf"
     supp: "/papers/2025-Machine-ACMCSUR-supp.pdf"

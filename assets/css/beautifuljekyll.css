@@ -84,14 +84,14 @@ hr.small {
 }
 
 ::-moz-selection {
-  color: #fff;
+  color: #5c3a44;
   text-shadow: none;
-  background-color: {{ site.hover-col | default: "#0085A1" }};
+  background-color: #fbe3ea;
 }
 ::selection {
-  color: #fff;
+  color: #5c3a44;
   text-shadow: none;
-  background-color: {{ site.hover-col | default: "#0085A1" }};
+  background-color: #fbe3ea;
 }
 img::selection {
   color: #fff;
@@ -1123,5 +1123,5 @@ pre {
 }
 
 .container-md {
-  max-width: 85% !important;
+  max-width: 95% !important;
 }

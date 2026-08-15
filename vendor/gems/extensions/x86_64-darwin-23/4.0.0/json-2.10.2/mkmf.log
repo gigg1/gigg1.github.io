@@ -1,0 +1,320 @@
+have_func: checking for rb_enc_interned_str() in ruby.h... -------------------- no
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+ld: warning: ignoring file '/usr/local/Cellar/ruby/4.0.6/lib/libruby.4.0.dylib': found architecture 'x86_64', required architecture 'arm64'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+conftest.c:16:57: error: use of undeclared identifier 'rb_enc_interned_str'
+   16 | int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_enc_interned_str; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_enc_interned_str; return !p; }
+/* end */
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+ld: warning: ignoring file '/usr/local/Cellar/ruby/4.0.6/lib/libruby.4.0.dylib': found architecture 'x86_64', required architecture 'arm64'
+Undefined symbols for architecture arm64:
+  "_rb_enc_interned_str", referenced from:
+      _t in conftest-acc039.o
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void rb_enc_interned_str();
+17: int t(void) { rb_enc_interned_str(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_hash_new_capa() in ruby.h... -------------------- no
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+ld: warning: ignoring file '/usr/local/Cellar/ruby/4.0.6/lib/libruby.4.0.dylib': found architecture 'x86_64', required architecture 'arm64'
+Undefined symbols for architecture arm64:
+  "_rb_hash_new_capa", referenced from:
+      _t in conftest-8e35d7.o
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_hash_new_capa; return !p; }
+/* end */
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+conftest.c:16:13: warning: a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C23, conflicting with a previous declaration [-Wdeprecated-non-prototype]
+   16 | extern void rb_hash_new_capa();
+      |             ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/intern/hash.h:118:7: note: conflicting prototype is here
+  118 | VALUE rb_hash_new_capa(long capa);
+      |       ^
+conftest.c:16:13: error: conflicting types for 'rb_hash_new_capa'
+   16 | extern void rb_hash_new_capa();
+      |             ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/intern/hash.h:118:7: note: previous declaration is here
+  118 | VALUE rb_hash_new_capa(long capa);
+      |       ^
+conftest.c:17:32: error: too few arguments to function call, single argument 'capa' was not specified
+   17 | int t(void) { rb_hash_new_capa(); return 0; }
+      |               ~~~~~~~~~~~~~~~~ ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/intern/hash.h:118:7: note: 'rb_hash_new_capa' declared here
+  118 | VALUE rb_hash_new_capa(long capa);
+      |       ^                ~~~~~~~~~
+1 warning and 2 errors generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void rb_hash_new_capa();
+17: int t(void) { rb_hash_new_capa(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_hash_bulk_insert() in ruby.h... -------------------- no
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+ld: warning: ignoring file '/usr/local/Cellar/ruby/4.0.6/lib/libruby.4.0.dylib': found architecture 'x86_64', required architecture 'arm64'
+Undefined symbols for architecture arm64:
+  "_rb_hash_bulk_insert", referenced from:
+      _t in conftest-a04965.o
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_hash_bulk_insert; return !p; }
+/* end */
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+conftest.c:16:13: warning: a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C23, conflicting with a previous declaration [-Wdeprecated-non-prototype]
+   16 | extern void rb_hash_bulk_insert();
+      |             ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/intern/hash.h:259:6: note: conflicting prototype is here
+  259 | void rb_hash_bulk_insert(long argc, const VALUE *argv, VALUE hash);
+      |      ^
+conftest.c:17:35: error: too few arguments to function call, expected 3, have 0
+   17 | int t(void) { rb_hash_bulk_insert(); return 0; }
+      |               ~~~~~~~~~~~~~~~~~~~ ^
+conftest.c:16:13: note: 'rb_hash_bulk_insert' declared here
+   16 | extern void rb_hash_bulk_insert();
+      |             ^
+1 warning and 1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void rb_hash_bulk_insert();
+17: int t(void) { rb_hash_bulk_insert(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_category_warn() in ruby.h... -------------------- no
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+ld: warning: ignoring file '/usr/local/Cellar/ruby/4.0.6/lib/libruby.4.0.dylib': found architecture 'x86_64', required architecture 'arm64'
+Undefined symbols for architecture arm64:
+  "_rb_category_warn", referenced from:
+      _t in conftest-e99ad3.o
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_category_warn; return !p; }
+/* end */
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+conftest.c:16:13: warning: a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C23, conflicting with a previous declaration [-Wdeprecated-non-prototype]
+   16 | extern void rb_category_warn();
+      |             ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/error.h:569:6: note: conflicting prototype is here
+  569 | void rb_category_warn(rb_warning_category_t cat, const char *fmt, ...);
+      |      ^
+conftest.c:16:13: error: conflicting types for 'rb_category_warn'
+   16 | extern void rb_category_warn();
+      |             ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/error.h:569:6: note: previous declaration is here
+  569 | void rb_category_warn(rb_warning_category_t cat, const char *fmt, ...);
+      |      ^
+conftest.c:17:32: error: too few arguments to function call, expected at least 2, have 0
+   17 | int t(void) { rb_category_warn(); return 0; }
+      |               ~~~~~~~~~~~~~~~~ ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/error.h:569:6: note: 'rb_category_warn' declared here
+  569 | void rb_category_warn(rb_warning_category_t cat, const char *fmt, ...);
+      |      ^
+1 warning and 2 errors generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void rb_category_warn();
+17: int t(void) { rb_category_warn(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for strnlen() in string.h... -------------------- yes
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+ld: warning: ignoring file '/usr/local/Cellar/ruby/4.0.6/lib/libruby.4.0.dylib': found architecture 'x86_64', required architecture 'arm64'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <string.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))strnlen; return !p; }
+/* end */
+
+--------------------
+
+append_cflags: checking for whether -std=c99 is accepted as CFLAGS... -------------------- yes
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe  -std=c99 -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+--------------------
+

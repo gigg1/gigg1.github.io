@@ -1,0 +1,74 @@
+current directory: /Users/giggliu/Downloads/PrivateInformation/Website/gigg1.github.io/vendor/gems/gems/date-3.4.1/ext/date
+/usr/local/opt/ruby/bin/ruby extconf.rb
+checking for rb_category_warn()... no
+checking for timezone in time.h with -Werror... yes
+checking for altzone in time.h with -Werror... no
+creating Makefile
+
+current directory: /Users/giggliu/Downloads/PrivateInformation/Website/gigg1.github.io/vendor/gems/gems/date-3.4.1/ext/date
+make -j11 DESTDIR\= sitearchdir\=./.gem.20260815-90672-7gxvxz sitelibdir\=./.gem.20260815-90672-7gxvxz clean
+
+current directory: /Users/giggliu/Downloads/PrivateInformation/Website/gigg1.github.io/vendor/gems/gems/date-3.4.1/ext/date
+make -j11 DESTDIR\= sitearchdir\=./.gem.20260815-90672-7gxvxz sitelibdir\=./.gem.20260815-90672-7gxvxz
+compiling date_core.c
+compiling date_parse.c
+compiling date_strptime.c
+compiling date_strftime.c
+date_core.c:7545:23: warning: 'RUBY_FL_EXIVAR' is deprecated: FL_EXIVAR is an outdated implementation detail, it should not be used. [-Wdeprecated-declarations]
+ 7545 |     if (FL_TEST(self, FL_EXIVAR)) {
+      |                       ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/fl_type.h:65:44: note: expanded from macro 'FL_EXIVAR'
+   65 | #define FL_EXIVAR       RBIMPL_CAST((VALUE)RUBY_FL_EXIVAR)               /**< @old{RUBY_FL_EXIVAR} */
+      |                                            ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/fl_type.h:263:5: note: 'RUBY_FL_EXIVAR' has been explicitly marked deprecated here
+  263 |     RBIMPL_ATTR_DEPRECATED(("FL_EXIVAR is an outdated implementation detail, it should not be used."))
+      |     ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/attr/deprecated.h:36:53: note: expanded from macro 'RBIMPL_ATTR_DEPRECATED'
+   36 | # define RBIMPL_ATTR_DEPRECATED(msg) __attribute__((__deprecated__ msg))
+      |                                                     ^
+date_core.c:7547:12: warning: 'RUBY_FL_EXIVAR' is deprecated: FL_EXIVAR is an outdated implementation detail, it should not be used. [-Wdeprecated-declarations]
+ 7547 |         FL_SET(a, FL_EXIVAR);
+      |                   ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/fl_type.h:65:44: note: expanded from macro 'FL_EXIVAR'
+   65 | #define FL_EXIVAR       RBIMPL_CAST((VALUE)RUBY_FL_EXIVAR)               /**< @old{RUBY_FL_EXIVAR} */
+      |                                            ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/fl_type.h:263:5: note: 'RUBY_FL_EXIVAR' has been explicitly marked deprecated here
+  263 |     RBIMPL_ATTR_DEPRECATED(("FL_EXIVAR is an outdated implementation detail, it should not be used."))
+      |     ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/attr/deprecated.h:36:53: note: expanded from macro 'RBIMPL_ATTR_DEPRECATED'
+   36 | # define RBIMPL_ATTR_DEPRECATED(msg) __attribute__((__deprecated__ msg))
+      |                                                     ^
+date_core.c:7621:20: warning: 'RUBY_FL_EXIVAR' is deprecated: FL_EXIVAR is an outdated implementation detail, it should not be used. [-Wdeprecated-declarations]
+ 7621 |     if (FL_TEST(a, FL_EXIVAR)) {
+      |                    ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/fl_type.h:65:44: note: expanded from macro 'FL_EXIVAR'
+   65 | #define FL_EXIVAR       RBIMPL_CAST((VALUE)RUBY_FL_EXIVAR)               /**< @old{RUBY_FL_EXIVAR} */
+      |                                            ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/fl_type.h:263:5: note: 'RUBY_FL_EXIVAR' has been explicitly marked deprecated here
+  263 |     RBIMPL_ATTR_DEPRECATED(("FL_EXIVAR is an outdated implementation detail, it should not be used."))
+      |     ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/attr/deprecated.h:36:53: note: expanded from macro 'RBIMPL_ATTR_DEPRECATED'
+   36 | # define RBIMPL_ATTR_DEPRECATED(msg) __attribute__((__deprecated__ msg))
+      |                                                     ^
+date_core.c:7623:15: warning: 'RUBY_FL_EXIVAR' is deprecated: FL_EXIVAR is an outdated implementation detail, it should not be used. [-Wdeprecated-declarations]
+ 7623 |         FL_SET(self, FL_EXIVAR);
+      |                      ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/fl_type.h:65:44: note: expanded from macro 'FL_EXIVAR'
+   65 | #define FL_EXIVAR       RBIMPL_CAST((VALUE)RUBY_FL_EXIVAR)               /**< @old{RUBY_FL_EXIVAR} */
+      |                                            ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/fl_type.h:263:5: note: 'RUBY_FL_EXIVAR' has been explicitly marked deprecated here
+  263 |     RBIMPL_ATTR_DEPRECATED(("FL_EXIVAR is an outdated implementation detail, it should not be used."))
+      |     ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/attr/deprecated.h:36:53: note: expanded from macro 'RBIMPL_ATTR_DEPRECATED'
+   36 | # define RBIMPL_ATTR_DEPRECATED(msg) __attribute__((__deprecated__ msg))
+      |                                                     ^
+4 warnings generated.
+linking shared-object date_core.bundle
+ld: warning: ignoring file '/usr/local/Cellar/ruby/4.0.6/lib/libruby.4.0.dylib': found architecture 'x86_64', required architecture 'arm64'
+
+current directory: /Users/giggliu/Downloads/PrivateInformation/Website/gigg1.github.io/vendor/gems/gems/date-3.4.1/ext/date
+make -j11 DESTDIR\= sitearchdir\=./.gem.20260815-90672-7gxvxz sitelibdir\=./.gem.20260815-90672-7gxvxz install
+/usr/bin/install -c -m 0755 date_core.bundle ./.gem.20260815-90672-7gxvxz
+
+current directory: /Users/giggliu/Downloads/PrivateInformation/Website/gigg1.github.io/vendor/gems/gems/date-3.4.1/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20260815-90672-7gxvxz sitelibdir\=./.gem.20260815-90672-7gxvxz clean

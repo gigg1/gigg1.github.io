@@ -1,0 +1,134 @@
+have_func: checking for rb_category_warn()... -------------------- no
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+ld: warning: ignoring file '/usr/local/Cellar/ruby/4.0.6/lib/libruby.4.0.dylib': found architecture 'x86_64', required architecture 'arm64'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+ld: warning: ignoring file '/usr/local/Cellar/ruby/4.0.6/lib/libruby.4.0.dylib': found architecture 'x86_64', required architecture 'arm64'
+Undefined symbols for architecture arm64:
+  "_rb_category_warn", referenced from:
+      _t in conftest-16e0a7.o
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_category_warn; return !p; }
+/* end */
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -o conftest -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe conftest.c -L. -L/usr/local/Cellar/ruby/4.0.6/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl@3/lib -L. -fstack-protector-strong -L/usr/local/Cellar/libyaml/0.2.5/lib -L/usr/local/Cellar/openssl@3/3.6.3/lib     -lruby.4.0  -lpthread  "
+conftest.c:14:13: warning: a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C23, conflicting with a previous declaration [-Wdeprecated-non-prototype]
+   14 | extern void rb_category_warn();
+      |             ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/error.h:569:6: note: conflicting prototype is here
+  569 | void rb_category_warn(rb_warning_category_t cat, const char *fmt, ...);
+      |      ^
+conftest.c:14:13: error: conflicting types for 'rb_category_warn'
+   14 | extern void rb_category_warn();
+      |             ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/error.h:569:6: note: previous declaration is here
+  569 | void rb_category_warn(rb_warning_category_t cat, const char *fmt, ...);
+      |      ^
+conftest.c:15:32: error: too few arguments to function call, expected at least 2, have 0
+   15 | int t(void) { rb_category_warn(); return 0; }
+      |               ~~~~~~~~~~~~~~~~ ^
+/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/internal/error.h:569:6: note: 'rb_category_warn' declared here
+  569 | void rb_category_warn(rb_warning_category_t cat, const char *fmt, ...);
+      |      ^
+1 warning and 2 errors generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void rb_category_warn();
+15: int t(void) { rb_category_warn(); return 0; }
+/* end */
+
+--------------------
+
+have_var: checking for timezone in time.h with -Werror... -------------------- yes
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe  -Werror -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <time.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { const volatile void *volatile p; p = &(&timezone)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for altzone in time.h with -Werror... -------------------- no
+
+DYLD_LIBRARY_PATH=.:/usr/local/Cellar/ruby/4.0.6/lib LSAN_OPTIONS=detect_leaks=0 "clang -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/x86_64-darwin23 -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0/ruby/backward -I/usr/local/Cellar/ruby/4.0.6/include/ruby-4.0.0 -I. -I/usr/local/opt/libyaml/include -I/usr/local/opt/openssl@3/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe  -Werror -c conftest.c"
+conftest.c:16:55: error: use of undeclared identifier 'altzone'
+   16 | int t(void) { const volatile void *volatile p; p = &(&altzone)[0]; return !p; }
+      |                                                       ^~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <time.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { const volatile void *volatile p; p = &(&altzone)[0]; return !p; }
+/* end */
+
+--------------------
+
