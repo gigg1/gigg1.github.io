@@ -100,12 +100,12 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
 {% assign under_review_pubs = pubs | where: "status", "under_review" %}
 
 <style>
-  /* 整页字体统一为 Trebuchet MS（macOS 和 Windows 均自带） */
+  /* 整页字体：英文 Trebuchet MS，中文楷体 */
   .container-md, .container-md h1, .container-md h2, .container-md h3,
   .container-md h4, .container-md h5, .container-md h6, .container-md p,
   .container-md a, .container-md li, .container-md td, .container-md th,
   .container-md strong, .container-md em, .container-md span, .container-md div {
-    font-family: 'Trebuchet MS', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, 'Kaiti SC', 'KaiTi', 'STKaiti', '楷体', 'DFKai-SB', sans-serif;
   }
   /* 正文所有非链接文字统一为深墨色（链接保持玫瑰棕） */
   .container-md, .container-md h1, .container-md h2, .container-md h3,
