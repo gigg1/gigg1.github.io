@@ -343,9 +343,11 @@ img {
   margin-left: -50%;
   {% unless site.round-avatar == false %}
     border-radius: 50%;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, .8);
-    -webkit-box-shadow: 0 0 0.3125rem rgba(0, 0, 0, .8);
-    -moz-box-shadow: 0 0 0.5rem rgba(0, 0, 0, .8);
+    padding: 0.1875rem;
+    background: #fff;
+    box-shadow: rgba(128, 87, 98, 0.2) 0 0.75rem 2rem 0;
+    -webkit-box-shadow: rgba(128, 87, 98, 0.2) 0 0.75rem 2rem 0;
+    -moz-box-shadow: rgba(128, 87, 98, 0.2) 0 0.75rem 2rem 0;
   {% else %}
     border-radius: 1.125rem;
     padding: 0.3125rem;
@@ -376,9 +378,9 @@ img {
   .navbar-custom.top-nav-regular .avatar-container .avatar-img-border {
     width: 100%;
     {% unless site.round-avatar == false %}
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
-    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
-    -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
+    box-shadow: rgba(128, 87, 98, 0.22) 0 1rem 2.5rem 0;
+    -webkit-box-shadow: rgba(128, 87, 98, 0.22) 0 1rem 2.5rem 0;
+    -moz-box-shadow: rgba(128, 87, 98, 0.22) 0 1rem 2.5rem 0;
     {% else %}
     box-shadow: rgba(128, 87, 98, 0.22) 0 1.25rem 3rem 0;
     {% endunless %}
