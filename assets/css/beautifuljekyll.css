@@ -324,8 +324,8 @@ img {
 .navbar-custom .avatar-container {
   position: absolute;
   left: 50%;
-  width: 3.125rem;
-  bottom: -1.5rem;
+  width: 3.75rem;
+  bottom: -1.75rem;
   transition: opacity 0.5s ease-in-out;
   -webkit-transition: opacity 0.5s ease-in-out;
   -moz-transition: opacity 0.5s ease-in-out;
@@ -346,12 +346,19 @@ img {
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, .8);
     -webkit-box-shadow: 0 0 0.3125rem rgba(0, 0, 0, .8);
     -moz-box-shadow: 0 0 0.5rem rgba(0, 0, 0, .8);
+  {% else %}
+    border-radius: 1.125rem;
+    padding: 0.3125rem;
+    background: #fff;
+    box-shadow: rgba(128, 87, 98, 0.2) 0 1.125rem 2.75rem 0;
   {% endunless %}
 }
 .navbar-custom .avatar-container .avatar-img {
   width: 100%;
   {% unless site.round-avatar == false %}
     border-radius: 50%;
+  {% else %}
+    border-radius: 0.75rem;
   {% endunless %}
   display: block;
 }
@@ -362,8 +369,8 @@ img {
 
 @media (min-width: 1200px) {
   .navbar-custom.top-nav-regular .avatar-container {
-    width: 6.25rem;
-    bottom: -1.9375rem;
+    width: 7.5rem;
+    bottom: -2.25rem;
   }
 
   .navbar-custom.top-nav-regular .avatar-container .avatar-img-border {
@@ -372,6 +379,8 @@ img {
     box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
     -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
     -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
+    {% else %}
+    box-shadow: rgba(128, 87, 98, 0.22) 0 1.25rem 3rem 0;
     {% endunless %}
   }
 

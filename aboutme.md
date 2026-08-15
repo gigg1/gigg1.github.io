@@ -1,24 +1,38 @@
 ---
 layout: page
 title: Mutong LIU
+show-avatar: false
 <!-- subtitle: This is a page to show my basic information :> -->
 ---
 
-Hello there! I am **Mutong LIU** (刘牧潼), a Ph.D. candidate in the [Department of Computer Science at Hong Kong Baptist University](https://www.comp.hkbu.edu.hk/v1/), supervised by [Prof. Yang LIU](https://www.comp.hkbu.edu.hk/v1/?page=profile&id=csygliu) and co-supervised by [Prof. Jiming LIU](https://www.comp.hkbu.edu.hk/v1/?page=profile&id=jiming).
-My primary research interests inlcudes **artificial intelligence, machine learning, computational epidemiology, and complex system modeling**, specifically focus on developing multi-agent reinforcement learning, physical/epidemiological-informed machine learning, and spatiotemporal analysis methods.
+<div class="profile-intro">
+  <div class="profile-intro__photo">
+    <img src="/assets/img/IMG_7496-2.jpeg" alt="Mutong LIU">
+  </div>
+  <div class="profile-intro__text">
+
+<p>Hello there! I am <strong>Mutong LIU</strong> (刘牧潼), a Ph.D. candidate in the <a href="https://www.comp.hkbu.edu.hk/v1/">Department of Computer Science at Hong Kong Baptist University</a>, supervised by <a href="https://www.comp.hkbu.edu.hk/v1/?page=profile&id=csygliu">Prof. Yang LIU</a> and co-supervised by <a href="https://www.comp.hkbu.edu.hk/v1/?page=profile&id=jiming">Prof. Jiming LIU</a>.</p>
+<p>My primary research interests inlcudes <strong>artificial intelligence, machine learning, reinforcement learning, computational epidemiology, and complex system modeling</strong>, specifically focus on developing multi-agent reinforcement learning algorithms, physical/epidemiological-informed machine learning methods, and spatiotemporal analysis methods, as well as their applications in practical scenarios.</p>
 <!--I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.-->
 <!--developing and leveraging methodology in machine learning (ML) and reinforcement learning (RL) combined with epidemiological modeling to assess, predict, and control infectious diseases risk. I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.-->
 
+
 <!--I believe that data-driven, spatiotemporally aware methods are key to building resilient public health systems.-->
-My work aims to solve complex real-world problems such as infectious disease transmission risk assessment and prediction, adaptive intervention strategy inference, and effective cooperative behavior learning in multi-agent systems.
-My research spans AI/ML methodology development and application deployment in the context of infectious disease dynamics:
+  </div>
+</div>
+
+------
+<!-- ### Research Interests
+- Machine Learning, Reinforcement Learning, Spatiotemporal Analytics, Epidemic Prediction, Infectious Disease Modeling and Control -->
+### Research Topics
+My work aims to solve complex real-world problems such as infectious disease transmission risk assessment and prediction, adaptive intervention strategy inference, and effective cooperative behavior learning in multi-agent systems. Specifically, My research spans AI/ML methodology development and application deployment in the context of infectious disease dynamics:
 
 <div class="research-grid">
 <div class="research-card">
   <div class="research-card__title">MLs for Assessing Infectious Disease Risk and Inferring Transmission Patterns</div>
   <div class="research-card__links">
-<a href="./papers/2023-Assessing-IDM.pdf">Malaria Transmission Intensity Assessment (IDM’23)</a>
-<a href="./papers/2023-TransCode-IDP.pdf">TransCode for COVID‑19 Transmission Patterns (IDP’23)</a>
+<a href="/papers/2023-Assessing-IDM.pdf">Malaria Transmission Intensity Assessment (IDM’23)</a>
+<a href="/papers/2023-TransCode-IDP.pdf">TransCode for COVID‑19 Transmission Patterns (IDP’23)</a>
   
   </div>
 </div>
@@ -26,17 +40,8 @@ My research spans AI/ML methodology development and application deployment in th
 <div class="research-card">
   <div class="research-card__title">MLs for Epidemic Dynamics Prediction</div>
   <div class="research-card__links">
-<a href="./papers/2025-Machine-ACMCSUR.pdf">Survey on ML for Infectious Disease Risk Prediction (ACM CSUR’25)</a>
-<a href="./papers/2023-Epidemiology-aware-CIKM.pdf">EpiDL (CIKM’23)</a>
-  
-  </div>
-</div>
-
-<div class="research-card">
-  <div class="research-card__title">MLs &amp; RLs for Infectious Disease Control</div>
-  <div class="research-card__links">
-<a href="./papers/2026-Empowering-WI.pdf">RLs in Infectious Disease Control (WI‑IAT’25)</a>
-<a href="./papers/2022-Optimal-IDP.pdf">Resource Allocation for Effective Disease Control (IDP’22)</a>
+<a href="/papers/2025-Machine-ACMCSUR.pdf">Survey on ML for Infectious Disease Risk Prediction (ACM CSUR’25)</a>
+<a href="/papers/2023-Epidemiology-aware-CIKM.pdf">EpiDL (CIKM’23)</a>
   
   </div>
 </div>
@@ -45,6 +50,15 @@ My research spans AI/ML methodology development and application deployment in th
   <div class="research-card__title">MARL for Learning Cooperative Behavior in Multi-agent Systems</div>
   <div class="research-card__links">
 <a href="https://www.sciencedirect.com/science/article/pii/S0004370226001293">Diametric Coordination Graphs for MARL (AIJ'26)</a>
+  
+  </div>
+</div>
+
+<div class="research-card">
+  <div class="research-card__title">MLs &amp; RLs for Infectious Disease Control</div>
+  <div class="research-card__links">
+<a href="/papers/2026-Empowering-WI.pdf">RLs in Infectious Disease Control (WI‑IAT’25)</a>
+<a href="/papers/2022-Optimal-IDP.pdf">Resource Allocation for Effective Disease Control (IDP’22)</a>
   
   </div>
 </div>
@@ -65,13 +79,6 @@ My research spans AI/ML methodology development and application deployment in th
 ------
 Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a> (Academic)  ·  <a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a> (Personal)
 
-------
-
-
-
-### Research Interests
-
-- Machine Learning, Reinforcement Learning, Spatiotemporal Analytics, Epidemic Prediction, Infectious Disease Modeling and Control
 
 <!-- ------
 
@@ -114,6 +121,33 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
   .container-md a:hover {
     color: #6f4d57;
   }
+  /* 右侧头像 + 左侧简介布局 */
+  .profile-intro {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 700px) {
+    .profile-intro {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .profile-intro__photo {
+    flex: 0 0 200px;
+    order: 2;
+  }
+  .profile-intro__photo img {
+    width: 100%;
+    border-radius: 14px;
+    border: 2px solid #ffffff;
+  }
+  .profile-intro__text {
+    flex: 1;
+    min-width: 0;
+    order: 1;
+  }
   /* 研究方向卡片：2×2 网格 + 左侧彩色竖条边框 */
   .research-grid {
     display: grid;
@@ -137,7 +171,7 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     overflow: hidden;
     transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
   }
-  .research-card:nth-child(1) { border-left-color: #d6a5aa; }
+  .research-card:nth-child(1) { border-left-color: #f0d878; }
   .research-card:nth-child(2) { border-left-color: #91a390; }
   .research-card:nth-child(3) { border-left-color: #8da3b8; }
   .research-card:nth-child(4) { border-left-color: #b49bb8; }
@@ -202,6 +236,17 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     border-radius: 8px;
     background: rgba(255, 252, 250, 0.55);
     transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
+  }
+  @media (max-width: 700px) {
+    .pub-card {
+      grid-template-columns: 1fr;
+      grid-template-areas: "meta" "thumb" "title" "venue" "authors";
+      align-items: start;
+    }
+    .pub-card .pub-thumb {
+      max-width: 100%;
+      margin-bottom: 0.5rem;
+    }
   }
   .pub-card:hover {
     border-left-color: rgba(143, 102, 112, 0.38);
