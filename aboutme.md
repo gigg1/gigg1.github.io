@@ -12,7 +12,7 @@ show-avatar: false
   <div class="profile-intro__text">
 
 <p>Hello there! I am <strong>Mutong LIU</strong> (刘牧潼), a Ph.D. candidate in the <a href="https://www.comp.hkbu.edu.hk/v1/">Department of Computer Science at Hong Kong Baptist University</a>, supervised by <a href="https://www.comp.hkbu.edu.hk/v1/?page=profile&id=csygliu">Prof. Yang LIU</a> and co-supervised by <a href="https://www.comp.hkbu.edu.hk/v1/?page=profile&id=jiming">Prof. Jiming LIU</a>.</p>
-<p>My primary research interests inlcudes <strong>artificial intelligence, machine learning, reinforcement learning, computational epidemiology, and complex system modeling</strong>, specifically focus on developing multi-agent reinforcement learning algorithms, physical/epidemiological-informed machine learning methods, and spatiotemporal analysis methods, as well as their applications in practical scenarios.</p>
+<p>My primary research interests inlcudes <strong>artificial intelligence, machine learning, reinforcement learning, computational epidemiology, and complex system modeling</strong>, specifically focus on developing multi-agent reinforcement learning algorithms, physical/epidemiological-informed machine learning methods, and spatiotemporal prediction and analysis approaches, as well as their applications in practical scenarios.</p>
 <!--I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.-->
 <!--developing and leveraging methodology in machine learning (ML) and reinforcement learning (RL) combined with epidemiological modeling to assess, predict, and control infectious diseases risk. I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.-->
 
@@ -263,6 +263,7 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     background: rgba(255, 255, 255, 0.82);
     box-shadow: rgba(143, 102, 112, 0.07) 0 10px 24px;
     cursor: zoom-in;
+    overflow: hidden;
     transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
   }
   .pub-card .pub-thumb:hover {
@@ -274,6 +275,7 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     display: block;
     width: 100%;
     height: 100%;
+    max-height: 100%;
     border-radius: 6px;
     object-fit: contain;
     cursor: zoom-in;
