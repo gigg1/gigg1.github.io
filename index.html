@@ -2,5 +2,186 @@
 layout: home
 title: Mutong LIU
 subtitle: (つ´ω`)つ Welcome to my website!
-cover-img: "/assets/img/2017-08-27.jpg"
+cover-img: "/assets/img/IMG_4194 2.JPG"
 ---
+
+<style>
+  /* === 方案2：首页欢迎区 === */
+  .home-welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+    padding: 1.6rem 1.4rem;
+    border: 1px solid rgba(234, 223, 221, 0.9);
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255, 252, 252, 0.95) 0%, rgba(255, 248, 249, 0.95) 45%, rgba(253, 241, 243, 0.95) 100%);
+    box-shadow: 0 6px 18px rgba(143, 102, 112, 0.08), 0 2px 6px rgba(143, 102, 112, 0.05);
+  }
+  .home-welcome__emoji {
+    font-size: 2.4rem;
+    line-height: 1;
+  }
+  .home-welcome__title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #3d3238;
+    margin: 0;
+  }
+  .home-welcome__desc {
+    font-size: 0.95rem;
+    color: #6f666a;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .home-welcome__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-top: 0.6rem;
+  }
+  .home-welcome__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.45rem 1rem;
+    border: 1px solid rgba(185, 137, 146, 0.3);
+    border-radius: 999px;
+    background: rgba(216, 167, 173, 0.13);
+    color: #805762;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  }
+  .home-welcome__link:hover {
+    background: rgba(216, 167, 173, 0.24);
+    border-color: rgba(185, 137, 146, 0.5);
+    transform: translateY(-2px);
+    color: #6f4d57;
+    text-decoration: none;
+  }
+
+  /* === 方案1：帖子列表卡片化 === */
+  .posts-list .post-preview article {
+    position: relative;
+    padding: 1.3rem 1.4rem;
+    border: 1px solid rgba(234, 223, 221, 0.9);
+    border-left: 3px solid #d6a5aa;
+    border-radius: 14px;
+    background: rgba(255, 252, 250, 0.7);
+    box-shadow: 0 4px 14px rgba(143, 102, 112, 0.06);
+    overflow: hidden;
+    transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+  }
+  .posts-list .post-preview article:hover {
+    transform: translateY(-3px);
+    border-color: rgba(214, 165, 170, 0.5);
+    box-shadow: 0 12px 28px rgba(143, 102, 112, 0.13);
+  }
+  .posts-list .post-preview .post-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+  .posts-list .post-preview .post-title a {
+    color: #3d3238;
+    text-decoration: none;
+  }
+  .posts-list .post-preview .post-title a:hover {
+    color: #805762;
+    text-decoration: none;
+  }
+  .posts-list .post-preview .post-meta {
+    color: #8f6670;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .posts-list .post-preview .post-entry {
+    color: #6f666a;
+    font-size: 0.92rem;
+  }
+  .posts-list .post-preview .post-read-more {
+    color: #805762;
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+  }
+  .posts-list .post-preview .blog-tags a {
+    color: #805762;
+  }
+
+  /* === News 框 === */
+  .home-news {
+    margin-bottom: 2rem;
+    padding: 1.4rem 1.6rem;
+    border: 1px solid rgba(234, 223, 221, 0.9);
+    border-left: 3px solid #8da3b8;
+    border-radius: 14px;
+    background: rgba(255, 252, 250, 0.7);
+    box-shadow: 0 4px 14px rgba(143, 102, 112, 0.06);
+  }
+  .home-news__title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #3d3238;
+    margin: 0 0 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+  .home-news__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .home-news__item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed rgba(216, 167, 173, 0.25);
+    font-size: 0.9rem;
+    color: #6f666a;
+  }
+  .home-news__item:last-child {
+    border-bottom: none;
+  }
+  .home-news__date {
+    flex: 0 0 auto;
+    font-weight: 700;
+    color: #8f6670;
+    font-size: 0.8rem;
+    min-width: 5.5rem;
+  }
+</style>
+
+<div class="home-welcome">
+  <div class="home-welcome__emoji">👋</div>
+  <h2 class="home-welcome__title">Hi there!</h2>
+  <p class="home-welcome__desc">Welcome to my homepage. Here you can find my latest updates, research work, and more about me.</p>
+  <div class="home-welcome__links">
+    <a class="home-welcome__link" href="/aboutme">👤 About Me</a>
+    <a class="home-welcome__link" href="/research">🔬 Research</a>
+    <a class="home-welcome__link" href="/2023-07-22-A-Test/">📝 Latest Post</a>
+  </div>
+</div>
+
+<div class="home-news">
+  <h3 class="home-news__title">📢 News</h3>
+  <ul class="home-news__list">
+    <li class="home-news__item">
+      <span class="home-news__date">Aug 2026</span>
+      <span>Our work "Probing Diametric Coordination Graphs for Multi-Agent Reinforcement Learning" has been accepted by Artificial Intelligence (AIJ).</span>
+    </li>
+    <li class="home-news__item">
+      <span class="home-news__date">2025</span>
+      <span>Our survey work "Machine Learning for Infectious Disease Risk Prediction" has been accepted in ACM Computing Surveys.</span>
+    </li>
+    <li class="home-news__item">
+      <span class="home-news__date">2023</span>
+      <span>Our work "Epidemiology-aware Deep Learning for Infectious Disease Dynamics Prediction" has been accepted for presentation at CIKM '23.</span>
+    </li>
+  </ul>
+</div>
