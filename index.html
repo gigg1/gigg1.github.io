@@ -8,51 +8,113 @@ cover-img: "/assets/img/IMG_4194 2.JPG"
 <style>
   /* === 方案2：首页欢迎区 === */
   .home-welcome {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0.4rem;
-    margin-bottom: 2rem;
-    padding: 1.6rem 1.4rem;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem 1.4rem;
+    min-height: 210px;
+    justify-content: center;
     border: 1px solid rgba(234, 223, 221, 0.9);
     border-radius: 16px;
-    background: linear-gradient(135deg, rgba(255, 252, 252, 0.95) 0%, rgba(255, 248, 249, 0.95) 45%, rgba(253, 241, 243, 0.95) 100%);
+    background: linear-gradient(135deg, rgba(255, 252, 252, 0.8) 0%, rgba(255, 248, 249, 0.8) 45%, rgba(253, 241, 243, 0.8) 100%);
     box-shadow: 0 6px 18px rgba(143, 102, 112, 0.08), 0 2px 6px rgba(143, 102, 112, 0.05);
+    overflow: hidden;
+  }
+  .home-welcome::before,
+  .home-welcome::after {
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    filter: blur(50px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .home-welcome::before {
+    width: 210px;
+    height: 210px;
+    top: -20px;
+    left: 0;
+    background: radial-gradient(circle, rgba(214, 165, 170, 0.85), rgba(190, 140, 160, 0.4) 40%, transparent 70%);
+    animation: welcome-flow-1 6s ease-in-out infinite alternate;
+  }
+  .home-welcome::after {
+    width: 210px;
+    height: 210px;
+    top: -30px;
+    right: 0;
+    background: radial-gradient(circle, rgba(178, 201, 224, 0.9), rgba(170, 195, 220, 0.45) 40%, transparent 70%);
+    animation: welcome-flow-2 6.5s ease-in-out infinite alternate;
+  }
+  .home-welcome__glow {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: -10px;
+    left: 50%;
+    margin-left: -100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(240, 216, 120, 0.8), rgba(232, 200, 110, 0.4) 40%, transparent 70%);
+    filter: blur(50px);
+    pointer-events: none;
+    z-index: 0;
+    animation: welcome-flow-3 7s ease-in-out infinite alternate;
+  }
+  @keyframes welcome-flow-1 {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(120px, 40px) scale(1.3); }
+    100% { transform: translate(40px, 80px) scale(0.9); }
+  }
+  @keyframes welcome-flow-2 {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(-110px, 50px) scale(1.25); }
+    100% { transform: translate(-50px, -60px) scale(0.9); }
+  }
+  @keyframes welcome-flow-3 {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(80px, -50px) scale(1.2); }
+    100% { transform: translate(-70px, 30px) scale(0.95); }
+  }
+  .home-welcome > *:not(.home-welcome__glow) {
+    position: relative;
+    z-index: 1;
   }
   .home-welcome__emoji {
-    font-size: 2.4rem;
+    font-size: 1.6rem;
     line-height: 1;
   }
   .home-welcome__title {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: 800;
     color: #3d3238;
     margin: 0;
   }
   .home-welcome__desc {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: #6f666a;
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.5;
   }
   .home-welcome__links {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.7rem;
-    margin-top: 0.6rem;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
   }
   .home-welcome__link {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    padding: 0.45rem 1rem;
+    gap: 0.3rem;
+    padding: 0.35rem 0.8rem;
     border: 1px solid rgba(185, 137, 146, 0.3);
     border-radius: 999px;
     background: rgba(216, 167, 173, 0.13);
     color: #805762;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
     text-decoration: none;
     transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
@@ -144,6 +206,7 @@ cover-img: "/assets/img/IMG_4194 2.JPG"
 </style>
 
 <div class="home-welcome">
+  <span class="home-welcome__glow" aria-hidden="true"></span>
   <div class="home-welcome__emoji">👋</div>
   <h2 class="home-welcome__title">Hi there!</h2>
   <p class="home-welcome__desc">Welcome to my homepage. Here you can find my latest updates, research work, and more about me.</p>
@@ -172,6 +235,10 @@ cover-img: "/assets/img/IMG_4194 2.JPG"
     <li class="home-news__item">
       <span class="home-news__date">2023</span>
       <span>Our work "Epidemiology-aware Deep Learning for Infectious Disease Dynamics Prediction" has been accepted for presentation at CIKM'23.</span>
+    </li>
+    <li class="home-news__item">
+      <span class="home-news__date">2023</span>
+      <span>Our work "Assessing the spatiotemporal malaria transmission intensity with heterogeneous risk factors: A modeling study in Cambodia" has been accepted for Infectious Disease Modeling (IDM).</span>
     </li>
   </ul>
 </div>
