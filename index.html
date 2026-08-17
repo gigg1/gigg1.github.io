@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 title: Mutong LIU
 subtitle: (つ´ω`)つ Welcome to my website!
 cover-img: "/assets/img/IMG_4194 2.JPG"
@@ -65,53 +65,6 @@ cover-img: "/assets/img/IMG_4194 2.JPG"
     text-decoration: none;
   }
 
-  /* === 方案1：帖子列表卡片化 === */
-  .posts-list .post-preview article {
-    position: relative;
-    padding: 1.3rem 1.4rem;
-    border: 1px solid rgba(234, 223, 221, 0.9);
-    border-left: 3px solid #d6a5aa;
-    border-radius: 14px;
-    background: rgba(255, 252, 250, 0.7);
-    box-shadow: 0 4px 14px rgba(143, 102, 112, 0.06);
-    overflow: hidden;
-    transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
-  }
-  .posts-list .post-preview article:hover {
-    transform: translateY(-3px);
-    border-color: rgba(214, 165, 170, 0.5);
-    box-shadow: 0 12px 28px rgba(143, 102, 112, 0.13);
-  }
-  .posts-list .post-preview .post-title {
-    font-size: 1.15rem;
-    font-weight: 800;
-  }
-  .posts-list .post-preview .post-title a {
-    color: #3d3238;
-    text-decoration: none;
-  }
-  .posts-list .post-preview .post-title a:hover {
-    color: #805762;
-    text-decoration: none;
-  }
-  .posts-list .post-preview .post-meta {
-    color: #8f6670;
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
-  .posts-list .post-preview .post-entry {
-    color: #6f666a;
-    font-size: 0.92rem;
-  }
-  .posts-list .post-preview .post-read-more {
-    color: #805762;
-    text-decoration: underline;
-    text-underline-offset: 0.16em;
-  }
-  .posts-list .post-preview .blog-tags a {
-    color: #805762;
-  }
-
   /* === News 框 === */
   .home-news {
     margin-bottom: 2rem;
@@ -134,6 +87,25 @@ cover-img: "/assets/img/IMG_4194 2.JPG"
   .home-news__list {
     list-style: none;
     margin: 0;
+    padding: 0 0.3rem 0 0;
+    overflow-y: auto;
+    height: 10.5rem; /* 约显示 3 条 */
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(185, 137, 146, 0.4) transparent;
+  }
+  .home-news__list::-webkit-scrollbar {
+    width: 5px;
+  }
+  .home-news__list::-webkit-scrollbar-thumb {
+    background: rgba(185, 137, 146, 0.4);
+    border-radius: 999px;
+  }
+  .home-news__list::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .home-news__track {
+    margin: 0;
     padding: 0;
   }
   .home-news__item {
@@ -155,6 +127,20 @@ cover-img: "/assets/img/IMG_4194 2.JPG"
     font-size: 0.8rem;
     min-width: 5.5rem;
   }
+  .home-news__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-left: 0.5rem;
+    padding: 0.1rem 0.45rem;
+    border: 1px solid rgba(185, 137, 146, 0.3);
+    border-radius: 999px;
+    background: rgba(216, 167, 173, 0.13);
+    color: #8f6670;
+    font-size: 0.6rem;
+    font-weight: 700;
+    vertical-align: middle;
+  }
 </style>
 
 <div class="home-welcome">
@@ -164,24 +150,28 @@ cover-img: "/assets/img/IMG_4194 2.JPG"
   <div class="home-welcome__links">
     <a class="home-welcome__link" href="/aboutme">👤 About Me</a>
     <a class="home-welcome__link" href="/research">🔬 Research</a>
-    <a class="home-welcome__link" href="/2023-07-22-A-Test/">📝 Latest Post</a>
+    <a class="home-welcome__link" href="/posts">📝 Posts</a>
   </div>
 </div>
 
 <div class="home-news">
   <h3 class="home-news__title">📢 News</h3>
-  <ul class="home-news__list">
+  <ul class="home-news__list" id="newsList">
     <li class="home-news__item">
       <span class="home-news__date">Aug 2026</span>
       <span>Our work "Probing Diametric Coordination Graphs for Multi-Agent Reinforcement Learning" has been accepted by Artificial Intelligence (AIJ).</span>
     </li>
     <li class="home-news__item">
       <span class="home-news__date">2025</span>
-      <span>Our survey work "Machine Learning for Infectious Disease Risk Prediction" has been accepted in ACM Computing Surveys.</span>
+      <span>Our survey "Empowering Epidemic Response: The Role of Reinforcement Learning in Infectious Disease Control" has been accepted by WI-IAT'25.</span>
+    </li>
+    <li class="home-news__item">
+      <span class="home-news__date">2025</span>
+      <span>Our survey "Machine Learning for Infectious Disease Risk Prediction" has been accepted in ACM Computing Surveys.</span>
     </li>
     <li class="home-news__item">
       <span class="home-news__date">2023</span>
-      <span>Our work "Epidemiology-aware Deep Learning for Infectious Disease Dynamics Prediction" has been accepted for presentation at CIKM '23.</span>
+      <span>Our work "Epidemiology-aware Deep Learning for Infectious Disease Dynamics Prediction" has been accepted for presentation at CIKM'23.</span>
     </li>
   </ul>
 </div>
