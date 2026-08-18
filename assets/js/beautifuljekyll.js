@@ -29,6 +29,8 @@ let BeautifulJekyllJS = {
     BeautifulJekyllJS.initImgs();
 
     BeautifulJekyllJS.initSearch();
+
+    BeautifulJekyllJS.initScrollEffects();
   },
 
   initNavbar : function() {
@@ -134,6 +136,48 @@ let BeautifulJekyllJS = {
         $("body").removeClass("overflow-hidden");
       }
     });
+  },
+
+  initScrollEffects : function() {
+    // 1) Scroll progress bar (top pink bar showing scroll progress)
+    var body = document.body;
+    var bar = document.createElement('div');
+    bar.id = 'scroll-progress';
+    document.body.appendChild(bar);
+
+    function updateProgress() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    // 2) Fade-in-up on scroll for cards and sections
+    var revealEls = document.querySelectorAll('.research-card, .pub-card, .research-grid, .profile-intro, .home-welcome, .home-news, .welcome-card, .posts-list .post-preview, .pub-lightbox, .post-preview, .blog-tags, h1, h2, h3, .main-content .post-entry, .home-news__title, .home-news__list');
+    if (revealEls.length === 0) { return; }
+
+    revealEls.forEach(function(el) {
+      if (el.classList.contains('scroll-reveal')) { return; }
+      el.classList.add('scroll-reveal');
+    });
+
+    if (!('IntersectionObserver' in window)) {
+      revealEls.forEach(function(el) { el.classList.add('scroll-reveal-visible'); });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scroll-reveal-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function(el) { observer.observe(el); });
   }
 };
 
