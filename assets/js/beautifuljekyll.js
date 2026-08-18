@@ -155,7 +155,7 @@ let BeautifulJekyllJS = {
     updateProgress();
 
     // 2) Fade-in-up on scroll for cards and sections
-    var revealEls = document.querySelectorAll('.research-card, .pub-card, .research-grid, .profile-intro, .home-welcome, .home-news, .welcome-card, .posts-list .post-preview, .pub-lightbox, .post-preview, .blog-tags, h1, h2, h3, .main-content .post-entry, .home-news__title, .home-news__list');
+    var revealEls = document.querySelectorAll('.research-card, .pub-card, .research-grid, .profile-intro, .home-welcome, .home-news, .welcome-card, .posts-list .post-preview, .pub-lightbox, .post-preview, .blog-tags, .main-content .post-entry, .home-news__title, .home-news__list');
     if (revealEls.length === 0) { return; }
 
     revealEls.forEach(function(el) {
