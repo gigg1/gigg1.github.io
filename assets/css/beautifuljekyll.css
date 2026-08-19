@@ -524,43 +524,10 @@ footer {
   margin-top: 3.125rem;
   font-size: 0.875rem;
   background-color: {{ site.footer-col | default: "#EAEAEA" }};
-  position: relative;
-  overflow: hidden;
   {% if site.footer-img %}
     background-image: url({{ site.footer-img | relative_url }});
     background-attachment: fixed;
   {% endif %}
-}
-
-/* twinkling white stars over the pink footer (stars injected by JS) */
-.footer-star {
-  position: absolute;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 0 2px rgba(255, 255, 255, 0.9);
-  animation: footer-star-twinkle 2.6s ease-in-out infinite;
-  pointer-events: none;
-}
-/* layer: distant dim fine stars */
-.footer-star--bg {
-  opacity: 0.55;
-  filter: blur(0.3px);
-  animation-duration: 3.4s;
-}
-/* layer: mid stars */
-.footer-star--md {
-  opacity: 0.8;
-  animation-duration: 2.6s;
-}
-/* layer: foreground small bright stars */
-.footer-star--fg {
-  opacity: 1;
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.95), 0 0 8px rgba(255, 255, 255, 0.4);
-  animation-duration: 2s;
-}
-@keyframes footer-star-twinkle {
-  0%, 100% { opacity: 0.15; transform: scale(0.55); }
-  50%      { opacity: 1;    transform: scale(1.3); }
 }
 
 footer p.text-muted {
