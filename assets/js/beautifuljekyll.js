@@ -31,6 +31,8 @@ let BeautifulJekyllJS = {
     BeautifulJekyllJS.initSearch();
 
     BeautifulJekyllJS.initScrollEffects();
+
+    BeautifulJekyllJS.initNavbarStars();
   },
 
   initNavbar : function() {
@@ -45,6 +47,41 @@ let BeautifulJekyllJS = {
       $(".navbar").removeClass("navbar-light").addClass("navbar-dark");
     } else {
       $(".navbar").removeClass("navbar-dark").addClass("navbar-light");
+    }
+  },
+
+  initNavbarStars : function() {
+    // Sprinkle layered twinkling stars (white + pink accents) over the black navbar sky.
+    // Three layers (background / mid / foreground) make the sky feel deep & scattered.
+    var nav = document.querySelector('.navbar-custom');
+    if (!nav || document.querySelector('.navbar-star')) { return; }
+
+    var count = 320;
+    var i, star, layer, isPink;
+    for (i = 0; i < count; i++) {
+      star = document.createElement('span');
+      isPink = (i % 11 === 0); // occasional pink accent
+
+      // layer roll: 45% tiny dim background, 35% mid, 20% bright foreground
+      var roll = Math.random();
+      if (roll < 0.45)      { layer = 'bg'; }
+      else if (roll < 0.80) { layer = 'md'; }
+      else                  { layer = 'fg'; }
+
+      star.className = 'navbar-star navbar-star--' + layer + (isPink ? ' navbar-star--pink' : '');
+
+      // different size per layer (all tiny, fg slightly larger & glowing)
+      var size;
+      if (layer === 'bg') { size = Math.random() * 0.5 + 0.5; }
+      else if (layer === 'md') { size = Math.random() * 0.7 + 0.7; }
+      else { size = Math.random() * 1.0 + 1.0; }
+      star.style.width = size.toFixed(1) + 'px';
+      star.style.height = star.style.width;
+      star.style.left = (Math.random() * 100).toFixed(2) + '%';
+      star.style.top = (Math.random() * 96 + 2).toFixed(1) + 'px';
+      star.style.animationDelay = (Math.random() * 6).toFixed(2) + 's';
+      star.style.animationDuration = (Math.random() * 3.4 + 1.6).toFixed(2) + 's';
+      nav.appendChild(star);
     }
   },
 
@@ -139,11 +176,15 @@ let BeautifulJekyllJS = {
   },
 
   initScrollEffects : function() {
-    // 1) Scroll progress bar (top pink bar showing scroll progress)
-    var body = document.body;
+    // 1) Scroll progress bar — a shooting star racing across the top of the page
     var bar = document.createElement('div');
     bar.id = 'scroll-progress';
     document.body.appendChild(bar);
+
+    // the comet head: a bright glowing dot at the leading edge of the progress
+    var comet = document.createElement('div');
+    comet.className = 'scroll-progress-head';
+    bar.appendChild(comet);
 
     function updateProgress() {
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop;

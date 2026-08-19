@@ -139,6 +139,95 @@ img {
   transition: padding .5s ease-in-out;
 }
 
+/* Starry-night navbar: pure black night sky with fine twinkling stars (pink accents) */
+.navbar-custom {
+  background-color: #000000;
+  background-image: none;
+  border-bottom: 1px solid rgba(247, 182, 207, 0.22);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+/* static stars (CSS-only) */
+.navbar-custom::before,
+.navbar-custom::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.9);
+  animation: navbar-star-twinkle 3s ease-in-out infinite;
+}
+.navbar-custom::before {
+  width: 1.6px;
+  height: 1.6px;
+  top: 1.1rem;
+  left: 12%;
+}
+.navbar-custom::after {
+  width: 1.4px;
+  height: 1.4px;
+  top: 2.4rem;
+  left: 26%;
+  background: #f7b6cf;
+  box-shadow: 0 0 5px rgba(247, 182, 207, 0.95);
+  animation-delay: 1.2s;
+}
+/* injected random twinkling stars */
+.navbar-star {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.9);
+  animation: navbar-star-twinkle 2.6s ease-in-out infinite;
+  pointer-events: none;
+}
+/* layer: distant dim stars — slightly blurred, subtle */
+.navbar-star--bg {
+  opacity: 0.55;
+  filter: blur(0.3px);
+  animation-duration: 3.4s;
+}
+/* layer: mid stars */
+.navbar-star--md {
+  opacity: 0.8;
+  animation-duration: 2.6s;
+}
+/* layer: foreground bright stars — bigger glow, more contrast */
+.navbar-star--fg {
+  opacity: 1;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.95), 0 0 8px rgba(255, 255, 255, 0.4);
+  animation-duration: 2s;
+}
+.navbar-star--pink {
+  background: #f7b6cf;
+  box-shadow: 0 0 4px rgba(247, 182, 207, 0.95);
+}
+.navbar-star--fg.navbar-star--pink {
+  box-shadow: 0 0 5px rgba(247, 182, 207, 1), 0 0 10px rgba(247, 182, 207, 0.55);
+}
+
+@keyframes navbar-star-twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.55); }
+  50%      { opacity: 1;    transform: scale(1.25); }
+}
+
+/* keep navbar content above the stars */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-collapse,
+.navbar-custom .navbar-toggler,
+.navbar-custom .avatar-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* soft shadow behind nav text so it stays readable on the lighter pink zone */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-nav .nav-link {
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55), 0 0 3px rgba(0, 0, 0, 0.35);
+}
+
+
 .navbar-custom,
 .navbar-custom.top-nav-short,
 .navbar-custom.top-nav-short-permanent {
@@ -217,8 +306,8 @@ img {
 
 @media (min-width: 1200px) {
   .navbar-custom {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
+    padding-top: 1.9rem;
+    padding-bottom: 1.9rem;
   }
 
   .navbar-custom .navbar-brand-logo {
@@ -752,7 +841,7 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
     margin-top: 8.125rem;
   }
   .intro-header.big-img {
-    margin-top: 5.6875rem; /* Full navbar is small navbar + 20px padding on each side when expanded */
+    margin-top: 7rem; /* Full navbar is taller now: ~112px, keep banner flush */
   }
   .intro-header.big-img .page-heading,
   .intro-header.big-img .post-heading {
@@ -1157,23 +1246,61 @@ pre {
    Scroll effects: fade-in-up reveal + top progress bar
    ==================================================== */
 
-/* Top scroll progress bar */
+/* Top scroll progress bar — a shooting star streaking across the top */
 #scroll-progress {
   position: fixed;
   top: 0;
   left: 0;
-  height: 4px;
+  height: 3px;
   width: 0;
   z-index: 100000;
   border-radius: 0 2px 2px 0;
+  /* faint stardust trail behind the comet */
   background: linear-gradient(90deg,
-    #f6c6d0 0%,
-    #e3a6b8 25%,
-    #c9a4d8 50%,
-    #a9c3de 75%,
-    #b8d4c4 100%);
-  box-shadow: 0 0 8px rgba(227, 166, 184, 0.55);
+    rgba(246, 198, 208, 0.08) 0%,
+    rgba(227, 166, 184, 0.22) 45%,
+    rgba(201, 164, 216, 0.45) 75%,
+    rgba(255, 255, 255, 0.85) 100%);
   transition: width 0.12s ease-out;
+}
+
+/* the comet head — bright glowing dot with a tapered light tail */
+.scroll-progress-head {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #ffe9f0 35%, rgba(247, 182, 207, 0.85) 70%, rgba(247, 182, 207, 0) 100%);
+  box-shadow:
+    0 0 6px 2px rgba(255, 255, 255, 0.95),
+    0 0 14px 5px rgba(247, 182, 207, 0.65),
+    0 0 24px 10px rgba(227, 166, 184, 0.35);
+  transform: translate(50%, -50%);
+  animation: comet-glow 1.6s ease-in-out infinite;
+}
+
+/* tapered tail streaming out behind the head (extends to the left) */
+.scroll-progress-head::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 60%;
+  width: 64px;
+  height: 2px;
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.55) 40%,
+    rgba(247, 182, 207, 0.95) 100%);
+  border-radius: 2px;
+  transform: translateY(-50%);
+  filter: blur(0.4px);
+}
+
+@keyframes comet-glow {
+  0%, 100% { opacity: 0.75; box-shadow: 0 0 6px 2px rgba(255,255,255,0.9), 0 0 14px 5px rgba(247,182,207,0.55), 0 0 24px 10px rgba(227,166,184,0.3); }
+  50%      { opacity: 1;    box-shadow: 0 0 8px 3px rgba(255,255,255,1),   0 0 18px 7px rgba(247,182,207,0.8),  0 0 30px 14px rgba(227,166,184,0.45); }
 }
 
 /* Fade-in-up reveal */
