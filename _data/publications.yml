@@ -1,12 +1,14 @@
 # ========== Published ==========
 - title: "Probing Diametric Coordination Graphs for Multi-Agent Reinforcement Learning"
   authors: "Mutong Liu, Tiantian He, Yang Liu, Jiming Liu, and Yew-Soon Ong"
-  venue: "Artificial Intelligence, Aug 2026, 104603 (In press)"
+  venue: "Artificial Intelligence, volume 359, 104603"
   year: 2026
   extra_note: "CCF-A"
   status: published
   links:
-    doi: "https://www.sciencedirect.com/science/article/pii/S0004370226001293"
+    # doi: "https://www.sciencedirect.com/science/article/pii/S0004370226001293"
+    doi: "https://doi.org/10.1016/j.artint.2026.104603"
+    pdf: "/papers/2026-Probing-AIJ.pdf"
   img: "/assets/img/papers/2026-Probing-AIJ.png"
 
 - title: "Empowering Epidemic Response: The Role of Reinforcement Learning in Infectious Disease Control"
