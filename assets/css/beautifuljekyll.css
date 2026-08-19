@@ -72,6 +72,31 @@ hr.small {
   border-radius: 0.1875rem;
 }
 
+/* stardust gradient divider under page titles (transparent -> white -> pink) */
+.intro-header .page-heading hr.small {
+  max-width: 9rem;
+  height: 2px;
+  border: 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg,
+    rgba(214, 165, 170, 0) 0%,
+    rgba(255, 255, 255, 0.9) 30%,
+    rgba(247, 182, 207, 0.95) 55%,
+    rgba(214, 165, 170, 0.55) 80%,
+    rgba(214, 165, 170, 0) 100%);
+  box-shadow: 0 0 8px rgba(247, 182, 207, 0.35);
+}
+/* on the no-image (white) pages keep the pink soft on white background */
+.intro-header.no-img .page-heading hr.small {
+  background: linear-gradient(90deg,
+    rgba(214, 165, 170, 0) 0%,
+    rgba(214, 165, 170, 0.95) 30%,
+    rgba(247, 182, 207, 0.9) 55%,
+    rgba(214, 165, 170, 0.55) 80%,
+    rgba(214, 165, 170, 0) 100%);
+  box-shadow: 0 0 8px rgba(247, 182, 207, 0.3);
+}
+
 /* fix in-page anchors to not be behind fixed header */
 :target:before {
   content: "";
@@ -143,7 +168,7 @@ img {
 .navbar-custom {
   background-color: #000000;
   background-image: none;
-  border-bottom: 1px solid rgba(247, 182, 207, 0.22);
+  border-bottom: 0;
   box-shadow: none;
   overflow: hidden;
 }
@@ -411,6 +436,16 @@ img {
   color: {{ site.hover-col | default: "#0085A1" }};
 }
 
+/* hover links -> soft pink (footer tone) on the starry navbar */
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus,
+.navbar-custom .navbar-nav .nav-link:hover,
+.navbar-custom .navbar-nav .nav-link:focus,
+.navbar-custom .navbar-nav .dropdown-menu .dropdown-item:hover,
+.navbar-custom .navbar-nav .dropdown-menu .dropdown-item:focus {
+  color: #f6d9e0 !important;
+}
+
 .navbar-custom .avatar-container {
   position: absolute;
   left: 50%;
@@ -489,10 +524,43 @@ footer {
   margin-top: 3.125rem;
   font-size: 0.875rem;
   background-color: {{ site.footer-col | default: "#EAEAEA" }};
+  position: relative;
+  overflow: hidden;
   {% if site.footer-img %}
     background-image: url({{ site.footer-img | relative_url }});
     background-attachment: fixed;
   {% endif %}
+}
+
+/* twinkling white stars over the pink footer (stars injected by JS) */
+.footer-star {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.9);
+  animation: footer-star-twinkle 2.6s ease-in-out infinite;
+  pointer-events: none;
+}
+/* layer: distant dim fine stars */
+.footer-star--bg {
+  opacity: 0.55;
+  filter: blur(0.3px);
+  animation-duration: 3.4s;
+}
+/* layer: mid stars */
+.footer-star--md {
+  opacity: 0.8;
+  animation-duration: 2.6s;
+}
+/* layer: foreground small bright stars */
+.footer-star--fg {
+  opacity: 1;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.95), 0 0 8px rgba(255, 255, 255, 0.4);
+  animation-duration: 2s;
+}
+@keyframes footer-star-twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.55); }
+  50%      { opacity: 1;    transform: scale(1.3); }
 }
 
 footer p.text-muted {
@@ -513,20 +581,23 @@ footer .list-inline {
   padding: 0;
   margin-bottom: 1.875rem;
 }
-footer .copyright {
+footer p.copyright.text-muted {
   font-family: 'Nunito Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, 'Kaiti SC', 'KaiTi', '楷体', sans-serif;
   text-align: center;
   margin-bottom: 0;
   margin-top: 0;
+  color: #000000 !important; /* footer copyright body text -> black (overrides text-muted) */
 }
-footer .theme-by {
+footer p.theme-by.text-muted {
   text-align: center;
   margin: 0.625rem 0 0;
+  color: #000000 !important; /* footer theme text -> black */
 }
 footer .footer-custom-content {
   text-align: center;
   margin-bottom: 0.9375rem;
   font-family: 'Nunito Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, 'Kaiti SC', 'KaiTi', '楷体', sans-serif;
+  color: #000000 !important;
 }
 
 @media (min-width: 768px) {
@@ -749,6 +820,15 @@ footer .footer-custom-content {
   margin-top: 3.1875rem; /* The small navbar is 50px tall + 1px border */
   margin-bottom: 2.1875rem;
 }
+/* no-image page headers: clean white background (no gradient band) */
+.intro-header.no-img {
+  position: relative;
+  margin-top: 3.125rem; /* mobile navbar is ~50px, keep header flush below it */
+  padding-top: 3.5rem;
+  padding-bottom: 1.2rem;
+  background: none;
+  margin-bottom: 0;
+}
 .intro-header.big-img::before {
   position: absolute;
   top: 0;
@@ -786,6 +866,15 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
 }
 .intro-header .page-heading {
   text-align: center;
+}
+/* title: plain black on white header */
+.intro-header.no-img .page-heading h1 {
+  color: #000000;
+  text-shadow: none;
+}
+/* subtitle + divider on white, keep dark for readability */
+.intro-header.no-img .page-heading .page-subheading {
+  color: #000000;
 }
 .intro-header.big-img .page-heading,
 .intro-header.big-img .post-heading {
@@ -838,7 +927,10 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
 }
 @media (min-width: 1200px) {
   .intro-header {
-    margin-top: 8.125rem;
+    margin-top: 7rem; /* matches the taller 112px navbar so no-image titles sit flush */
+  }
+  .intro-header.no-img {
+    margin-top: 7rem;
   }
   .intro-header.big-img {
     margin-top: 7rem; /* Full navbar is taller now: ~112px, keep banner flush */
@@ -1264,43 +1356,43 @@ pre {
   transition: width 0.12s ease-out;
 }
 
-/* the comet head — bright glowing dot with a tapered light tail */
+/* the comet head — a single small glowing dot, softer pink */
 .scroll-progress-head {
   position: absolute;
   top: 50%;
   right: 0;
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: radial-gradient(circle, #ffffff 0%, #ffe9f0 35%, rgba(247, 182, 207, 0.85) 70%, rgba(247, 182, 207, 0) 100%);
+  background: radial-gradient(circle, #ffffff 0%, #fff0f4 40%, rgba(247, 182, 207, 0.55) 75%, rgba(247, 182, 207, 0) 100%);
   box-shadow:
-    0 0 6px 2px rgba(255, 255, 255, 0.95),
-    0 0 14px 5px rgba(247, 182, 207, 0.65),
-    0 0 24px 10px rgba(227, 166, 184, 0.35);
+    0 0 4px 1px rgba(255, 255, 255, 0.9),
+    0 0 9px 3px rgba(247, 182, 207, 0.4);
   transform: translate(50%, -50%);
-  animation: comet-glow 1.6s ease-in-out infinite;
+  animation: comet-glow 1.8s ease-in-out infinite;
 }
 
-/* tapered tail streaming out behind the head (extends to the left) */
+/* tapered tail streaming out behind the head (extends to the left), softer pink */
 .scroll-progress-head::before {
   content: "";
   position: absolute;
   top: 50%;
-  right: 60%;
-  width: 64px;
-  height: 2px;
+  right: 70%;
+  width: 120px;
+  height: 1.5px;
   background: linear-gradient(90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.55) 40%,
-    rgba(247, 182, 207, 0.95) 100%);
+    rgba(255, 255, 255, 0.15) 22%,
+    rgba(255, 255, 255, 0.45) 55%,
+    rgba(247, 182, 207, 0.6) 100%);
   border-radius: 2px;
   transform: translateY(-50%);
   filter: blur(0.4px);
 }
 
 @keyframes comet-glow {
-  0%, 100% { opacity: 0.75; box-shadow: 0 0 6px 2px rgba(255,255,255,0.9), 0 0 14px 5px rgba(247,182,207,0.55), 0 0 24px 10px rgba(227,166,184,0.3); }
-  50%      { opacity: 1;    box-shadow: 0 0 8px 3px rgba(255,255,255,1),   0 0 18px 7px rgba(247,182,207,0.8),  0 0 30px 14px rgba(227,166,184,0.45); }
+  0%, 100% { opacity: 0.7;  box-shadow: 0 0 4px 1px rgba(255,255,255,0.85), 0 0 8px 3px rgba(247,182,207,0.35); }
+  50%      { opacity: 1;    box-shadow: 0 0 5px 1px rgba(255,255,255,1),   0 0 11px 4px rgba(247,182,207,0.5); }
 }
 
 /* Fade-in-up reveal */
@@ -1332,4 +1424,29 @@ pre {
     transform: none;
     transition: none;
   }
+}
+
+/* ====================================================
+   Global body text -> black (links / titles / meta stay as-is)
+   ==================================================== */
+/* Page body + main content paragraphs etc. */
+body,
+.container-md p,
+.container-md li,
+.container-md td,
+.container-md th,
+.container-md blockquote,
+.container-md dt,
+.container-md dd,
+.main-content p,
+.main-content li,
+.post-preview,
+.post-preview .post-entry,
+.post-preview .post-meta {
+  color: #000000;
+}
+/* keep the small "Posted on" date meta readable but darker than pure grey */
+.post-preview .post-meta,
+.blog-post .post-meta {
+  color: #3a3a3a;
 }

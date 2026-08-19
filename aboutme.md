@@ -7,7 +7,7 @@ show-avatar: false
 
 <div class="profile-intro">
   <div class="profile-intro__photo">
-    <img src="/assets/img/IMG_7496-2.jpeg" alt="Mutong LIU">
+    <img src="/assets/img/IMG_7496-low.jpeg" alt="Mutong LIU">
   </div>
   <div class="profile-intro__text">
 
@@ -109,12 +109,12 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
   .container-md strong, .container-md em, .container-md span, .container-md div {
     font-family: 'Nunito Sans', 'Trebuchet MS', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, 'Kaiti SC', 'KaiTi', 'STKaiti', '楷体', 'DFKai-SB', sans-serif;
   }
-  /* 正文所有非链接文字统一为深墨色（链接保持玫瑰棕） */
+  /* 正文所有非链接文字统一为黑色（链接保持玫瑰棕） */
   .container-md, .container-md h1, .container-md h2, .container-md h3,
   .container-md h4, .container-md h5, .container-md h6, .container-md p,
   .container-md li, .container-md td, .container-md th,
   .container-md strong, .container-md em, .container-md span {
-    color: #3d3238;
+    color: #000000;
   }
   /* 正文所有链接统一为玫瑰棕色（覆盖主题默认蓝色） */
   .container-md a {
@@ -202,11 +202,11 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
   }
   .research-card__title {
     font-weight: 700;
-    color: #3d3238;
+    color: #000000;
     margin-bottom: 0.3rem;
   }
   .research-card__links {
-    color: #3d3238;
+    color: #000000;
     font-size: 0.8rem;
     line-height: 1.55;
   }
@@ -335,7 +335,7 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     grid-area: venue;
     min-width: 0;
     margin: 0 0 0.18rem;
-    color: #3d3238;
+    color: #000000;
     font-size: 0.88rem;
     font-weight: 400;
     line-height: 1.38;
@@ -344,13 +344,13 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     grid-area: authors;
     min-width: 0;
     margin: 0 0 0.22rem;
-    color: #3d3238;
+    color: #000000;
     font-size: 0.88rem;
     line-height: 1.38;
   }
   .pub-card .pub-links {
     display: inline;
-    color: #3d3238;
+    color: #000000;
     font-size: 0.88rem;
     line-height: 1.38;
   }

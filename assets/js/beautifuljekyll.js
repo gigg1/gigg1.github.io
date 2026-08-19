@@ -33,6 +33,8 @@ let BeautifulJekyllJS = {
     BeautifulJekyllJS.initScrollEffects();
 
     BeautifulJekyllJS.initNavbarStars();
+
+    BeautifulJekyllJS.initFooterStars();
   },
 
   initNavbar : function() {
@@ -82,6 +84,34 @@ let BeautifulJekyllJS = {
       star.style.animationDelay = (Math.random() * 6).toFixed(2) + 's';
       star.style.animationDuration = (Math.random() * 3.4 + 1.6).toFixed(2) + 's';
       nav.appendChild(star);
+    }
+  },
+
+  initFooterStars : function() {
+    // Sprinkle layered pure-white twinkling stars over the pink footer (keep pink bg).
+    // Three depth layers (bg / md / fg) make it feel fine & scattered, like high-res stardust.
+    var foot = document.querySelector('footer');
+    if (!foot || document.querySelector('.footer-star')) { return; }
+
+    var count = 400;
+    var i, star, layer, size;
+    for (i = 0; i < count; i++) {
+      star = document.createElement('span');
+
+      // layer roll: 50% tiny dim bg, 35% mid, 15% small bright fg
+      var roll = Math.random();
+      if (roll < 0.50)      { layer = 'bg'; size = Math.random() * 0.4 + 0.5; }
+      else if (roll < 0.85) { layer = 'md'; size = Math.random() * 0.5 + 0.6; }
+      else                  { layer = 'fg'; size = Math.random() * 0.7 + 0.8; }
+
+      star.className = 'footer-star footer-star--' + layer;
+      star.style.width = size.toFixed(1) + 'px';
+      star.style.height = star.style.width;
+      star.style.left = (Math.random() * 100).toFixed(2) + '%';
+      star.style.top = (Math.random() * 96 + 2).toFixed(1) + 'px';
+      star.style.animationDelay = (Math.random() * 5).toFixed(2) + 's';
+      star.style.animationDuration = (Math.random() * 3.2 + 1.5).toFixed(2) + 's';
+      foot.appendChild(star);
     }
   },
 
