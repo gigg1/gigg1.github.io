@@ -8,6 +8,37 @@ show-avatar: false
 <div class="profile-intro">
   <div class="profile-intro__photo">
     <img src="/assets/img/IMG_7496-low.jpeg" alt="Mutong LIU">
+    <div class="profile-social">
+      <ul class="list-inline text-center">
+        <li class="list-inline-item">
+          <a href="mailto:gigg0@icloud.com" title="Email me">
+            <span class="fa-stack fa-lg" aria-hidden="true">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="sr-only">Email me</span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://github.com/gigg1" title="GitHub">
+            <span class="fa-stack fa-lg" aria-hidden="true">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="sr-only">GitHub</span>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://scholar.google.com/citations?user=erU2odMAAAAJ&hl=en" title="Google Scholar">
+            <span class="fa-stack fa-lg" aria-hidden="true">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="sr-only">Google Scholar</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="profile-intro__text">
 
@@ -144,6 +175,26 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     width: 100%;
     border-radius: 14px;
     border: 2px solid #ffffff;
+  }
+  /* 图片下方的社交图标（粉色圆底 + 白色图标，呼应 footer 粉色） */
+  .profile-social {
+    margin: 0.7rem auto 0;
+  }
+  .profile-social .list-inline {
+    margin: 0;
+  }
+  .profile-social a {
+    color: #f6d9e0; /* footer 粉色圆底 */
+  }
+  .profile-social a:hover {
+    color: #f6d9e0;
+    opacity: 0.85;
+  }
+  .profile-social .fa-stack-2x {
+    color: #f6d9e0; /* 圆底用 footer 粉色 */
+  }
+  .profile-social .fa-stack-1x {
+    color: #000000; /* 图标黑色，浅粉底上清晰 */
   }
   .profile-intro__text {
     flex: 1;
