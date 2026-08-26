@@ -907,7 +907,7 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
     margin-top: 7rem;
   }
   .intro-header.big-img {
-    margin-top: 7rem; /* Full navbar is taller now: ~112px, keep banner flush */
+    margin-top: 7rem; /* banner stays flush below the taller navbar */
   }
   .intro-header.big-img .page-heading,
   .intro-header.big-img .post-heading {
