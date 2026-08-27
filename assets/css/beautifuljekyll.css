@@ -550,13 +550,12 @@ footer a:focus {
   color: {{ site.footer-hover-col | default: "#0085A1" }};
 }
 
-/* footer social icons: pink circle + black glyph, matching the About-Me page style
-   and keeping icon colours in sync with the footer text (black) */
+/* footer social icons: black circle + white glyph (classic footer look) */
 footer .footer-links .fa-stack-2x {
-  color: #f6d9e0; /* pink circle on the pink footer */
+  color: #000000; /* black circle */
 }
 footer .footer-links .fa-stack-1x {
-  color: #000000; /* black glyph */
+  color: #ffffff; /* white glyph */
 }
 
 footer .list-inline {
