@@ -47,8 +47,10 @@ show-avatar: false
 <!--I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.-->
 <!--developing and leveraging methodology in machine learning (ML) and reinforcement learning (RL) combined with epidemiological modeling to assess, predict, and control infectious diseases risk. I also maintain a broad interest in methodology development of multi-agent RL and spatiotemporal analytics.-->
 
+<a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a> (Academic)  ·  <a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a> (Personal)
+
 <!--I believe that data-driven, spatiotemporally aware methods are key to building resilient public health systems.-->
-  </div>
+</div>
 </div>
 
 ------
@@ -93,6 +95,7 @@ My work aims to solve complex real-world problems such as infectious disease tra
   </div>
 </div>
 </div>
+------
 <!--	effective coordination in cooperative Multi-agent RL-->
 
 
@@ -106,10 +109,9 @@ My work aims to solve complex real-world problems such as infectious disease tra
 
 <!--If you are interested in my research work or any other aspects, you can reach me via my email address (<a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a> or  <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a>).-->
 
-------
+<!-- ------
 Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.hk</a> (Academic)  ·  <a href="mailto:gigg0@icloud.com">gigg0@icloud.com</a> (Personal)
-
-
+------ -->
 <!-- ------
 
 ### Education and Academic Qualification
@@ -120,7 +122,7 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
 | Sept.2016 - Jul. 2020 | B.E. in Network Engineering, **Southwest University**, Chongqing, China | Network Engineering |
 | Sept.2015 - Jul. 2016 | Student in Plant Protection Faculty, **Southwest University**, Chongqing, China | Plant Protection    | -->
 
-------
+<!-- ------ -->
 ### Publications ([Google Scholar](https://scholar.google.com/citations?user=erU2odMAAAAJ&hl=en))
 
 {% assign pubs = site.data.publications %}
