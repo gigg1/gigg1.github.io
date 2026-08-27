@@ -78,7 +78,9 @@ let BeautifulJekyllJS = {
       star.style.width = size.toFixed(1) + 'px';
       star.style.height = star.style.width;
       star.style.left = (Math.random() * 100).toFixed(2) + '%';
-      star.style.top = (Math.random() * 96 + 2).toFixed(1) + 'px';
+      // cover the FULL navbar height (0-100% of it) so the bottom edge has stars too.
+      // Use rem-based top so it scales with the navbar regardless of its pixel height.
+      star.style.top = (Math.random() * 100).toFixed(1) + '%';
       star.style.animationDelay = (Math.random() * 6).toFixed(2) + 's';
       star.style.animationDuration = (Math.random() * 3.4 + 1.6).toFixed(2) + 's';
       nav.appendChild(star);
