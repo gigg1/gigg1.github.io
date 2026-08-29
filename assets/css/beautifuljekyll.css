@@ -860,7 +860,7 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
 }
 .intro-header.big-img .page-heading,
 .intro-header.big-img .post-heading {
-  padding: 6.25rem 0;
+  padding: 5rem 0; /* header img height reduced ~20% */
   color: #FFF;
   text-shadow: 1px 1px 3px #000;
 }
@@ -919,7 +919,7 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
   }
   .intro-header.big-img .page-heading,
   .intro-header.big-img .post-heading {
-    padding: 9.375rem 0;
+    padding: 6.6rem 0; /* header img height reduced ~20% */
   }
   .intro-header .page-heading h1 {
     font-size: 5rem;
