@@ -331,6 +331,8 @@ exclude:
   - staticman.yml
   - screenshot.png
   - docs/
+  - tools/
+  - .venv/
   - vendor/
 
 plugins:

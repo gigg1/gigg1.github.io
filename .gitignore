@@ -8,6 +8,9 @@ _site
 Thumbs.db
 ehthumbs.db
 
+# python tooling (local only)
+.venv/
+
 Gemfile.lock
 
 beautiful-jekyll-theme-*.gem
