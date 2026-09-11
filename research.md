@@ -1,32 +1,64 @@
 ---
 layout: page
 title: Research
-<!-- subtitle: This is a page to show my basic information :> -->
-
 ---
 
-<!--Now, I am work on two research-->
+{% assign pubs = site.data.publications %}
+{% assign published_pubs = pubs | where: "status", "published" %}
 
-----
+<!-- 各主题的论文 key（对应 _data/publications.yml 中的 key 字段） -->
+{% assign keys_risk    = "malaria,transcode" | split: "," %}
+{% assign keys_pred    = "csursurvey,epidl" | split: "," %}
+{% assign keys_marl    = "dcg" | split: "," %}
+{% assign keys_control = "wi,optimal" | split: "," %}
 
+{% assign topics = "marl,risk,pred,control" | split: "," %}
+{% assign titles = "MARL for Learning Cooperative Behavior in Multi-agent Systems|ML for Assessing Infectious Disease Risk and Inferring Transmission Patterns|ML for Epidemic Dynamics Prediction|ML &amp; RL for Infectious Disease Control" | split: "|" %}
+{% assign descs = "Developing multi-agent reinforcement learning methods that learn effective cooperative behavior under complex and dynamic interactions.|Using machine learning to assess transmission intensity, uncover hidden transmission patterns, and identify heterogeneous risk factors from spatiotemporal surveillance data.|Forecasting epidemic dynamics with epidemiological priors and deep spatiotemporal models, including survey-level syntheses of the field.|Inferring adaptive intervention strategies and allocating limited resources for effective disease control.|" | split: "|" %}
 
+<p class="research-intro">
+My work aims to solve complex real-world problems such as infectious disease transmission risk assessment and prediction,
+adaptive intervention strategy inference, and effective cooperative behavior learning in multi-agent systems.
+My research spans AI/ML methodology development and application deployment in the context of infectious disease dynamics,
+organized into the four topics below. Each topic lists representative publications, and the complete list is maintained on the
+<a href="{{ '/aboutme' | relative_url }}">About Me</a> page.
+</p>
 
-### Disease Risk Assessment and Prediction
+<div class="topics">
+{% for topic in topics %}
+  {% assign idx = forloop.index0 %}
+  {% case topic %}
+    {% when "risk" %}{% assign pkeys = keys_risk %}
+    {% when "pred" %}{% assign pkeys = keys_pred %}
+    {% when "marl" %}{% assign pkeys = keys_marl %}
+    {% when "control" %}{% assign pkeys = keys_control %}
+  {% endcase %}
 
-#### Related Papers:
+  <section class="topic">
+    <h3 class="topic__head">{{ titles[idx] }}</h3>
+    <p class="topic__desc">{{ descs[idx] }}</p>
+    <div class="topic__papers">
+      {% assign found = false %}
+      {% for key in pkeys %}
+        {% for pub in published_pubs %}
+          {% if pub.key == key %}
+            {% assign found = true %}
+            {% include pub-card.html pub=pub level=4 %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+      {% unless found %}
+        <p class="topic__empty">Selected publications coming soon.</p>
+      {% endunless %}
+    </div>
+  </section>
+{% endfor %}
+</div>
 
-> - **Mutong Liu**, Yang Liu, Ly Po, Shang Xia, Rekol Huy, Xiao-Nong Zhou, and Jiming Liu. (2023). [Assessing the spatiotemporal malaria transmission intensity with heterogeneous risk factors: A modeling study in Cambodia](https://www.sciencedirect.com/science/article/pii/S2468042723000064). *Infectious Disease Modelling*, 8(1), 253-269. [[paper](./papers/2023-Assessing-IDM.pdf)]
-> - Jinfu Ren\*, **Mutong Liu**\*, Yang Liu, and Jiming Liu (2022). [Optimal resource allocation with spatiotemporal transmission discovery for effective disease control](https://pubmed.ncbi.nlm.nih.gov/35331329/). *Infectious diseases of poverty*, 11(1), 1-11. [[paper](./papers/2022-Optimal-IDP.pdf)]
+<p class="research-note">
+A complete and up-to-date publication list is available on the
+<a href="{{ '/aboutme' | relative_url }}">About Me</a> page and on
+<a href="https://scholar.google.com/citations?user=erU2odMAAAAJ&amp;hl=en">Google Scholar</a>.
+</p>
 
-### Epidemic Prediction
-
-#### Related Papers:
-
-> - **Mutong Liu**, Yang Liu, and Jiming Liu (2025). [Machine Learning for Infectious Disease Risk Prediction: A Survey](https://dl.acm.org/doi/10.1145/3719663). *ACM Computing Survey Just Accepted (February 2025)*. https://doi.org/10.1145/3719663.
-> - **Mutong Liu**, Yang Liu, Jiming Liu (2023).  [Epidemiology-aware Deep Learning for Infectious Disease Dynamics Prediction](https://dl.acm.org/doi/10.1145/3583780.3615139). In *Proceedings of the 32nd ACM International Conference on Information and Knowledge Management* (CIKM '23). [[poster](./posters/2023-Epidemiology-CIKM-Short-poster.pdf)]&nbsp;[[code](https://github.com/gigg1/CIKM2023EpiDL)]
-
-### Disease Control and Resource Allocation
-
-#### Related Papers:
-
-> - Jinfu Ren\*, **Mutong Liu**\*, Yang Liu, and Jiming Liu (2022). [Optimal resource allocation with spatiotemporal transmission discovery for effective disease control](https://pubmed.ncbi.nlm.nih.gov/35331329/). *Infectious diseases of poverty*, 11(1), 1-11. [[paper](./papers/2022-Optimal-IDP.pdf)]
+{% include pub-lightbox.html %}

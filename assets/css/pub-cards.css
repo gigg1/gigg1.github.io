@@ -1,0 +1,277 @@
+/* ====================================================
+   Publication cards + image lightbox (shared by aboutme / research)
+   ==================================================== */
+
+/* publication 卡片：缩略图在左，右侧 meta/标题/venue/作者四行，左侧粗边框 */
+.pub-card {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  grid-template-areas: "thumb meta" "thumb title" "thumb venue" "thumb authors";
+  column-gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.62rem;
+  padding: 0.58rem 0.72rem;
+  border: 1px solid rgba(216, 167, 173, 0.18);
+  border-left: 3px solid rgba(185, 137, 146, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 252, 250, 0.55);
+  transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
+}
+@media (max-width: 700px) {
+  .pub-card {
+    grid-template-columns: 1fr;
+    grid-template-areas: "meta" "thumb" "title" "venue" "authors";
+    align-items: start;
+  }
+  .pub-card .pub-thumb {
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+.pub-card:hover {
+  border-left-color: rgba(143, 102, 112, 0.38);
+  background: rgba(255, 250, 247, 0.82);
+  transform: translateY(-1px);
+}
+.pub-card .pub-thumb {
+  grid-area: thumb;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0.22rem;
+  border: 1px solid rgba(216, 167, 173, 0.2);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: rgba(143, 102, 112, 0.07) 0 10px 24px;
+  cursor: zoom-in;
+  overflow: hidden;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+.pub-card .pub-thumb:hover {
+  border-color: rgba(143, 102, 112, 0.34);
+  box-shadow: rgba(143, 102, 112, 0.14) 0 14px 34px;
+  transform: translateY(-1px);
+}
+.pub-card .pub-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  border-radius: 6px;
+  object-fit: contain;
+  cursor: zoom-in;
+}
+.pub-card .pub-meta {
+  grid-area: meta;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.34rem;
+  margin: 0 0 0.2rem;
+  color: #8f6670;
+  font-size: 0.68rem;
+  font-weight: 720;
+}
+.pub-card .pub-tag,
+.pub-card .pub-note-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.12rem 0.44rem;
+  border: 1px solid rgba(185, 137, 146, 0.3);
+  border-radius: 999px;
+  background: rgba(216, 167, 173, 0.13);
+  color: #8f6670;
+  font-size: 0.62rem;
+  font-weight: 780;
+  line-height: 1;
+}
+.pub-card .pub-venue-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.08rem 0.36rem;
+  border: 1px solid rgba(185, 137, 146, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 249, 245, 0.68);
+  color: #766566;
+  line-height: 1;
+}
+.pub-card .pub-title {
+  grid-area: title;
+  min-width: 0;
+  margin: 0 0 0.15rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.pub-card .pub-title a {
+  color: #955f6e;
+  text-decoration: none;
+}
+.pub-card .pub-title a:hover {
+  color: #7d5461;
+  text-decoration: underline;
+}
+.pub-card .pub-venue {
+  grid-area: venue;
+  min-width: 0;
+  margin: 0 0 0.18rem;
+  color: #000000;
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.38;
+}
+.pub-card .pub-authors {
+  grid-area: authors;
+  min-width: 0;
+  margin: 0 0 0.22rem;
+  color: #000000;
+  font-size: 0.88rem;
+  line-height: 1.38;
+}
+.pub-card .pub-links {
+  display: inline;
+  color: #000000;
+  font-size: 0.88rem;
+  line-height: 1.38;
+}
+.pub-card .pub-links a {
+  color: #955f6e;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+.pub-card .pub-links a:hover {
+  color: #7d5461;
+}
+
+/* Lightbox: 点击缩略图放大查看（毛玻璃风格） */
+.pub-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: rgba(53, 45, 49, 0.42);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+.pub-lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.pub-lightbox__frame {
+  display: grid;
+  max-width: min(92vw, 1180px);
+  max-height: 88vh;
+  gap: 0.65rem;
+  padding: 0.74rem;
+  border: 1px solid rgba(234, 223, 221, 0.92);
+  border-radius: 14px;
+  background: rgba(255, 250, 247, 0.95);
+  box-shadow: rgba(53, 45, 49, 0.28) 0 30px 90px;
+  transform: translateY(8px) scale(0.985);
+  transition: transform 180ms ease;
+}
+.pub-lightbox.is-open .pub-lightbox__frame {
+  transform: translateY(0) scale(1);
+}
+.pub-lightbox img {
+  display: block;
+  max-width: calc(92vw - 1.5rem);
+  max-height: calc(88vh - 4.5rem);
+  border-radius: 10px;
+  background: #ffffff;
+  object-fit: contain;
+  cursor: default;
+}
+.pub-lightbox p {
+  margin: 0;
+  color: #8f6670;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: center;
+}
+.pub-lightbox__close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  width: 2.2rem;
+  height: 2.2rem;
+  place-items: center;
+  border: 1px solid rgba(234, 223, 221, 0.86);
+  border-radius: 999px;
+  background: rgba(255, 250, 247, 0.92);
+  box-shadow: rgba(53, 45, 49, 0.2) 0 14px 38px;
+  color: #955f6e;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: background 180ms ease, color 180ms ease;
+}
+.pub-lightbox__close:hover {
+  background: #fffaf7;
+  color: #536f5a;
+}
+
+/* ====================================================
+   Research page: topic sections
+   ==================================================== */
+.research-intro {
+  margin: 0 0 1.6rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.topic {
+  margin-bottom: 2rem;
+}
+.topic__head {
+  position: relative;
+  margin: 0 0 0.5rem;
+  padding-left: 0.85rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.topic__head::before {
+  position: absolute;
+  top: 0.18em;
+  bottom: 0.18em;
+  left: 0;
+  width: 3px;
+  border-radius: 2px;
+  background: #d6a5aa;
+  content: "";
+}
+.topic:nth-of-type(1) .topic__head::before { background: #f0d878; }
+.topic:nth-of-type(2) .topic__head::before { background: #91a390; }
+.topic:nth-of-type(3) .topic__head::before { background: #8da3b8; }
+.topic:nth-of-type(4) .topic__head::before { background: #b49bb8; }
+.topic__desc {
+  margin: 0 0 0.85rem;
+  padding-left: 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.topic__papers {
+  margin-bottom: 0.5rem;
+}
+.topic__empty {
+  margin: 0;
+  padding-left: 0.85rem;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #8f6670;
+}
+.research-note {
+  margin: 1.6rem 0 0;
+  font-size: 0.85rem;
+  color: #8f6670;
+}
+/* 主题标题沿用页面字体，去掉主题可能附加的边框 */
+.topic__head,
+.pub-card .pub-title {
+  border: 0;
+}

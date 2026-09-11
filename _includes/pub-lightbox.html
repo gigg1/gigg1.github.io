@@ -1,0 +1,33 @@
+<!-- 图片放大查看：DOM + 脚本（配合 assets/css/pub-cards.css 使用） -->
+<div class="pub-lightbox" id="pubLightbox" aria-hidden="true" onclick="if (event.target === this) closePubLightbox();">
+  <button class="pub-lightbox__close" type="button" aria-label="Close image preview" onclick="closePubLightbox()">&times;</button>
+  <div class="pub-lightbox__frame">
+    <img id="pubLightboxImg" src="" alt="">
+    <p id="pubLightboxCaption"></p>
+  </div>
+</div>
+
+<script>
+  function openPubLightbox(img) {
+    var lb = document.getElementById('pubLightbox');
+    if (!lb) { return; }
+    var big = document.getElementById('pubLightboxImg');
+    var cap = document.getElementById('pubLightboxCaption');
+    big.src = img.src;
+    big.alt = img.alt || '';
+    cap.textContent = img.alt || '';
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden', 'false');
+  }
+  function closePubLightbox() {
+    var lb = document.getElementById('pubLightbox');
+    if (!lb) { return; }
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.getElementById('pubLightboxImg').src = '';
+    document.getElementById('pubLightboxCaption').textContent = '';
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closePubLightbox(); }
+  });
+</script>

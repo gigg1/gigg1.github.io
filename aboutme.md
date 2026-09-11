@@ -61,6 +61,14 @@ My work aims to solve complex real-world problems such as infectious disease tra
 
 <div class="research-grid">
 <div class="research-card">
+  <div class="research-card__title">MARL for Learning Cooperative Behavior in Multi-agent Systems</div>
+  <div class="research-card__links">
+<a href="https://www.sciencedirect.com/science/article/pii/S0004370226001293">Diametric Coordination Graphs for MARL (AIJ'26)</a>
+  
+  </div>
+</div>
+
+<div class="research-card">
   <div class="research-card__title">MLs for Assessing Infectious Disease Risk and Inferring Transmission Patterns</div>
   <div class="research-card__links">
 <a href="/papers/2023-Assessing-IDM.pdf">Malaria Transmission Intensity Assessment (IDM’23)</a>
@@ -74,14 +82,6 @@ My work aims to solve complex real-world problems such as infectious disease tra
   <div class="research-card__links">
 <a href="/papers/2025-Machine-ACMCSUR.pdf">Survey on ML for Infectious Disease Risk Prediction (ACM CSUR’25)</a>
 <a href="/papers/2023-Epidemiology-aware-CIKM.pdf">EpiDL (CIKM’23)</a>
-  
-  </div>
-</div>
-
-<div class="research-card">
-  <div class="research-card__title">MARL for Learning Cooperative Behavior in Multi-agent Systems</div>
-  <div class="research-card__links">
-<a href="https://www.sciencedirect.com/science/article/pii/S0004370226001293">Diametric Coordination Graphs for MARL (AIJ'26)</a>
   
   </div>
 </div>
@@ -277,292 +277,14 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     color: #c07b90;
     font-size: 0.8rem;
   }
-  /* publication 卡片：参考 Selected Work 布局（缩略图在左，右侧 meta/标题/作者三行，左侧粗边框） */
-  .pub-card {
-    display: grid;
-    grid-template-columns: 11rem minmax(0, 1fr);
-    grid-template-areas: "thumb meta" "thumb title" "thumb venue" "thumb authors";
-    column-gap: 1rem;
-    align-items: center;
-    margin-bottom: 0.62rem;
-    padding: 0.58rem 0.72rem;
-    border: 1px solid rgba(216, 167, 173, 0.18);
-    border-left: 3px solid rgba(185, 137, 146, 0.28);
-    border-radius: 8px;
-    background: rgba(255, 252, 250, 0.55);
-    transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
-  }
-  @media (max-width: 700px) {
-    .pub-card {
-      grid-template-columns: 1fr;
-      grid-template-areas: "meta" "thumb" "title" "venue" "authors";
-      align-items: start;
-    }
-    .pub-card .pub-thumb {
-      max-width: 100%;
-      margin-bottom: 0.5rem;
-    }
-  }
-  .pub-card:hover {
-    border-left-color: rgba(143, 102, 112, 0.38);
-    background: rgba(255, 250, 247, 0.82);
-    transform: translateY(-1px);
-  }
-  .pub-card .pub-thumb {
-    grid-area: thumb;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    padding: 0.22rem;
-    border: 1px solid rgba(216, 167, 173, 0.2);
-    border-radius: 7px;
-    background: rgba(255, 255, 255, 0.82);
-    box-shadow: rgba(143, 102, 112, 0.07) 0 10px 24px;
-    cursor: zoom-in;
-    overflow: hidden;
-    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-  }
-  .pub-card .pub-thumb:hover {
-    border-color: rgba(143, 102, 112, 0.34);
-    box-shadow: rgba(143, 102, 112, 0.14) 0 14px 34px;
-    transform: translateY(-1px);
-  }
-  .pub-card .pub-thumb img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-    border-radius: 6px;
-    object-fit: contain;
-    cursor: zoom-in;
-  }
-  .pub-card .pub-meta {
-    grid-area: meta;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.34rem;
-    margin: 0 0 0.2rem;
-    color: #8f6670;
-    font-size: 0.68rem;
-    font-weight: 720;
-  }
-  .pub-card .pub-tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.12rem 0.44rem;
-    border: 1px solid rgba(185, 137, 146, 0.3);
-    border-radius: 999px;
-    background: rgba(216, 167, 173, 0.13);
-    color: #8f6670;
-    font-size: 0.62rem;
-    font-weight: 780;
-    line-height: 1;
-  }
-  .pub-card .pub-venue-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.08rem 0.36rem;
-    border: 1px solid rgba(185, 137, 146, 0.18);
-    border-radius: 999px;
-    background: rgba(255, 249, 245, 0.68);
-    color: #766566;
-    line-height: 1;
-  }
-  .pub-card .pub-title {
-    grid-area: title;
-    min-width: 0;
-    margin: 0 0 0.15rem;
-    font-size: 1.05rem;
-    font-weight: 700;
-    line-height: 1.25;
-  }
-  .pub-card .pub-title a {
-    color: #955f6e;
-    text-decoration: none;
-  }
-  .pub-card .pub-title a:hover {
-    color: #7d5461;
-    text-decoration: underline;
-  }
-  .pub-card .pub-venue {
-    grid-area: venue;
-    min-width: 0;
-    margin: 0 0 0.18rem;
-    color: #000000;
-    font-size: 0.88rem;
-    font-weight: 400;
-    line-height: 1.38;
-  }
-  .pub-card .pub-authors {
-    grid-area: authors;
-    min-width: 0;
-    margin: 0 0 0.22rem;
-    color: #000000;
-    font-size: 0.88rem;
-    line-height: 1.38;
-  }
-  .pub-card .pub-links {
-    display: inline;
-    color: #000000;
-    font-size: 0.88rem;
-    line-height: 1.38;
-  }
-  .pub-card .pub-links a {
-    color: #955f6e;
-    text-decoration: underline;
-    text-underline-offset: 0.16em;
-  }
-  .pub-card .pub-links a:hover {
-    color: #7d5461;
-  }
-  /* extra_note 徽章（与年份 tag 完全同风格） */
-  .pub-card .pub-note-tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.12rem 0.44rem;
-    border: 1px solid rgba(185, 137, 146, 0.3);
-    border-radius: 999px;
-    background: rgba(216, 167, 173, 0.13);
-    color: #8f6670;
-    font-size: 0.62rem;
-    font-weight: 780;
-    line-height: 1;
-  }
-  /* Lightbox: 点击图片放大查看（毛玻璃风格） */
-  .pub-lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: grid;
-    place-items: center;
-    padding: 1.5rem;
-    background: rgba(53, 45, 49, 0.42);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 180ms ease;
-  }
-  .pub-lightbox.is-open {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .pub-lightbox__frame {
-    display: grid;
-    max-width: min(92vw, 1180px);
-    max-height: 88vh;
-    gap: 0.65rem;
-    padding: 0.74rem;
-    border: 1px solid rgba(234, 223, 221, 0.92);
-    border-radius: 14px;
-    background: rgba(255, 250, 247, 0.95);
-    box-shadow: rgba(53, 45, 49, 0.28) 0 30px 90px;
-    transform: translateY(8px) scale(0.985);
-    transition: transform 180ms ease;
-  }
-  .pub-lightbox.is-open .pub-lightbox__frame {
-    transform: translateY(0) scale(1);
-  }
-  .pub-lightbox img {
-    display: block;
-    max-width: calc(92vw - 1.5rem);
-    max-height: calc(88vh - 4.5rem);
-    border-radius: 10px;
-    background: #ffffff;
-    object-fit: contain;
-    cursor: default;
-  }
-  .pub-lightbox p {
-    margin: 0;
-    color: #8f6670;
-    font-size: 0.78rem;
-    line-height: 1.35;
-    text-align: center;
-  }
-  .pub-lightbox__close {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    display: grid;
-    width: 2.2rem;
-    height: 2.2rem;
-    place-items: center;
-    border: 1px solid rgba(234, 223, 221, 0.86);
-    border-radius: 999px;
-    background: rgba(255, 250, 247, 0.92);
-    box-shadow: rgba(53, 45, 49, 0.2) 0 14px 38px;
-    color: #955f6e;
-    cursor: pointer;
-    font-size: 1.25rem;
-    line-height: 1;
-    transition: background 180ms ease, color 180ms ease;
-  }
-  .pub-lightbox__close:hover {
-    background: #fffaf7;
-    color: #536f5a;
-  }
 </style>
 
-<div class="pub-lightbox" id="pubLightbox" aria-hidden="true" onclick="if (event.target === this) closePubLightbox();">
-  <button class="pub-lightbox__close" type="button" aria-label="Close image preview" onclick="closePubLightbox()">&times;</button>
-  <div class="pub-lightbox__frame">
-    <img id="pubLightboxImg" src="" alt="">
-    <p id="pubLightboxCaption"></p>
-  </div>
-</div>
-
-<script>
-  function openPubLightbox(img) {
-    var lb = document.getElementById('pubLightbox');
-    var big = document.getElementById('pubLightboxImg');
-    var cap = document.getElementById('pubLightboxCaption');
-    big.src = img.src;
-    big.alt = img.alt || '';
-    cap.textContent = img.alt || '';
-    lb.classList.add('is-open');
-    lb.setAttribute('aria-hidden', 'false');
-  }
-  function closePubLightbox() {
-    var lb = document.getElementById('pubLightbox');
-    lb.classList.remove('is-open');
-    lb.setAttribute('aria-hidden', 'true');
-    document.getElementById('pubLightboxImg').src = '';
-    document.getElementById('pubLightboxCaption').textContent = '';
-  }
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') { closePubLightbox(); }
-  });
-</script>
+{% include pub-lightbox.html %}
 
 <!-- **Published:** -->
 
 {% for pub in published_pubs %}
-<div class="pub-card">
-  <div class="pub-thumb">
-    <img src="{{ pub.img }}" alt="{{ pub.title }}" onclick="openPubLightbox(this)">
-  </div>
-  <p class="pub-meta">
-    <span class="pub-tag">{{ pub.year }}</span>
-    {% if pub.extra_note %}<span class="pub-note-tag">{{ pub.extra_note }}</span>{% endif %}
-  </p>
-  <h3 class="pub-title">
-    {% if pub.links.doi %}
-      <a href="{{ pub.links.doi }}">{{ pub.title }}</a>
-    {% else %}
-      {{ pub.title }}
-    {% endif %}
-  </h3>
-  <p class="pub-venue">{{ pub.venue }} <span class="pub-links">
-    {% if pub.links.pdf %} [<a href="{{ pub.links.pdf }}">paper</a>]{% endif %}
-    {% if pub.links.supp %} [<a href="{{ pub.links.supp }}">supplementary</a>]{% endif %}
-    {% if pub.links.poster %} [<a href="{{ pub.links.poster }}">poster</a>]{% endif %}
-    {% if pub.links.code %} [<a href="{{ pub.links.code }}">code</a>]{% endif %}
-  </span></p>
-  <p class="pub-authors">
-    {% assign authors_highlighted = pub.authors | replace: "Mutong Liu", "<strong>Mutong Liu</strong>" %}
-    {{ authors_highlighted }}.
-  </p>
-</div>
+{% include pub-card.html pub=pub level=3 %}
 {% endfor %}
 
 <!--**Under Review:**

@@ -27,7 +27,7 @@ ruby -v
 在项目根目录（即包含 `_config.yml` 的目录）执行：
 
 ```bash
-cd /Users/giggliu/Downloads/PrivateInformation/Website/gigg1.github.io
+cd /path/to/gigg1.github.io   # 换成你本地的项目路径
 
 GEM_HOME="$PWD/vendor/gems" \
 GEM_PATH="$PWD/vendor/gems" \

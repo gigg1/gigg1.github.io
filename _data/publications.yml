@@ -1,5 +1,6 @@
 # ========== Published ==========
-- title: "Probing Diametric Coordination Graphs for Multi-Agent Reinforcement Learning"
+- key: dcg
+  title: "Probing Diametric Coordination Graphs for Multi-Agent Reinforcement Learning"
   authors: "Mutong Liu, Tiantian He, Yang Liu, Jiming Liu, and Yew-Soon Ong"
   venue: "Artificial Intelligence, volume 359, 104603"
   year: 2026
@@ -11,7 +12,8 @@
     pdf: "/papers/2026-Probing-AIJ.pdf"
   img: "/assets/img/papers/2026-Probing-AIJ.png"
 
-- title: "Empowering Epidemic Response: The Role of Reinforcement Learning in Infectious Disease Control"
+- key: wi
+  title: "Empowering Epidemic Response: The Role of Reinforcement Learning in Infectious Disease Control"
   authors: "Mutong Liu, Yang Liu, and Jiming Liu"
   venue: "2025 IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT) (Accepted)"
   year: 2025
@@ -21,7 +23,8 @@
     doi: "https://arxiv.org/abs/2603.25771"
   img: "/assets/img/papers/2026-Empowering-WI.png"
 
-- title: "Machine Learning for Infectious Disease Risk Prediction: A Survey"
+- key: csursurvey
+  title: "Machine Learning for Infectious Disease Risk Prediction: A Survey"
   authors: "Mutong Liu, Yang Liu, and Jiming Liu"
   venue: "ACM Computing Survey, 57(8), Article 212"
   year: 2025
@@ -33,7 +36,8 @@
     doi: "https://dl.acm.org/doi/10.1145/3719663"
   img: "/assets/img/papers/2025-Machine-ACMCSUR2.png"
 
-- title: "Epidemiology-aware Deep Learning for Infectious Disease Dynamics Prediction"
+- key: epidl
+  title: "Epidemiology-aware Deep Learning for Infectious Disease Dynamics Prediction"
   authors: "Mutong Liu, Yang Liu, Jiming Liu"
   venue: "Proceedings of the 32nd ACM International Conference on Information and Knowledge Management (CIKM '23)"
   year: 2023
@@ -45,7 +49,8 @@
     doi: "https://dl.acm.org/doi/10.1145/3583780.3615139"
   img: "/assets/img/papers/2023-Epidemiology-aware-CIKM.png"
 
-- title: "Assessing the spatiotemporal malaria transmission intensity with heterogeneous risk factors: A modeling study in Cambodia"
+- key: malaria
+  title: "Assessing the spatiotemporal malaria transmission intensity with heterogeneous risk factors: A modeling study in Cambodia"
   authors: "Mutong Liu, Yang Liu, Ly Po, Shang Xia, Rekol Huy, Xiao-Nong Zhou, and Jiming Liu"
   venue: "Infectious Disease Modelling, 8(1), 253-269"
   year: 2023
@@ -55,7 +60,8 @@
     doi: "https://www.sciencedirect.com/science/article/pii/S2468042723000064"
   img: "/assets/img/papers/2023-Assessing-IDM.png"
 
-- title: "Optimal resource allocation with spatiotemporal transmission discovery for effective disease control"
+- key: optimal
+  title: "Optimal resource allocation with spatiotemporal transmission discovery for effective disease control"
   authors: "Jinfu Ren*, Mutong Liu*, Yang Liu, and Jiming Liu"
   venue: "Infectious Diseases of Poverty, 11(1), 1-11"
   year: 2022
@@ -65,7 +71,8 @@
     doi: "https://pubmed.ncbi.nlm.nih.gov/35331329/"
   img: "/assets/img/papers/2022-Optimal-IDP.png"
 
-- title: "TransCode: Uncovering COVID-19 transmission patterns via deep learning"
+- key: transcode
+  title: "TransCode: Uncovering COVID-19 transmission patterns via deep learning"
   authors: "Jinfu Ren, Mutong Liu, Yang Liu, and Jiming Liu"
   venue: "Infectious Diseases of Poverty, 12(1), 1-20"
   year: 2023
@@ -76,7 +83,8 @@
     doi: "https://idpjournal.biomedcentral.com/articles/10.1186/s40249-023-01052-9"
   img: "/assets/img/papers/2023-TransCode-IDP.png"
 
-- title: "Identifying multiple influential spreaders in complex networks by considering the dispersion of nodes"
+- key: spreaders
+  title: "Identifying multiple influential spreaders in complex networks by considering the dispersion of nodes"
   authors: "Li Tao, Mutong Liu, Zili Zhang, and Liang Luo"
   venue: "Frontiers in Physics, 9, 766615"
   year: 2022
