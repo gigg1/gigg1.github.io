@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Jekyll: 本地预览 (livereload)",
+      "type": "shell",
+      "command": "GEM_HOME=\"$PWD/vendor/gems\" GEM_PATH=\"$PWD/vendor/gems\" JEKYLL_NO_BUNDLER_REQUIRE=true ruby vendor/gems/bin/jekyll serve --host 127.0.0.1 --port 4000 --livereload",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Jekyll: 构建 (_site)",
+      "type": "shell",
+      "command": "GEM_HOME=\"$PWD/vendor/gems\" GEM_PATH=\"$PWD/vendor/gems\" JEKYLL_NO_BUNDLER_REQUIRE=true ruby vendor/gems/bin/jekyll build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

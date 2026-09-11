@@ -151,10 +151,10 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
   }
   /* 正文所有链接统一为玫瑰棕色（覆盖主题默认蓝色） */
   .container-md a {
-    color: #805762;
+    color: #955f6e;
   }
   .container-md a:hover {
-    color: #6f4d57;
+    color: #7d5461;
   }
   /* 右侧头像 + 左侧简介布局 */
   .profile-intro {
@@ -377,11 +377,11 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     line-height: 1.25;
   }
   .pub-card .pub-title a {
-    color: #805762;
+    color: #955f6e;
     text-decoration: none;
   }
   .pub-card .pub-title a:hover {
-    color: #6f4d57;
+    color: #7d5461;
     text-decoration: underline;
   }
   .pub-card .pub-venue {
@@ -408,12 +408,12 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     line-height: 1.38;
   }
   .pub-card .pub-links a {
-    color: #8f6670;
+    color: #955f6e;
     text-decoration: underline;
     text-underline-offset: 0.16em;
   }
   .pub-card .pub-links a:hover {
-    color: #6f4d57;
+    color: #7d5461;
   }
   /* extra_note 徽章（与年份 tag 完全同风格） */
   .pub-card .pub-note-tag {
@@ -491,7 +491,7 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     border-radius: 999px;
     background: rgba(255, 250, 247, 0.92);
     box-shadow: rgba(53, 45, 49, 0.2) 0 14px 38px;
-    color: #805762;
+    color: #955f6e;
     cursor: pointer;
     font-size: 1.25rem;
     line-height: 1;

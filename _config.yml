@@ -165,11 +165,11 @@ page-col: "#FFFFFF"
 # Gray
 # text-col: "#404040"
 text-col: "Black"
-# Rose brown (正文链接玫瑰棕)
+# Rose brown (正文链接玫瑰棕，已提亮)
 # link-col: "#333366"
-link-col: "#805762"
+link-col: "#955f6e"
 # Deep rose
-hover-col: "#6f4d57"
+hover-col: "#7d5461"
 
 # Light rose (页脚浅粉)
 footer-col: "#f6d9e0"

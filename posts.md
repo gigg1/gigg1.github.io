@@ -36,7 +36,7 @@ title: Posts
     text-decoration: none;
   }
   .posts-list .post-preview .post-title a:hover {
-    color: #805762;
+    color: #955f6e;
     text-decoration: none;
   }
   .posts-list .post-preview .post-meta {
@@ -49,12 +49,12 @@ title: Posts
     font-size: 0.92rem;
   }
   .posts-list .post-preview .post-read-more {
-    color: #805762;
+    color: #955f6e;
     text-decoration: underline;
     text-underline-offset: 0.16em;
   }
   .posts-list .post-preview .blog-tags a {
-    color: #805762;
+    color: #955f6e;
   }
 </style>
 

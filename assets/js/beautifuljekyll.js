@@ -51,16 +51,19 @@ let BeautifulJekyllJS = {
   },
 
   initNavbarStars : function() {
-    // Sprinkle layered twinkling stars (white + pink accents) over the black navbar sky.
+    // Sprinkle layered twinkling stars (white + rare pink/blue accents) over the black navbar sky.
     // Three layers (background / mid / foreground) make the sky feel deep & scattered.
     var nav = document.querySelector('.navbar-custom');
     if (!nav || document.querySelector('.navbar-star')) { return; }
 
     var count = 320;
-    var i, star, layer, isPink;
+    var i, star, layer, accent;
     for (i = 0; i < count; i++) {
       star = document.createElement('span');
-      isPink = (i % 11 === 0); // occasional pink accent
+      // rare blue accents, occasional pink accent
+      if (i % 37 === 11)      { accent = 'navbar-star--blue'; }
+      else if (i % 11 === 0)  { accent = 'navbar-star--pink'; }
+      else                    { accent = ''; }
 
       // layer roll: 45% tiny dim background, 35% mid, 20% bright foreground
       var roll = Math.random();
@@ -68,7 +71,7 @@ let BeautifulJekyllJS = {
       else if (roll < 0.80) { layer = 'md'; }
       else                  { layer = 'fg'; }
 
-      star.className = 'navbar-star navbar-star--' + layer + (isPink ? ' navbar-star--pink' : '');
+      star.className = 'navbar-star navbar-star--' + layer + (accent ? ' ' + accent : '');
 
       // different size per layer (all tiny, fg slightly larger & glowing)
       var size;

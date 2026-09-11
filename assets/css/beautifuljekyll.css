@@ -231,6 +231,14 @@ img {
 .navbar-star--fg.navbar-star--pink {
   box-shadow: 0 0 5px rgba(247, 182, 207, 1), 0 0 10px rgba(247, 182, 207, 0.55);
 }
+/* rare blue accent stars */
+.navbar-star--blue {
+  background: #6fc0ff;
+  box-shadow: 0 0 4px rgba(111, 192, 255, 0.95);
+}
+.navbar-star--fg.navbar-star--blue {
+  box-shadow: 0 0 5px rgba(111, 192, 255, 1), 0 0 10px rgba(111, 192, 255, 0.55);
+}
 
 @keyframes navbar-star-twinkle {
   0%, 100% { opacity: 0.15; transform: scale(0.55); }
