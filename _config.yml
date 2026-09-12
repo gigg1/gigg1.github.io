@@ -15,6 +15,16 @@ title: Mutong LIU
 # Your name to show in the footer
 author: Mutong LIU
 
+##############################################
+# --- Site URL (required by absolute_url) --- #
+##############################################
+# Without `url`, Jekyll's absolute_url filter returns an empty string,
+# which breaks every link that uses it: the navbar brand ("Mutong LIU"),
+# the footer site link, the canonical/og:url meta tags and the RSS link.
+url: "https://gigg1.github.io"
+# Leave baseurl empty for a user/organisation page served from the domain root.
+baseurl: ""
+
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
@@ -193,6 +203,7 @@ footer-hover-col: "#6f4d57"
 # For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
 site-css:
   - "/assets/css/pub-cards.css"
+  - "/assets/css/starry.css"
 
 # If you have common JavaScript files that should be included in every page, list them here
 #site-js:
@@ -330,6 +341,7 @@ exclude:
   - beautiful-jekyll-theme.gemspec
   - staticman.yml
   - screenshot.png
+  - backups/
   - docs/
   - tools/
   - .venv/

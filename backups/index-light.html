@@ -1,22 +1,12 @@
 ---
 layout: page
 title: Mutong LIU
-body-class: starry
+subtitle: (つ´ω`)つ Welcome to my website!
+cover-img: "/assets/img/IMG_4538.jpg"
 ---
 
 <style>
-  /* ============================================================
-     Home page — full-page starfield with a pink-on-dark palette.
-
-     The night sky itself comes from assets/css/starry.css
-     (enabled by `body-class: starry`). This block only styles the
-     home page widgets so they read on a dark background.
-
-     The previous light theme is archived at backups/index-light.html
-     (excluded from the build) if you ever want to switch back.
-     ============================================================ */
-
-  /* --- welcome panel: translucent glass over the sky --- */
+  /* === 方案2：首页欢迎区 === */
   .home-welcome {
     position: relative;
     display: flex;
@@ -28,15 +18,12 @@ body-class: starry
     padding: 1.2rem 1.4rem;
     min-height: 210px;
     justify-content: center;
-    border: 1px solid rgba(246, 217, 224, 0.3);
+    border: 1px solid rgba(234, 223, 221, 0.9);
     border-radius: 16px;
-    background: rgba(12, 11, 18, 0.62);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.45);
+    background: linear-gradient(135deg, rgba(255, 252, 252, 0.8) 0%, rgba(255, 248, 249, 0.8) 45%, rgba(253, 241, 243, 0.8) 100%);
+    box-shadow: 0 6px 18px rgba(143, 102, 112, 0.08), 0 2px 6px rgba(143, 102, 112, 0.05);
     overflow: hidden;
   }
-  /* the three drifting colour blobs, dimmed for a dark backdrop */
   .home-welcome::before,
   .home-welcome::after {
     position: absolute;
@@ -51,7 +38,7 @@ body-class: starry
     height: 210px;
     top: -20px;
     left: 0;
-    background: radial-gradient(circle, rgba(214, 165, 170, 0.34), rgba(190, 140, 160, 0.14) 40%, transparent 70%);
+    background: radial-gradient(circle, rgba(214, 165, 170, 0.85), rgba(190, 140, 160, 0.4) 40%, transparent 70%);
     animation: welcome-flow-1 6s ease-in-out infinite alternate;
   }
   .home-welcome::after {
@@ -59,7 +46,7 @@ body-class: starry
     height: 210px;
     top: -30px;
     right: 0;
-    background: radial-gradient(circle, rgba(178, 201, 224, 0.34), rgba(170, 195, 220, 0.14) 40%, transparent 70%);
+    background: radial-gradient(circle, rgba(178, 201, 224, 0.9), rgba(170, 195, 220, 0.45) 40%, transparent 70%);
     animation: welcome-flow-2 6.5s ease-in-out infinite alternate;
   }
   .home-welcome__glow {
@@ -70,7 +57,7 @@ body-class: starry
     left: 50%;
     margin-left: -100px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(240, 216, 120, 0.3), rgba(232, 200, 110, 0.13) 40%, transparent 70%);
+    background: radial-gradient(circle, rgba(240, 216, 120, 0.8), rgba(232, 200, 110, 0.4) 40%, transparent 70%);
     filter: blur(50px);
     pointer-events: none;
     z-index: 0;
@@ -102,20 +89,14 @@ body-class: starry
   .home-welcome__title {
     font-size: 1.43rem;
     font-weight: 800;
-    color: #f6d9e0;
+    color: #000000;
     margin: 0;
-    text-shadow: 0 0 20px rgba(246, 217, 224, 0.25);
   }
   .home-welcome__desc {
     font-size: 1.1rem;
-    color: rgba(246, 217, 224, 0.85);
+    color: #000000;
     margin: 0;
     line-height: 1.5;
-  }
-  /* the theme sets `.container-md p/li` to black, which outranks a plain
-     class selector — prefix with body.starry so these win on the dark sky */
-  body.starry .home-welcome__desc {
-    color: rgba(246, 217, 224, 0.85);
   }
   .home-welcome__links {
     display: flex;
@@ -129,39 +110,37 @@ body-class: starry
     align-items: center;
     gap: 0.3rem;
     padding: 0.35rem 0.8rem;
-    border: 1px solid rgba(246, 217, 224, 0.35);
+    border: 1px solid rgba(185, 137, 146, 0.3);
     border-radius: 999px;
-    background: rgba(246, 217, 224, 0.09);
-    color: #f6d9e0;
+    background: rgba(216, 167, 173, 0.13);
+    color: #955f6e;
     font-size: 1.04rem;
     font-weight: 700;
     text-decoration: none;
     transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
   }
   .home-welcome__link:hover {
-    background: rgba(246, 217, 224, 0.22);
-    border-color: rgba(246, 217, 224, 0.7);
+    background: rgba(216, 167, 173, 0.24);
+    border-color: rgba(185, 137, 146, 0.5);
     transform: translateY(-2px);
-    color: #ffffff;
+    color: #7d5461;
     text-decoration: none;
   }
 
-  /* --- news panel --- */
+  /* === News 框 === */
   .home-news {
     margin-bottom: 2rem;
     padding: 1.4rem 1.6rem;
-    border: 1px solid rgba(246, 217, 224, 0.26);
+    border: 1px solid rgba(234, 223, 221, 0.9);
     border-left: 3px solid #8da3b8;
     border-radius: 14px;
-    background: rgba(12, 11, 18, 0.62);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 252, 250, 0.7);
+    box-shadow: 0 4px 14px rgba(143, 102, 112, 0.06);
   }
   .home-news__title {
     font-size: 1.15rem;
     font-weight: 800;
-    color: #f6d9e0;
+    color: #3d3238;
     margin: 0 0 0.7rem;
     display: flex;
     align-items: center;
@@ -172,35 +151,33 @@ body-class: starry
     margin: 0;
     padding: 0 0.3rem 0 0;
     overflow-y: auto;
-    height: 10.5rem;
+    height: 10.5rem; /* 约显示 3 条 */
     position: relative;
     scrollbar-width: thin;
-    scrollbar-color: rgba(246, 217, 224, 0.35) transparent;
+    scrollbar-color: rgba(185, 137, 146, 0.4) transparent;
   }
   .home-news__list::-webkit-scrollbar {
     width: 5px;
   }
   .home-news__list::-webkit-scrollbar-thumb {
-    background: rgba(246, 217, 224, 0.35);
+    background: rgba(185, 137, 146, 0.4);
     border-radius: 999px;
   }
   .home-news__list::-webkit-scrollbar-track {
     background: transparent;
+  }
+  .home-news__track {
+    margin: 0;
+    padding: 0;
   }
   .home-news__item {
     display: flex;
     align-items: baseline;
     gap: 0.6rem;
     padding: 0.5rem 0;
-    border-bottom: 1px dashed rgba(246, 217, 224, 0.16);
+    border-bottom: 1px dashed rgba(216, 167, 173, 0.25);
     font-size: 0.9rem;
-    color: rgba(246, 217, 224, 0.82);
-  }
-  body.starry .home-news__item {
-    color: rgba(246, 217, 224, 0.82);
-  }
-  body.starry .home-news__item span {
-    color: inherit;
+    color: #6f666a;
   }
   .home-news__item:last-child {
     border-bottom: none;
@@ -208,12 +185,23 @@ body-class: starry
   .home-news__date {
     flex: 0 0 auto;
     font-weight: 700;
-    color: #f6d9e0;
+    color: #8f6670;
     font-size: 0.8rem;
     min-width: 5.5rem;
   }
-  body.starry .home-news__date {
-    color: #f6d9e0;
+  .home-news__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-left: 0.5rem;
+    padding: 0.1rem 0.45rem;
+    border: 1px solid rgba(185, 137, 146, 0.3);
+    border-radius: 999px;
+    background: rgba(216, 167, 173, 0.13);
+    color: #8f6670;
+    font-size: 0.6rem;
+    font-weight: 700;
+    vertical-align: middle;
   }
 </style>
 
@@ -223,15 +211,15 @@ body-class: starry
   <h2 class="home-welcome__title">Hi there!</h2>
   <p class="home-welcome__desc">Welcome to my homepage. Here you can find my latest updates, research work, and more about me.</p>
   <div class="home-welcome__links">
-    <a class="home-welcome__link" href="{{ '/aboutme' | relative_url }}">👤 About Me</a>
-    <a class="home-welcome__link" href="{{ '/research' | relative_url }}">🔬 Research</a>
-    <a class="home-welcome__link" href="{{ '/posts' | relative_url }}">📝 Posts</a>
+    <a class="home-welcome__link" href="/aboutme">👤 About Me</a>
+    <a class="home-welcome__link" href="/research">🔬 Research</a>
+    <a class="home-welcome__link" href="/posts">📝 Posts</a>
   </div>
 </div>
 
 <div class="home-news">
   <h3 class="home-news__title">📢 News</h3>
-  <ul class="home-news__list">
+  <ul class="home-news__list" id="newsList">
     <li class="home-news__item">
       <span class="home-news__date">Aug. 2026</span>
       <span>Our work "Probing Diametric Coordination Graphs for Multi-Agent Reinforcement Learning" has been accepted by Artificial Intelligence (AIJ).</span>
