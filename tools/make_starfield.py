@@ -84,20 +84,19 @@ def main():
     gradients, sizes, counts, total = build_sky()
     pct = lambda n: 100.0 * n / total
 
-    block = []
-    block.append("background-image:")
-    for i, g in enumerate(gradients):
-        block.append("    %s%s" % (g, ";" if i == len(gradients) - 1 else ","))
-    block.append("    background-size:")
-    for i, s in enumerate(sizes):
-        block.append("      %s%s" % (s, ";" if i == len(sizes) - 1 else ","))
-    sky_block = "\n".join(block)
+    # Emitted as custom properties on :root so the navbar can reuse the exact
+    # same tiled pattern. Both layers are fixed to the viewport, so sharing the
+    # pattern makes them line up pixel-for-pixel and the seam disappears.
+    img = ",\n    ".join(gradients)
+    sz = ",\n    ".join(sizes)
+
     css = TEMPLATE.format(
         summary="/* %d stars: %d white (%.0f%%), %d blue (%.0f%%), %d red (%.0f%%) */"
                 % (total, counts["white"], pct(counts["white"]),
                    counts["blue"], pct(counts["blue"]),
                    counts["red"], pct(counts["red"])),
-        sky=sky_block,
+        sky_image=img,
+        sky_size=sz,
     )
 
     with open(OUT, "w") as fh:
@@ -120,8 +119,18 @@ TEMPLATE = '''/* ====================================================
    Pure CSS: the sky is tiled radial-gradients, so there is no
    image request and no JavaScript. Three tile sizes give depth,
    and the colour mix is white with rare blue and red accents.
+
+   The pattern lives in custom properties so other fixed layers
+   (notably the navbar) can reuse it and stay seamlessly aligned.
    ==================================================== */
 {summary}
+
+:root {{
+  --sky-image:
+    {sky_image};
+  --sky-size:
+    {sky_size};
+}}
 
 body.starry {{
   background-color: #000000;
@@ -135,7 +144,8 @@ body.starry::before {{
   z-index: 0;
   pointer-events: none;
   background-color: #000000;
-  {sky}
+  background-image: var(--sky-image);
+  background-size: var(--sky-size);
   background-repeat: repeat;
 }}
 
@@ -154,6 +164,34 @@ body.starry [role="main"],
 body.starry footer {{
   position: relative;
   z-index: 1;
+}}
+
+/* --- make the navbar part of the same sky ---
+   The navbar ships with its own opaque black background plus its own randomly
+   scattered twinkling stars (injected by initNavbarStars), which reads as a
+   separate panel sitting above the page.
+
+   Rather than painting a second sky, we let the page's sky show through: it
+   lives on `body::before`, is `position: fixed` and spans the whole viewport,
+   so the navbar area is already covered by it. Making the navbar transparent
+   therefore reveals the very same stars, and because both are anchored to the
+   viewport they stay aligned while scrolling.
+
+   Scoped to body.starry, so every non-starry page keeps its opaque navbar. */
+body.starry .navbar-custom {{
+  background-color: transparent;
+  background-image: none;
+  border-bottom: 0;
+  box-shadow: none;
+}}
+/* drop the navbar's own star layers (JS-injected spans + the two static
+   ::before/::after stars), otherwise two different star patterns overlap */
+body.starry .navbar-custom .navbar-star {{
+  display: none;
+}}
+body.starry .navbar-custom::before,
+body.starry .navbar-custom::after {{
+  content: none;
 }}
 
 /* --- footer blends into the night sky --- */

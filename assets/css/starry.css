@@ -10,22 +10,14 @@
    Pure CSS: the sky is tiled radial-gradients, so there is no
    image request and no JavaScript. Three tile sizes give depth,
    and the colour mix is white with rare blue and red accents.
+
+   The pattern lives in custom properties so other fixed layers
+   (notably the navbar) can reuse it and stay seamlessly aligned.
    ==================================================== */
 /* 44 stars: 41 white (93%), 2 blue (5%), 1 red (2%) */
 
-body.starry {
-  background-color: #000000;
-  background-image: none;
-}
-
-body.starry::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-color: #000000;
-  background-image:
+:root {
+  --sky-image:
     radial-gradient(0.63px 0.63px at 57.9px 81.1px, rgba(255, 255, 255, 0.3) 50%, transparent 51%),
     radial-gradient(0.82px 0.82px at 4.2px 95.2px, rgba(255, 255, 255, 0.32) 50%, transparent 51%),
     radial-gradient(0.65px 0.65px at 7.7px 14.2px, rgba(255, 255, 255, 0.34) 50%, transparent 51%),
@@ -70,51 +62,67 @@ body.starry::before {
     radial-gradient(1.57px 1.57px at 287.0px 269.4px, rgba(255, 255, 255, 0.96) 50%, transparent 51%),
     radial-gradient(1.55px 1.55px at 144.7px 215.9px, rgba(255, 255, 255, 0.91) 50%, transparent 51%),
     radial-gradient(1.48px 1.48px at 77.0px 15.9px, rgba(255, 255, 255, 0.88) 50%, transparent 51%);
-    background-size:
-      110px 100px,
-      110px 100px,
-      110px 100px,
-      110px 100px,
-      110px 100px,
-      110px 100px,
-      110px 100px,
-      110px 100px,
-      110px 100px,
-      110px 100px,
-      110px 100px,
-      110px 100px,
-      110px 100px,
-      110px 100px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      200px 180px,
-      360px 320px,
-      360px 320px,
-      360px 320px,
-      360px 320px,
-      360px 320px,
-      360px 320px,
-      360px 320px,
-      360px 320px,
-      360px 320px,
-      360px 320px,
-      360px 320px,
-      360px 320px;
+  --sky-size:
+    110px 100px,
+    110px 100px,
+    110px 100px,
+    110px 100px,
+    110px 100px,
+    110px 100px,
+    110px 100px,
+    110px 100px,
+    110px 100px,
+    110px 100px,
+    110px 100px,
+    110px 100px,
+    110px 100px,
+    110px 100px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    200px 180px,
+    360px 320px,
+    360px 320px,
+    360px 320px,
+    360px 320px,
+    360px 320px,
+    360px 320px,
+    360px 320px,
+    360px 320px,
+    360px 320px,
+    360px 320px,
+    360px 320px,
+    360px 320px;
+}
+
+body.starry {
+  background-color: #000000;
+  background-image: none;
+}
+
+body.starry::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #000000;
+  background-image: var(--sky-image);
+  background-size: var(--sky-size);
   background-repeat: repeat;
 }
 
@@ -133,6 +141,34 @@ body.starry [role="main"],
 body.starry footer {
   position: relative;
   z-index: 1;
+}
+
+/* --- make the navbar part of the same sky ---
+   The navbar ships with its own opaque black background plus its own randomly
+   scattered twinkling stars (injected by initNavbarStars), which reads as a
+   separate panel sitting above the page.
+
+   Rather than painting a second sky, we let the page's sky show through: it
+   lives on `body::before`, is `position: fixed` and spans the whole viewport,
+   so the navbar area is already covered by it. Making the navbar transparent
+   therefore reveals the very same stars, and because both are anchored to the
+   viewport they stay aligned while scrolling.
+
+   Scoped to body.starry, so every non-starry page keeps its opaque navbar. */
+body.starry .navbar-custom {
+  background-color: transparent;
+  background-image: none;
+  border-bottom: 0;
+  box-shadow: none;
+}
+/* drop the navbar's own star layers (JS-injected spans + the two static
+   ::before/::after stars), otherwise two different star patterns overlap */
+body.starry .navbar-custom .navbar-star {
+  display: none;
+}
+body.starry .navbar-custom::before,
+body.starry .navbar-custom::after {
+  content: none;
 }
 
 /* --- footer blends into the night sky --- */
