@@ -107,6 +107,10 @@
     360px 320px,
     360px 320px,
     360px 320px;
+  /* stars per px^2 of the tiled sky + what fraction twinkles; the JS reads
+     these to size the twinkling layer for the current viewport */
+  --sky-density: 0.00187689;
+  --sky-twinkle-pct: 0.0500;
 }
 
 body.starry {
@@ -133,6 +137,46 @@ body.starry::before {
 @keyframes sky-breathe {
   0%, 100% { opacity: 1; }
   50%      { opacity: 0.9; }
+}
+
+/* --- twinkling stars ---
+   A subset of the stars are added as individual elements by
+   initSkyTwinkleStars() so each can carry its own delay and duration. The
+   tiled layer above stays still; these sit on top and pulse. */
+.starry-twinkle-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.starry-twinkle {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.85);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .starry-twinkle { animation: star-twinkle 2.6s ease-in-out infinite; }
+}
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.05; transform: scale(0.7); }
+  50%      { opacity: 1;    transform: scale(1.2); }
+}
+/* a few twinkling stars inherit the palette accents so the sparkle is not
+   all white */
+.starry-twinkle--blue {
+  background: #6fc0ff;
+  box-shadow: 0 0 3px rgba(111, 192, 255, 0.9);
+}
+.starry-twinkle--red {
+  background: #ff7a8a;
+  box-shadow: 0 0 3px rgba(255, 122, 138, 0.9);
+}
+/* respect users who ask for less motion: keep the stars, drop the pulsing */
+@media (prefers-reduced-motion: reduce) {
+  .starry-twinkle { opacity: 0.7; }
 }
 
 /* keep page content above the sky */

@@ -33,6 +33,8 @@ let BeautifulJekyllJS = {
     BeautifulJekyllJS.initScrollEffects();
 
     BeautifulJekyllJS.initNavbarStars();
+
+    BeautifulJekyllJS.initSkyTwinkleStars();
   },
 
   initNavbar : function() {
@@ -87,6 +89,58 @@ let BeautifulJekyllJS = {
       star.style.animationDelay = (Math.random() * 6).toFixed(2) + 's';
       star.style.animationDuration = (Math.random() * 3.4 + 1.6).toFixed(2) + 's';
       nav.appendChild(star);
+    }
+  },
+
+  initSkyTwinkleStars : function() {
+    // Overlay individually-twinkling stars on the tiled starfield sky.
+    //
+    // The sky itself is one tiled background layer, so animating it would pulse
+    // every star in lockstep. Instead we add a fraction of the stars (5%, per
+    // --sky-twinkle-pct) as separate elements, each with its own random delay
+    // and duration, so the sparkle looks scattered.
+    //
+    // Only runs on pages that opted into the starfield via `body-class: starry`.
+    var body = document.body;
+    if (!body || !body.classList.contains('starry')) { return; }
+    if (document.querySelector('.starry-twinkle-layer')) { return; }
+
+    var styles = getComputedStyle(document.documentElement);
+    var density = parseFloat(styles.getPropertyValue('--sky-density'));
+    var pct = parseFloat(styles.getPropertyValue('--sky-twinkle-pct'));
+    if (!density || !pct) { return; }
+
+    var layer = document.createElement('div');
+    layer.className = 'starry-twinkle-layer';
+    layer.setAttribute('aria-hidden', 'true');
+    body.appendChild(layer);
+
+    var count = Math.round(window.innerWidth * window.innerHeight * density * pct);
+    // Keep the DOM light on very large displays; 5% of a big sky is plenty.
+    count = Math.min(count, 260);
+    if (count < 1) { return; }
+
+    var i, star, roll;
+    for (i = 0; i < count; i++) {
+      star = document.createElement('span');
+      // carry the tiled sky's palette: mostly white, occasional blue/red
+      roll = Math.random();
+      if (roll < 0.05) {
+        star.className = 'starry-twinkle starry-twinkle--blue';
+      } else if (roll < 0.07) {
+        star.className = 'starry-twinkle starry-twinkle--red';
+      } else {
+        star.className = 'starry-twinkle';
+      }
+      var size = Math.random() * 0.9 + 0.9;
+      star.style.width = size.toFixed(1) + 'px';
+      star.style.height = star.style.width;
+      star.style.left = (Math.random() * 100).toFixed(2) + '%';
+      star.style.top = (Math.random() * 100).toFixed(2) + '%';
+      // stagger the timing so they do not blink together
+      star.style.animationDelay = (Math.random() * 5).toFixed(2) + 's';
+      star.style.animationDuration = (Math.random() * 2.6 + 1.8).toFixed(2) + 's';
+      layer.appendChild(star);
     }
   },
 

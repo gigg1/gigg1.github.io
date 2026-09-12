@@ -30,6 +30,12 @@ LAYERS = [
 BLUE_PCT = 0.05
 RED_PCT = 0.02
 
+# Share of stars that get an individual twinkle animation. The tiled sky is a
+# single layer, so animating it would pulse every star in lockstep and look
+# synthetic. Instead the JS layer adds this fraction as separate elements, each
+# with its own random delay/duration.
+TWINKLE_PCT = 0.05
+
 WHITE = (255, 255, 255)
 BLUE = (111, 192, 255)
 RED = (255, 122, 138)
@@ -76,12 +82,18 @@ def build_sky():
                     size=size, x=x, y=y, r=r, g=g, b=b, a=alpha))
             sizes.append("%dpx %dpx" % (tile_w, tile_h))
 
+    # Stars per square pixel across all layers. The twinkle script uses this to
+    # work out how many twinkling stars to add for the current viewport, so the
+    # 5% ratio stays correct at any window size without duplicating the tiling
+    # maths over in JavaScript.
+    density = sum(layer[2] / float(layer[0] * layer[1]) for layer in LAYERS)
+
     total = sum(counts.values())
-    return gradients, sizes, counts, total
+    return gradients, sizes, counts, total, density
 
 
 def main():
-    gradients, sizes, counts, total = build_sky()
+    gradients, sizes, counts, total, density = build_sky()
     pct = lambda n: 100.0 * n / total
 
     # Emitted as custom properties on :root so the navbar can reuse the exact
@@ -97,6 +109,8 @@ def main():
                    counts["red"], pct(counts["red"])),
         sky_image=img,
         sky_size=sz,
+        density="%.8f" % density,
+        twinkle_pct="%.4f" % TWINKLE_PCT,
     )
 
     with open(OUT, "w") as fh:
@@ -105,6 +119,8 @@ def main():
     print("wrote %s" % OUT)
     print("  %d stars: %d white, %d blue, %d red"
           % (total, counts["white"], counts["blue"], counts["red"]))
+    print("  twinkle density: %.6f stars/px^2 (%.0f%% of stars twinkle)"
+          % (density, TWINKLE_PCT * 100))
 
 
 TEMPLATE = '''/* ====================================================
@@ -130,6 +146,10 @@ TEMPLATE = '''/* ====================================================
     {sky_image};
   --sky-size:
     {sky_size};
+  /* stars per px^2 of the tiled sky + what fraction twinkles; the JS reads
+     these to size the twinkling layer for the current viewport */
+  --sky-density: {density};
+  --sky-twinkle-pct: {twinkle_pct};
 }}
 
 body.starry {{
@@ -156,6 +176,46 @@ body.starry::before {{
 @keyframes sky-breathe {{
   0%, 100% {{ opacity: 1; }}
   50%      {{ opacity: 0.9; }}
+}}
+
+/* --- twinkling stars ---
+   A subset of the stars are added as individual elements by
+   initSkyTwinkleStars() so each can carry its own delay and duration. The
+   tiled layer above stays still; these sit on top and pulse. */
+.starry-twinkle-layer {{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}}
+.starry-twinkle {{
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.85);
+  opacity: 0;
+}}
+@media (prefers-reduced-motion: no-preference) {{
+  .starry-twinkle {{ animation: star-twinkle 2.6s ease-in-out infinite; }}
+}}
+@keyframes star-twinkle {{
+  0%, 100% {{ opacity: 0.05; transform: scale(0.7); }}
+  50%      {{ opacity: 1;    transform: scale(1.2); }}
+}}
+/* a few twinkling stars inherit the palette accents so the sparkle is not
+   all white */
+.starry-twinkle--blue {{
+  background: #6fc0ff;
+  box-shadow: 0 0 3px rgba(111, 192, 255, 0.9);
+}}
+.starry-twinkle--red {{
+  background: #ff7a8a;
+  box-shadow: 0 0 3px rgba(255, 122, 138, 0.9);
+}}
+/* respect users who ask for less motion: keep the stars, drop the pulsing */
+@media (prefers-reduced-motion: reduce) {{
+  .starry-twinkle {{ opacity: 0.7; }}
 }}
 
 /* keep page content above the sky */
