@@ -124,7 +124,7 @@ TEMPLATE = '''/* ====================================================
 {summary}
 
 body.starry {{
-  background-color: #0a0910;
+  background-color: #000000;
   background-image: none;
 }}
 
@@ -134,7 +134,7 @@ body.starry::before {{
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-color: #0a0910;
+  background-color: #000000;
   {sky}
   background-repeat: repeat;
 }}

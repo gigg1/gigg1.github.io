@@ -14,7 +14,7 @@
 /* 44 stars: 41 white (93%), 2 blue (5%), 1 red (2%) */
 
 body.starry {
-  background-color: #0a0910;
+  background-color: #000000;
   background-image: none;
 }
 
@@ -24,7 +24,7 @@ body.starry::before {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-color: #0a0910;
+  background-color: #000000;
   background-image:
     radial-gradient(0.63px 0.63px at 57.9px 81.1px, rgba(255, 255, 255, 0.3) 50%, transparent 51%),
     radial-gradient(0.82px 0.82px at 4.2px 95.2px, rgba(255, 255, 255, 0.32) 50%, transparent 51%),
