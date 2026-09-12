@@ -259,6 +259,9 @@ body.starry footer {{
   margin-top: 0;
   background-color: transparent;
   background-image: none;
+  /* the theme draws a light 1px rule on top of the footer, which reads as a
+     stray white line against the dark sky */
+  border-top: 0;
 }}
 body.starry footer a,
 body.starry footer p.text-muted {{
