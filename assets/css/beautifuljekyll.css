@@ -23,6 +23,20 @@ body {
   background-attachment: fixed;
   {% endif %}
   overflow-wrap: break-word;
+  /* Sticky footer: on short pages (e.g. /posts/ with a single entry) the
+     content ends above the fold and the page background showed as a bare
+     strip below the footer. Laying the body out as a column and letting the
+     main block grow pushes the footer to the bottom of the viewport. The
+     fixed navbar, the starry body::before and #scroll-progress are all
+     position: fixed, so they are unaffected by this. */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* the main content block absorbs the leftover vertical space */
+body > .container-md,
+body > .container-fluid {
+  flex: 1 0 auto;
 }
 p {
   line-height: 1.5;
