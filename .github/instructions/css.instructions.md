@@ -50,6 +50,24 @@ default light theme, so always verify a change against `aboutme` / `research` /
 Footer links deliberately stay `#805762` — it is the darkest value that still
 passes WCAG AA on the light pink `#f6d9e0` footer. Do not brighten it.
 
+## Layout: sticky footer
+
+`body` is a `min-height: 100vh` flex column and the main container has
+`flex: 1 0 auto`. This keeps the footer at the bottom on short pages (e.g.
+`/posts/` with one entry used to leave an 86px bare strip below it).
+
+Consequences to respect:
+
+- `page.html`, `post.html` and `default.html` all emit the main container as a
+  **direct child of `body`**, which is what the flex rule relies on. Keep it that
+  way — wrap the content in an extra `<div>` and the strip comes back.
+- If a page ever switches to `layout: home`, note it renders the post list as a
+  bare `<ul>` inside that container, so the rule still applies, but re-check the
+  footer on short lists.
+- Anything else you add as a body child joins the flex column. `position: fixed`
+  elements (navbar, starfield, `#scroll-progress`) are out of flow and unaffected
+  — prefer that for decorative layers.
+
 ## Motion
 
 Gate animations behind `@media (prefers-reduced-motion: no-preference)` and
