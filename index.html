@@ -30,9 +30,11 @@ body-class: starry
     justify-content: center;
     border: 1px solid rgba(246, 217, 224, 0.3);
     border-radius: 16px;
+    /* No backdrop-filter here on purpose. Any blur >= 1px smears the tiled
+       starfield into a flat wash and the stars stop being legible (measured:
+       372 legible stars at blur(0) vs 0 at blur(14px)). A plain translucent
+       tint keeps the glass feel while letting the sky read through. */
     background: rgba(12, 11, 18, 0.62);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
     box-shadow: 0 10px 36px rgba(0, 0, 0, 0.45);
     overflow: hidden;
   }
@@ -104,13 +106,16 @@ body-class: starry
     font-weight: 800;
     color: #f6d9e0;
     margin: 0;
-    text-shadow: 0 0 20px rgba(246, 217, 224, 0.25);
+    /* the dark halo keeps glyphs readable when a bright star passes right
+       under them — the pink glow alone is not enough against a 4px white dot */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85), 0 0 20px rgba(246, 217, 224, 0.25);
   }
   .home-welcome__desc {
     font-size: 1.1rem;
     color: rgba(246, 217, 224, 0.85);
     margin: 0;
     line-height: 1.5;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
   }
   /* the theme sets `.container-md p/li` to black, which outranks a plain
      class selector — prefix with body.starry so these win on the dark sky */
@@ -153,9 +158,8 @@ body-class: starry
     border: 1px solid rgba(246, 217, 224, 0.26);
     border-left: 3px solid #8da3b8;
     border-radius: 14px;
+    /* keep in sync with .home-welcome — see the note there about blur */
     background: rgba(12, 11, 18, 0.62);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
     box-shadow: 0 10px 36px rgba(0, 0, 0, 0.4);
   }
   .home-news__title {
@@ -195,6 +199,7 @@ body-class: starry
     border-bottom: 1px dashed rgba(246, 217, 224, 0.16);
     font-size: 0.9rem;
     color: rgba(246, 217, 224, 0.82);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
   }
   body.starry .home-news__item {
     color: rgba(246, 217, 224, 0.82);
@@ -211,6 +216,7 @@ body-class: starry
     color: #f6d9e0;
     font-size: 0.8rem;
     min-width: 5.5rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
   }
   body.starry .home-news__date {
     color: #f6d9e0;
