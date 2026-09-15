@@ -132,7 +132,11 @@ let BeautifulJekyllJS = {
       } else {
         star.className = 'starry-twinkle';
       }
-      var size = Math.random() * 0.9 + 0.9;
+      // Match the tiled sky's size spread (0.63-2.1px across its layers) so the
+      // twinkling stars do not all read as one uniform size on top of it.
+      // Weighted toward the larger end since a twinkle is only visible on a
+      // star big enough to notice.
+      var size = Math.random() * 1.15 + 0.95;
       star.style.width = size.toFixed(1) + 'px';
       star.style.height = star.style.width;
       star.style.left = (Math.random() * 100).toFixed(2) + '%';

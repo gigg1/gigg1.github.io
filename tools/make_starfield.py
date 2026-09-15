@@ -18,13 +18,16 @@ random.seed(20260912)
 # Densities: (tile_w, tile_h, stars_per_tile, size_min, size_max,
 #             alpha_min, alpha_max)
 # Smaller tiles + more stars = denser sky.
+# Size ranges are deliberately wide (max/min around 1.6-1.7) so the sky reads
+# as stars of different magnitudes rather than uniform dots; the foreground
+# layer holds the few genuinely large ones.
 LAYERS = [
     # dense faint dust — small tile, many dim stars
-    (110, 100, 14, 0.6, 0.9, 0.24, 0.42),
+    (110, 100, 14, 0.63, 1.05, 0.24, 0.42),
     # mid stars
-    (200, 180, 18, 0.9, 1.15, 0.5, 0.8),
+    (200, 180, 18, 0.95, 1.45, 0.5, 0.8),
     # bright foreground stars — large tile, few bright stars
-    (360, 320, 12, 1.2, 1.65, 0.82, 1.0),
+    (360, 320, 12, 1.26, 2.1, 0.82, 1.0),
 ]
 
 BLUE_PCT = 0.05
