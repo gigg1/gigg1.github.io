@@ -108,6 +108,10 @@ let BeautifulJekyllJS = {
     var styles = getComputedStyle(document.documentElement);
     var density = parseFloat(styles.getPropertyValue('--sky-density'));
     var pct = parseFloat(styles.getPropertyValue('--sky-twinkle-pct'));
+    // Accent mix comes from the stylesheet too, so these stay in step with the
+    // generated sky instead of drifting from it as hard-coded numbers.
+    var bluePct = parseFloat(styles.getPropertyValue('--sky-blue-pct')) || 0;
+    var redPct = parseFloat(styles.getPropertyValue('--sky-red-pct')) || 0;
     if (!density || !pct) { return; }
 
     var layer = document.createElement('div');
@@ -116,7 +120,7 @@ let BeautifulJekyllJS = {
     body.appendChild(layer);
 
     var count = Math.round(window.innerWidth * window.innerHeight * density * pct);
-    // Keep the DOM light on very large displays; 5% of a big sky is plenty.
+    // Keep the DOM light on very large displays.
     count = Math.min(count, 260);
     if (count < 1) { return; }
 
@@ -125,9 +129,9 @@ let BeautifulJekyllJS = {
       star = document.createElement('span');
       // carry the tiled sky's palette: mostly white, occasional blue/red
       roll = Math.random();
-      if (roll < 0.05) {
+      if (roll < bluePct) {
         star.className = 'starry-twinkle starry-twinkle--blue';
-      } else if (roll < 0.07) {
+      } else if (roll < bluePct + redPct) {
         star.className = 'starry-twinkle starry-twinkle--red';
       } else {
         star.className = 'starry-twinkle';

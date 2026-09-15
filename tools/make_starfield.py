@@ -8,8 +8,8 @@ The sky is built from tiled radial-gradients, so it needs no image and
 no JavaScript. A fixed seed keeps the output byte-identical across runs,
 so regenerating yields a reviewable diff instead of a reshuffled sky.
 
-Colour mix: 5% blue and 2% red accents, rest white (counts are
-rounded up so both accent colours always appear).
+Colour mix: 10% blue and 5% red accents, rest white (counts are
+rounded to the nearest star, so the realised share is approximate).
 """
 import random
 
@@ -23,15 +23,15 @@ random.seed(20260912)
 # layer holds the few genuinely large ones.
 LAYERS = [
     # dense faint dust — small tile, many dim stars
-    (110, 100, 14, 0.63, 1.05, 0.24, 0.42),
+    (110, 100, 17, 0.63, 1.05, 0.24, 0.42),
     # mid stars
-    (200, 180, 18, 0.95, 1.45, 0.5, 0.8),
+    (200, 180, 21, 0.95, 1.45, 0.5, 0.8),
     # bright foreground stars — large tile, few bright stars
-    (360, 320, 12, 1.26, 2.1, 0.82, 1.0),
+    (360, 320, 14, 1.26, 2.1, 0.82, 1.0),
 ]
 
-BLUE_PCT = 0.05
-RED_PCT = 0.02
+BLUE_PCT = 0.10
+RED_PCT = 0.05
 
 # Share of stars that get an individual twinkle animation. The tiled sky is a
 # single layer, so animating it would pulse every star in lockstep and look
@@ -114,6 +114,8 @@ def main():
         sky_size=sz,
         density="%.8f" % density,
         twinkle_pct="%.4f" % TWINKLE_PCT,
+        blue_pct="%.4f" % BLUE_PCT,
+        red_pct="%.4f" % RED_PCT,
     )
 
     with open(OUT, "w") as fh:
@@ -153,6 +155,10 @@ TEMPLATE = '''/* ====================================================
      these to size the twinkling layer for the current viewport */
   --sky-density: {density};
   --sky-twinkle-pct: {twinkle_pct};
+  /* accent mix of the tiled sky; the JS reads these so the twinkling stars
+     stay in step with the generated pattern instead of hard-coding them */
+  --sky-blue-pct: {blue_pct};
+  --sky-red-pct: {red_pct};
 }}
 
 body.starry {{
