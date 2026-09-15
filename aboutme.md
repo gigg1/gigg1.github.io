@@ -222,7 +222,9 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     border: 1px solid rgba(234, 223, 221, 0.9);
     border-left: 3px solid #d6a5aa;
     border-radius: 12px;
-    background: rgba(255, 252, 250, 0.7);
+    /* opaque, same reason as .pub-card: translucent white tinted to #fefaf8
+       and the page showed through */
+    background: #ffffff;
     overflow: hidden;
     transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
   }

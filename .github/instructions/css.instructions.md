@@ -41,6 +41,8 @@ default light theme, so always verify a change against `aboutme` / `research` /
 
 | Token | Value | Used for |
 | --- | --- | --- |
+| Page bg (light pages) | `#faf6f2` | warm ivory; set via `page-col` |
+| Card fill | `#ffffff` | `.pub-card`, `.research-card`, `.welcome-card`, posts list |
 | Header/navbar text pink | `#f6d9e0` | navbar + footer + starry page headings |
 | Link | `#955f6e` | body links (hover `#7d5461`) |
 | Footer bg | `#f6d9e0` | light pages; transparent on starry pages |
@@ -49,6 +51,25 @@ default light theme, so always verify a change against `aboutme` / `research` /
 
 Footer links deliberately stay `#805762` — it is the darkest value that still
 passes WCAG AA on the light pink `#f6d9e0` footer. Do not brighten it.
+
+### Page background is near its luminance ceiling
+
+The body link colour `#955f6e` only reaches 5.07 against pure white, so it drops
+below WCAG AA once the page background luminance passes ~0.8815 (about
+`#f1f1f1`). `#faf6f2` measures 4.72 — passing, but with little headroom. Going
+darker requires darkening `link-col` first.
+
+## Cards must stay opaque
+
+`.pub-card`, `.research-card`, `.welcome-card` and the posts-list article all use
+an opaque `#ffffff` fill. Do **not** switch them back to a translucent white:
+on the ivory page a `rgba(255,252,250,.55)` fill composites to `#fdf9f6`, only
+4 levels off `#faf6f2`, and the card edge disappears (opaque white is a 13-level
+difference). This is the same trap as `backdrop-filter` on the home panels —
+see the starfield notes.
+
+Opaque cards also *raise* the contrast of the text inside them, because the text
+now sits on white rather than on the ivory page.
 
 ## Layout: sticky footer
 

@@ -16,7 +16,8 @@ title: Posts
     border: 1px solid rgba(234, 223, 221, 0.9);
     border-left: 3px solid #d6a5aa;
     border-radius: 14px;
-    background: rgba(255, 252, 250, 0.7);
+    /* opaque, matching .pub-card / .research-card */
+    background: #ffffff;
     box-shadow: 0 4px 14px rgba(143, 102, 112, 0.06);
     overflow: hidden;
     transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
