@@ -8,30 +8,35 @@ The sky is built from tiled radial-gradients, so it needs no image and
 no JavaScript. A fixed seed keeps the output byte-identical across runs,
 so regenerating yields a reviewable diff instead of a reshuffled sky.
 
-Colour mix: 10% blue and 5% red accents, rest white (counts are
-rounded to the nearest star, so the realised share is approximate).
+Colour mix: white stars with blue and red accents. Accent counts are set per
+layer in LAYERS (not as a global percentage) so they land on stars that are
+big enough to show their colour.
 """
 import random
 
 random.seed(20260912)
 
-# Densities: (tile_w, tile_h, stars_per_tile, size_min, size_max,
-#             alpha_min, alpha_max)
+# Density and colours per layer:
+#   (tile_w, tile_h, stars_per_tile, size_min, size_max, alpha_min, alpha_max,
+#    blue_count, red_count)
+#
 # Smaller tiles + more stars = denser sky.
 # Size ranges are deliberately wide (max/min around 1.6-1.7) so the sky reads
 # as stars of different magnitudes rather than uniform dots; the foreground
 # layer holds the few genuinely large ones.
+#
+# Accent counts are per layer rather than a global percentage: a blue star
+# dropped into the dust layer (0.63-1.05px) reads as grey noise, not colour.
+# Putting them where the stars are big is what makes them legible, so blue is
+# concentrated in the foreground and none is wasted on the dust layer.
 LAYERS = [
     # dense faint dust — small tile, many dim stars
-    (110, 100, 17, 0.63, 1.05, 0.24, 0.42),
+    (110, 100, 17, 0.63, 1.05, 0.24, 0.42, 0, 1),
     # mid stars
-    (200, 180, 21, 0.95, 1.45, 0.5, 0.8),
+    (200, 180, 21, 0.95, 1.45, 0.5, 0.8, 2, 2),
     # bright foreground stars — large tile, few bright stars
-    (360, 320, 14, 1.26, 2.1, 0.82, 1.0),
+    (360, 320, 14, 1.26, 2.1, 0.82, 1.0, 4, 0),
 ]
-
-BLUE_PCT = 0.10
-RED_PCT = 0.05
 
 # Share of stars that get an individual twinkle animation. The tiled sky is a
 # single layer, so animating it would pulse every star in lockstep and look
@@ -49,28 +54,32 @@ OUT = "assets/css/starry.css"
 
 
 def build_sky():
-    # Decide the accent counts up front from the total star count. Picking
-    # colours per-star with a 5%/2% roll fails on a sample this small — it
-    # can easily yield zero red stars, which defeats the point of the spec.
-    total_planned = sum(layer[2] for layer in LAYERS)
-    blue_planned = max(1, round(total_planned * BLUE_PCT))
-    red_planned = max(1, round(total_planned * RED_PCT))
-    palette = [BLUE] * blue_planned + [RED] * red_planned
-    palette += [WHITE] * (total_planned - len(palette))
-    random.shuffle(palette)
-
+    # Accent colours are assigned per layer (see LAYERS) so they land on stars
+    # big enough to actually show their colour, rather than being scattered
+    # across layers by a global percentage.
     gradients, sizes = [], []
     counts = {"white": 0, "blue": 0, "red": 0}
-    idx = 0
 
-    for tile_w, tile_h, count, smin, smax, amin, amax in LAYERS:
-        for _ in range(count):
+    for (tile_w, tile_h, count, smin, smax, amin, amax,
+         blue_n, red_n) in LAYERS:
+        # Build this layer's palette: the requested accents plus white filler,
+        # then shuffle so the accents are not clustered at one end of the tile.
+        palette = [BLUE] * blue_n + [RED] * red_n
+        palette += [WHITE] * (count - len(palette))
+        random.shuffle(palette)
+
+        for i in range(count):
             x = round(random.uniform(0, tile_w), 1)
             y = round(random.uniform(0, tile_h), 1)
             size = round(random.uniform(smin, smax), 2)
             alpha = round(random.uniform(amin, amax), 2)
-            r, g, b = palette[idx]
-            idx += 1
+            r, g, b = palette[i]
+
+            # Nudge accents toward the top of their layer's size band so a
+            # coloured star reads as a coloured star, not a tinted speck.
+            if (r, g, b) != WHITE:
+                size = round(random.uniform((smin + smax) / 2.0, smax), 2)
+                alpha = round(random.uniform((amin + amax) / 2.0, amax), 2)
 
             if (r, g, b) == BLUE:
                 counts["blue"] += 1
@@ -87,9 +96,9 @@ def build_sky():
 
     # Stars per square pixel across all layers. The twinkle script uses this to
     # work out how many twinkling stars to add for the current viewport, so the
-    # 5% ratio stays correct at any window size without duplicating the tiling
+    # ratio stays correct at any window size without duplicating the tiling
     # maths over in JavaScript.
-    density = sum(layer[2] / float(layer[0] * layer[1]) for layer in LAYERS)
+    density = sum(l[2] / float(l[0] * l[1]) for l in LAYERS)
 
     total = sum(counts.values())
     return gradients, sizes, counts, total, density
@@ -114,8 +123,10 @@ def main():
         sky_size=sz,
         density="%.8f" % density,
         twinkle_pct="%.4f" % TWINKLE_PCT,
-        blue_pct="%.4f" % BLUE_PCT,
-        red_pct="%.4f" % RED_PCT,
+        # Derived from the actual layer counts so the twinkle layer's palette
+        # cannot drift from the tiled sky it sits on.
+        blue_pct="%.4f" % (counts["blue"] / float(total)),
+        red_pct="%.4f" % (counts["red"] / float(total)),
     )
 
     with open(OUT, "w") as fh:
