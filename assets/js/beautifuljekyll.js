@@ -112,6 +112,12 @@ let BeautifulJekyllJS = {
     // generated sky instead of drifting from it as hard-coded numbers.
     var bluePct = parseFloat(styles.getPropertyValue('--sky-blue-pct')) || 0;
     var redPct = parseFloat(styles.getPropertyValue('--sky-red-pct')) || 0;
+    // Twinkle-layer sizing, also driven by the generator.
+    var bigPct = parseFloat(styles.getPropertyValue('--sky-twinkle-big-pct')) || 0;
+    var smMin = parseFloat(styles.getPropertyValue('--sky-twinkle-small-min')) || 1;
+    var smMax = parseFloat(styles.getPropertyValue('--sky-twinkle-small-max')) || 2;
+    var bgMin = parseFloat(styles.getPropertyValue('--sky-twinkle-big-min')) || 2.4;
+    var bgMax = parseFloat(styles.getPropertyValue('--sky-twinkle-big-max')) || 4;
     if (!density || !pct) { return; }
 
     var layer = document.createElement('div');
@@ -124,31 +130,49 @@ let BeautifulJekyllJS = {
     count = Math.min(count, 260);
     if (count < 1) { return; }
 
+    // Decide up front how many are large rather than rolling per star, so the
+    // share is exact even when the count is small (e.g. 37 on a phone).
+    var bigCount = Math.round(count * bigPct);
+    var bigFlags = [];
+    for (var b = 0; b < count; b++) { bigFlags.push(b < bigCount); }
+    // shuffle so the large ones are scattered rather than clustered
+    for (var s = bigFlags.length - 1; s > 0; s--) {
+      var j = Math.floor(Math.random() * (s + 1));
+      var tmp = bigFlags[s]; bigFlags[s] = bigFlags[j]; bigFlags[j] = tmp;
+    }
+
     var i, star, roll;
     for (i = 0; i < count; i++) {
       star = document.createElement('span');
+      var isBig = bigFlags[i];
+      var cls = 'starry-twinkle';
       // carry the tiled sky's palette: mostly white, occasional blue/red
       roll = Math.random();
       if (roll < bluePct) {
-        star.className = 'starry-twinkle starry-twinkle--blue';
+        cls += ' starry-twinkle--blue';
       } else if (roll < bluePct + redPct) {
-        star.className = 'starry-twinkle starry-twinkle--red';
-      } else {
-        star.className = 'starry-twinkle';
+        cls += ' starry-twinkle--red';
       }
-      // Sits in the upper-middle of the tiled sky's size range (0.63-4px) so
-      // the twinkling stars do not all read as one uniform size on top of it.
-      // Deliberately not scaled to the full ceiling: a large star pulsing is
-      // distracting, so the biggest sizes are left to the static tiled layer
-      // and the twinkle stays a small-to-medium accent.
-      var size = Math.random() * 1.5 + 1.0;
+      if (isBig) { cls += ' starry-twinkle--big'; }
+      star.className = cls;
+
+      // Large twinkling stars use the top of the tiled sky's range so the big
+      // stars visibly pulse; the rest stay smaller so the sky is not wall-to-
+      // wall large stars. A background-image layer cannot animate individual
+      // stars, so these elements are the only way a big star can twinkle.
+      var lo = isBig ? bgMin : smMin;
+      var hi = isBig ? bgMax : smMax;
+      var size = Math.random() * (hi - lo) + lo;
       star.style.width = size.toFixed(1) + 'px';
       star.style.height = star.style.width;
       star.style.left = (Math.random() * 100).toFixed(2) + '%';
       star.style.top = (Math.random() * 100).toFixed(2) + '%';
-      // stagger the timing so they do not blink together
+      // stagger the timing so they do not blink together; large stars cycle
+      // more slowly, which reads as calmer and keeps them from strobing
       star.style.animationDelay = (Math.random() * 5).toFixed(2) + 's';
-      star.style.animationDuration = (Math.random() * 2.6 + 1.8).toFixed(2) + 's';
+      star.style.animationDuration = isBig
+        ? (Math.random() * 3.0 + 2.8).toFixed(2) + 's'
+        : (Math.random() * 2.6 + 1.8).toFixed(2) + 's';
       layer.appendChild(star);
     }
   },

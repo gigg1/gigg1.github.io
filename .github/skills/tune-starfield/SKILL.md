@@ -34,6 +34,8 @@ diff /tmp/a /tmp/b && echo "idempotent"
 | --- | --- |
 | `LAYERS` | One row per layer: `(tile_w, tile_h, stars_per_tile, size_min, size_max, alpha_min, alpha_max, blue_count, red_count)`. **Smaller tiles with more stars = denser sky.** Three layers give depth. |
 | `TWINKLE_PCT` | Share of stars that twinkle individually (currently 5%). |
+| `TWINKLE_BIG_PCT` | Of those, the share drawn large (currently 50%). |
+| `TWINKLE_SMALL_PX` / `TWINKLE_BIG_PX` | The two twinkle size bands (currently 1.0-2.0 and 2.4-4.0px). |
 | `TEMPLATE` | The CSS itself, including the sky base color (`background-color`). |
 
 Accent colours are **per-layer counts, not a global percentage**, and that is
@@ -48,9 +50,19 @@ realised counts and exported as `--sky-blue-pct` / `--sky-red-pct`.
 Density is emitted to CSS as `--sky-density` (stars per px²) and `--sky-twinkle-pct`.
 `initSkyTwinkleStars()` in `assets/js/beautifuljekyll.js` reads those to size the
 twinkle layer for the current viewport — so changing `LAYERS` updates the twinkle
-count automatically. **Do not hard-code a star count in the JS.** The twinkle
-layer also reads `--sky-blue-pct` / `--sky-red-pct`, and keeps its own size range
-(separate from `LAYERS`) so the largest stars stay static.
+count automatically. **Do not hard-code a star count in the JS.** It also reads
+`--sky-blue-pct` / `--sky-red-pct` for the palette, and
+`--sky-twinkle-big-pct` / `--sky-twinkle-{small,big}-{min,max}` for sizing.
+
+### Large twinkling stars
+
+A big star can only twinkle if the JS layer creates it: the tiled `background-image`
+cannot animate one star on its own, so anything large and pulsing is a separate
+element. `TWINKLE_BIG_PCT` controls what share of the twinkle layer is drawn at
+the large band; the JS picks that count up front (rather than rolling per star)
+so the share stays exact at small counts such as 37 on a phone, then shuffles so
+the big ones are scattered. Large stars get their own keyframes (dip less, swell
+more) and a longer, separately randomised duration.
 
 ## Why twinkling is not pure CSS
 
@@ -89,6 +101,10 @@ Then check that:
   `document.querySelectorAll('.starry-twinkle').length` should equal
   `round(innerWidth * innerHeight * --sky-density * --sky-twinkle-pct)` (capped at
   260), and sampled `opacity` values should differ between stars at one instant.
+- the big-star share is right: `document.querySelectorAll('.starry-twinkle--big').length`
+  divided by the total should be about `--sky-twinkle-big-pct`, and a big star must
+  resolve `animationName` to `star-twinkle-big` (if it says `star-twinkle`, the
+  `.starry-twinkle--big` rule has drifted above the base rule and lost the cascade).
 
 ## Common mistakes
 
@@ -96,4 +112,9 @@ Then check that:
 - **Changing the sky base color without the navbar.** The navbar is pure black; a
   near-black sky (`#0a0910`) leaves a visible seam. Keep them equal.
 - **Hard-coding star counts in JS** instead of reading the CSS variables.
+- **Putting `.starry-twinkle--big` before `.starry-twinkle`.** Same specificity, so
+  source order decides; the base `animation` shorthand then wins and the large
+  stars silently use the small-star keyframes.
+- **Expecting the tiled sky to animate individual stars.** It cannot — one layer,
+  one animation. Large pulsing stars must be JS-created elements.
 - **Forgetting `prefers-reduced-motion`.** Motion must stay opt-out.

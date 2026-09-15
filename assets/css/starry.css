@@ -127,6 +127,14 @@
      these to size the twinkling layer for the current viewport */
   --sky-density: 0.00225032;
   --sky-twinkle-pct: 0.0500;
+  /* Twinkle-layer sizing. The tiled sky cannot animate single stars, so the
+     pulsing ones are separate elements; this share of them is drawn large so
+     the big stars visibly twinkle too. */
+  --sky-twinkle-big-pct: 0.5000;
+  --sky-twinkle-small-min: 1.00px;
+  --sky-twinkle-small-max: 2.00px;
+  --sky-twinkle-big-min: 2.40px;
+  --sky-twinkle-big-max: 4.00px;
   /* accent mix of the tiled sky; the JS reads these so the twinkling stars
      stay in step with the generated pattern instead of hard-coding them */
   --sky-blue-pct: 0.1154;
@@ -162,7 +170,10 @@ body.starry::before {
 /* --- twinkling stars ---
    A subset of the stars are added as individual elements by
    initSkyTwinkleStars() so each can carry its own delay and duration. The
-   tiled layer above stays still; these sit on top and pulse. */
+   tiled layer above stays still; these sit on top and pulse.
+   A background-image layer cannot animate one star on its own, so any large
+   star that twinkles has to be one of these elements rather than part of the
+   tiled pattern — which is what --sky-twinkle-big-pct controls. */
 .starry-twinkle-layer {
   position: fixed;
   inset: 0;
@@ -185,7 +196,7 @@ body.starry::before {
   50%      { opacity: 1;    transform: scale(1.2); }
 }
 /* a few twinkling stars inherit the palette accents so the sparkle is not
-   all white */
+   all white; they carry a matching glow, not the default white one */
 .starry-twinkle--blue {
   background: #6fc0ff;
   box-shadow: 0 0 3px rgba(111, 192, 255, 0.9);
@@ -193,6 +204,30 @@ body.starry::before {
 .starry-twinkle--red {
   background: #ff7a8a;
   box-shadow: 0 0 3px rgba(255, 122, 138, 0.9);
+}
+/* --- large twinkling stars ---
+   Must come after the base rule: same specificity, so source order decides,
+   and the base shorthand would otherwise overwrite animation-name.
+   The wider glow matters because a 4px dot pulsing on its own reads as a
+   hard-edged blob rather than a bright star. */
+.starry-twinkle--big {
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.95), 0 0 10px rgba(255, 255, 255, 0.45);
+}
+.starry-twinkle--big.starry-twinkle--blue {
+  box-shadow: 0 0 5px rgba(111, 192, 255, 1), 0 0 12px rgba(111, 192, 255, 0.5);
+}
+.starry-twinkle--big.starry-twinkle--red {
+  box-shadow: 0 0 5px rgba(255, 122, 138, 1), 0 0 12px rgba(255, 122, 138, 0.5);
+}
+/* large stars dip less and swell more, so the bright ones stay readable.
+   The duration here is only a fallback: initSkyTwinkleStars sets a per-element
+   inline duration (longer for big stars), which wins over this rule. */
+@media (prefers-reduced-motion: no-preference) {
+  .starry-twinkle--big { animation: star-twinkle-big 3.2s ease-in-out infinite; }
+}
+@keyframes star-twinkle-big {
+  0%, 100% { opacity: 0.2; transform: scale(0.78); }
+  50%      { opacity: 1;   transform: scale(1.15); }
 }
 /* respect users who ask for less motion: keep the stars, drop the pulsing */
 @media (prefers-reduced-motion: reduce) {
