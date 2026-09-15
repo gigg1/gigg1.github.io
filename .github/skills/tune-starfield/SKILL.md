@@ -32,15 +32,25 @@ diff /tmp/a /tmp/b && echo "idempotent"
 
 | Constant | Effect |
 | --- | --- |
-| `LAYERS` | `(tile_w, tile_h, stars_per_tile, size_min, size_max, alpha_min, alpha_max)`. **Smaller tiles with more stars = denser sky.** Three layers give depth. |
+| `LAYERS` | One row per layer: `(tile_w, tile_h, stars_per_tile, size_min, size_max, alpha_min, alpha_max, blue_count, red_count)`. **Smaller tiles with more stars = denser sky.** Three layers give depth. |
 | `TWINKLE_PCT` | Share of stars that twinkle individually (currently 5%). |
-| `BLUE_PCT` / `RED_PCT` | Accent mix (currently 5% / 2%). |
 | `TEMPLATE` | The CSS itself, including the sky base color (`background-color`). |
+
+Accent colours are **per-layer counts, not a global percentage**, and that is
+deliberate: a blue star dropped into the dust layer (sub-1px) reads as grey
+noise. Assign them to layers where the stars are big enough to show colour, and
+note that accents draw from the upper half of their layer's size and alpha band.
+The overall size ceiling is whichever layer has the largest `size_max`.
+
+There is no `BLUE_PCT` / `RED_PCT`: the accent *ratios* are derived from the
+realised counts and exported as `--sky-blue-pct` / `--sky-red-pct`.
 
 Density is emitted to CSS as `--sky-density` (stars per px²) and `--sky-twinkle-pct`.
 `initSkyTwinkleStars()` in `assets/js/beautifuljekyll.js` reads those to size the
 twinkle layer for the current viewport — so changing `LAYERS` updates the twinkle
-count automatically. **Do not hard-code a star count in the JS.**
+count automatically. **Do not hard-code a star count in the JS.** The twinkle
+layer also reads `--sky-blue-pct` / `--sky-red-pct`, and keeps its own size range
+(separate from `LAYERS`) so the largest stars stay static.
 
 ## Why twinkling is not pure CSS
 
@@ -48,10 +58,10 @@ The sky is a *single* tiled background layer. A CSS animation on it would pulse
 every star in lockstep. Individual twinkling requires separate elements with their
 own delay and duration, which is what the JS layer does.
 
-Accent counts are decided up front from the total rather than by a per-star dice
-roll: with only ~44 star definitions a 5% roll can easily produce zero blue stars.
-If you raise the density a lot, the rounded-up counts become proportionally more
-accurate.
+Accent counts are set per layer as exact integers rather than sampled from a
+percentage. With only ~52 star definitions a percentage roll is both imprecise
+and prone to yielding zero of a colour, and it cannot control *where* an accent
+lands — which is the thing that decides whether it is visible at all.
 
 ## Adding or removing the starfield on a page
 

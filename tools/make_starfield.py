@@ -21,9 +21,9 @@ random.seed(20260912)
 #    blue_count, red_count)
 #
 # Smaller tiles + more stars = denser sky.
-# Size ranges are deliberately wide (max/min around 1.6-1.7) so the sky reads
-# as stars of different magnitudes rather than uniform dots; the foreground
-# layer holds the few genuinely large ones.
+# Size ranges are deliberately wide so the sky reads as stars of different
+# magnitudes rather than uniform dots; the foreground layer holds the few
+# genuinely large ones and carries the overall size ceiling (4px diameter).
 #
 # Accent counts are per layer rather than a global percentage: a blue star
 # dropped into the dust layer (0.63-1.05px) reads as grey noise, not colour.
@@ -35,7 +35,7 @@ LAYERS = [
     # mid stars
     (200, 180, 21, 0.95, 1.45, 0.5, 0.8, 2, 2),
     # bright foreground stars — large tile, few bright stars
-    (360, 320, 14, 1.26, 2.1, 0.82, 1.0, 4, 0),
+    (360, 320, 14, 1.26, 4.0, 0.82, 1.0, 4, 0),
 ]
 
 # Share of stars that get an individual twinkle animation. The tiled sky is a
