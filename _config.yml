@@ -170,8 +170,9 @@ navbar-text-col: "#FFFFFF"
 # Light rose border
 navbar-border-col: "#d3aeb6"
 
-# White
-page-col: "#FFFFFF"
+# Warm ivory (暖米色, 比纯白柔和；正文链接对比度 4.72 仍满足 WCAG AA)
+# 注意: 底色亮度上限约 #f1f1f1，再深就会让 link-col 掉出 AA
+page-col: "#faf6f2"
 # Gray
 # text-col: "#404040"
 text-col: "Black"
