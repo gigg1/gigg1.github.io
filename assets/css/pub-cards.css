@@ -11,8 +11,11 @@
   align-items: center;
   margin-bottom: 0.62rem;
   padding: 0.58rem 0.72rem;
-  border: 1px solid rgba(216, 167, 173, 0.18);
-  border-left: 3px solid rgba(185, 137, 146, 0.28);
+  /* .42 rather than .18: the card fill is pure white, so on a pale page the
+     fill alone is only ~8 levels off the background and the edge reads as
+     nothing. The border carries the separation instead (34 levels). */
+  border: 1px solid rgba(216, 167, 173, 0.42);
+  border-left: 3px solid rgba(185, 137, 146, 0.45);
   border-radius: 8px;
   /* opaque on purpose: a translucent white over the ivory page tinted to
      #fdf9f6, only 4 levels off the background, so the card edge vanished */
