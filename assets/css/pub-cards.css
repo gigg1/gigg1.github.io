@@ -17,7 +17,9 @@
   /* opaque on purpose: a translucent white over the ivory page tinted to
      #fdf9f6, only 4 levels off the background, so the card edge vanished */
   background: #ffffff;
-  transition: border-color 220ms ease, background 220ms ease, transform 220ms ease;
+  box-shadow: 0 2px 8px rgba(143, 102, 112, 0.05);
+  transition: border-color 220ms ease, border-left-width 220ms ease,
+              padding-left 220ms ease, box-shadow 220ms ease, transform 220ms ease;
 }
 @media (max-width: 700px) {
   .pub-card {
@@ -30,12 +32,17 @@
     margin-bottom: 0.5rem;
   }
 }
+/* Hover: thicken the left bar and lift the card. The bar is the main signal
+   because a background tint cannot work here — the card is already pure white,
+   and every darker tint we measured pushed .pub-meta (#8f6670, 4.88 on white)
+   below WCAG AA. padding-left is trimmed by exactly the width added to
+   border-left, so the content box and the 11rem thumbnail column never shift. */
 .pub-card:hover {
-  border-left-color: rgba(143, 102, 112, 0.38);
-  /* opaque warm tint — the base is already pure white, so hover can no longer
-     lighten; this keeps the feedback without reintroducing see-through */
-  background: #fffaf7;
-  transform: translateY(-1px);
+  border-left-width: 6px;
+  padding-left: calc(0.72rem - 3px);
+  border-left-color: rgba(143, 102, 112, 0.5);
+  transform: translateY(-3px) scale(1.008);
+  box-shadow: 0 14px 30px rgba(143, 102, 112, 0.16);
 }
 .pub-card .pub-thumb {
   grid-area: thumb;

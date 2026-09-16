@@ -226,7 +226,8 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
        and the page showed through */
     background: #ffffff;
     overflow: hidden;
-    transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+    transition: border-color 220ms ease, border-left-width 220ms ease,
+                padding-left 220ms ease, box-shadow 220ms ease, transform 220ms ease;
   }
   .research-card:nth-child(1) { border-left-color: #f0d878; }
   .research-card:nth-child(2) { border-left-color: #91a390; }
@@ -243,10 +244,20 @@ Email address: <a href="mailto:csmtliu@comp.hkbu.edu.hk">csmtliu@comp.hkbu.edu.h
     pointer-events: none;
     transform: skewX(-20deg);
   }
+  /* Thicken the left bar on hover. Only the top/right/bottom colours are set
+     here: using the `border-color` shorthand would override the per-topic
+     `border-left-color` from the nth-child rules above (equal specificity, and
+     this rule comes later in the file), which used to wipe the colour coding
+     as soon as you hovered. padding-left is trimmed to match the added
+     border width so the card contents stay put. */
   .research-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(214, 165, 170, 0.5);
-    box-shadow: 0 14px 32px rgba(143, 102, 112, 0.13), 0 4px 10px rgba(143, 102, 112, 0.07);
+    border-top-color: rgba(214, 165, 170, 0.5);
+    border-right-color: rgba(214, 165, 170, 0.5);
+    border-bottom-color: rgba(214, 165, 170, 0.5);
+    border-left-width: 6px;
+    padding-left: calc(1.3rem - 3px);
+    transform: translateY(-3px) scale(1.008);
+    box-shadow: 0 16px 34px rgba(143, 102, 112, 0.15), 0 4px 10px rgba(143, 102, 112, 0.08);
   }
   .research-card:hover::after {
     animation: research-shine 0.85s ease forwards;

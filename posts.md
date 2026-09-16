@@ -20,13 +20,22 @@ title: Posts
     background: #ffffff;
     box-shadow: 0 4px 14px rgba(143, 102, 112, 0.06);
     overflow: hidden;
-    transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+    transition: border-color 220ms ease, border-left-width 220ms ease,
+                padding-left 220ms ease, box-shadow 220ms ease, transform 220ms ease;
     margin-bottom: 1rem;
   }
+  /* Thicken the left bar and lift the card. Note the longhand border colours:
+     a `border-color` shorthand here would also reset border-left-color and wipe
+     the pink bar (equal specificity, later rule). padding-left compensates for
+     the added border width so the content does not jump. */
   .posts-list .post-preview article:hover {
-    transform: translateY(-3px);
-    border-color: rgba(214, 165, 170, 0.5);
-    box-shadow: 0 12px 28px rgba(143, 102, 112, 0.13);
+    border-top-color: rgba(214, 165, 170, 0.5);
+    border-right-color: rgba(214, 165, 170, 0.5);
+    border-bottom-color: rgba(214, 165, 170, 0.5);
+    border-left-width: 6px;
+    padding-left: calc(1.4rem - 3px);
+    transform: translateY(-3px) scale(1.008);
+    box-shadow: 0 14px 32px rgba(143, 102, 112, 0.16);
   }
   .posts-list .post-preview .post-title {
     font-size: 1.15rem;

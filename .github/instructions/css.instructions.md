@@ -71,6 +71,28 @@ see the starfield notes.
 Opaque cards also *raise* the contrast of the text inside them, because the text
 now sits on white rather than on the ivory page.
 
+### Hover feedback: never tint the background
+
+All four card families (`.pub-card`, `.research-card`, `.welcome-card`, posts
+list) signal hover by **thickening the coloured left bar** to 6px and lifting the
+card (`translateY(-3px) scale(1.008)`). Do not add a background tint instead:
+`.pub-meta` (`#8f6670`) only measures 4.88 on white, so every darker tint we
+measured pushed it below WCAG AA — the whole card fill would have to stay within
+a few levels of white, which is invisible anyway.
+
+Two traps when editing these rules:
+
+- **Trim `padding-left` by the width you add to `border-left`.** Otherwise the
+  content box jumps 3px sideways on hover. `calc(1.3rem - 3px)` pairs with
+  `border-left-width: 6px`.
+- **Use longhand `border-top/right/bottom-color`, never the `border-color`
+  shorthand.** The shorthand also resets `border-left-color`, wiping the
+  per-item accent from `:nth-child(n)` (equal specificity, later rule wins).
+  This was a live bug until it was fixed.
+
+`overflow: hidden` on these cards does **not** clip their own `box-shadow`, so the
+outer glow still renders on hover.
+
 ## Layout: sticky footer
 
 `body` is a `min-height: 100vh` flex column and the main container has
