@@ -45,6 +45,15 @@
   {% endif %}
 
   {% comment %}
+    Google Search Console ownership proof. The token lives in _config.yml
+    (google-site-verification) rather than being hard-coded here, so it can be
+    swapped without touching the template. Removing the key drops the tag.
+  {% endcomment %}
+  {% if site.google-site-verification %}
+  <meta name="google-site-verification" content="{{ site.google-site-verification }}">
+  {% endif %}
+
+  {% comment %}
     Opt a page out of indexing with `noindex: true` in its front matter.
     404.html uses this: GitHub Pages serves that file with HTTP 200 when it is
     requested directly, so without it the error page is a valid crawl target.
