@@ -1,6 +1,12 @@
 ---
 layout: page
 title: Research
+share-title: "Research — Mutong LIU"
+share-description: >-
+  Peer-reviewed publications by Mutong LIU, grouped into four topics: multi-agent
+  reinforcement learning, infectious disease risk assessment, epidemic dynamics
+  prediction, and infectious disease control. Venues include AIJ, ACM Computing
+  Surveys, CIKM and WI-IAT.
 ---
 
 {% assign pubs = site.data.publications %}

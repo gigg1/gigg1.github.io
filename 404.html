@@ -4,6 +4,9 @@ title: 404 - Page not found
 permalink: /404.html
 body-class: starry page-404
 sitemap: false
+# GitHub Pages serves this file with HTTP 200 when hit directly, so ask crawlers
+# not to index it. `sitemap: false` alone only keeps it out of sitemap.xml.
+noindex: true
 ---
 
 <style>

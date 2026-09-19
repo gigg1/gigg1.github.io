@@ -37,6 +37,35 @@ site — use `serve` when testing link behaviour locally.
   re-run it (`.venv/bin/python tools/make_starfield.py`) instead of hand-editing
   the CSS. Same for `tools/make_favicons.py` → `assets/img/favicon-*`.
 
+## SEO metadata
+
+`_includes/head.html` derives `<title>` and `<meta name="description">` from the
+page, in this order:
+
+1. `share-title` / `share-description` front matter — **use these**; they win.
+2. Otherwise `page.title` / `page.subtitle`.
+3. Otherwise the description falls back to `page.content | strip_html |
+   truncatewords`. On pages that start with Liquid (like `tags.html`) that
+   fallback leaks raw `{% assign %}` source into the meta tag, and on the home
+   page it swallows nav labels and news items. **Every indexable page needs an
+   explicit `share-description`.**
+
+Keep `<title>` values unique — the navbar label and the page title are
+independent, so two pages can easily end up sharing a title (the home page and
+`aboutme` both used to be plain "Mutong LIU").
+
+- `keywords` and `description` live in `_config.yml` and render site-wide.
+- `same-as:` in `_config.yml` is a real YAML list emitted as JSON-LD `sameAs`.
+  Don't build that array with Liquid loops — hand-rolled commas and brackets
+  produced invalid JSON (nested array, unclosed bracket) that validators reject.
+  `jsonify` on a YAML list is correct.
+- Set `noindex: true` in front matter to emit `<meta name="robots"
+  content="noindex, follow">`. `404.html` needs it because GitHub Pages serves
+  that file with **HTTP 200** when requested directly; `sitemap: false` alone
+  only keeps it out of `sitemap.xml`.
+- `robots.txt` points at the sitemap and disallows `vendor/ tools/ backups/
+  gems_cache/` as a second line of defence behind `_config.yml`'s `exclude:`.
+
 ## CSS specificity
 
 The theme sets `.container-md p, .container-md li, .container-md td, th, dd ...

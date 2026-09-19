@@ -1,8 +1,13 @@
 ---
 layout: page
-title: Mutong LIU
+title: About Me
+share-title: "About Mutong LIU — PhD Student at Hong Kong Baptist University"
+share-description: >-
+  Mutong LIU is a PhD student in Computer Science at Hong Kong Baptist University,
+  co-supervised by Prof. Yang LIU and Prof. Jiming LIU. Previously a Bachelor of
+  Engineering at Southwest University. Research interests: artificial intelligence,
+  machine learning, reinforcement learning and epidemic modeling.
 show-avatar: false
-<!-- subtitle: This is a page to show my basic information :> -->
 ---
 
 <div class="profile-intro">

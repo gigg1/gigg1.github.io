@@ -1,6 +1,10 @@
 ---
 layout: page
 title: Posts
+share-title: "Posts — Mutong LIU"
+share-description: >-
+  Blog posts and updates from Mutong LIU on machine learning, reinforcement
+  learning and infectious disease modeling.
 ---
 
 <style>

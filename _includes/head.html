@@ -44,6 +44,16 @@
   <meta name="keywords" content="{{ site.keywords }}">
   {% endif %}
 
+  {% comment %}
+    Opt a page out of indexing with `noindex: true` in its front matter.
+    404.html uses this: GitHub Pages serves that file with HTTP 200 when it is
+    requested directly, so without it the error page is a valid crawl target.
+    `follow` is kept so any links on the page are still traversed.
+  {% endcomment %}
+  {% if page.noindex %}
+  <meta name="robots" content="noindex, follow">
+  {% endif %}
+
   {% if site.rss-description %}
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
   {% endif %}
@@ -152,6 +162,45 @@
     {% for file in page.head-extra %}
       {% include {{ file }} %}
     {% endfor %}
+  {% endif %}
+
+  {% comment %}
+    Structured data so search engines can tie this site to a real person rather
+    than treating it as an anonymous page.
+
+    `sameAs` comes from site.same-as rather than being assembled from
+    social-network-links: building the array in Liquid meant hand-rolling the
+    commas and brackets, which produced malformed JSON (a nested array with an
+    unclosed bracket) that validators reject outright. jsonify on a real YAML
+    list emits correct JSON.
+  {% endcomment %}
+  {% if site.author %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ site.author | jsonify }},
+    "url": {{ '/' | absolute_url | jsonify }},
+    "jobTitle": "PhD Student in Computer Science",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Hong Kong Baptist University",
+      "url": "https://www.hkbu.edu.hk/"
+    },
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "Southwest University"
+    },
+    "knowsAbout": [
+      "Machine Learning",
+      "Reinforcement Learning",
+      "Infectious Disease Modeling",
+      "Epidemic Prediction",
+      "Multi-Agent Systems"
+    ],
+    "sameAs": {{ site.same-as | default: empty | jsonify }}
+  }
+  </script>
   {% endif %}
 
 </head>

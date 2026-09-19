@@ -1,0 +1,14 @@
+Sitemap: https://gigg1.github.io/sitemap.xml
+
+# Personal academic homepage. Everything is public and meant to be indexed;
+# this file exists mainly to point crawlers at the sitemap.
+User-agent: *
+Allow: /
+
+# Build artefacts and tooling should never be crawled, even if a future
+# `exclude:` regression lets them reach _site/. Listed here as a second line of
+# defence behind _config.yml's exclude list.
+Disallow: /vendor/
+Disallow: /tools/
+Disallow: /backups/
+Disallow: /gems_cache/

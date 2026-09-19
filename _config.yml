@@ -78,6 +78,15 @@ social-network-links:
 #  linkedin: daattali
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
+
+# Other pages that represent the same person, emitted as JSON-LD `sameAs` on
+# every page. Search engines use this to merge the site with these profiles
+# instead of treating them as unrelated results. Add any new profile you create
+# (ORCID, LinkedIn, ResearchGate, DBLP ...). Keep it a real YAML list — the
+# template calls jsonify on it directly.
+same-as:
+  - "https://github.com/gigg1"
+  - "https://scholar.google.com/citations?user=erU2odMAAAAJ&hl=en"
 #  snapchat: deanat78
 #  instagram: deanat78
 #  spotify: yourname
@@ -96,7 +105,10 @@ social-network-links:
 
 # If you want your website to generate an RSS feed, provide a description
 # The URL for the feed will be https://<your_website>/feed.xml
-rss-description: This website shows some personal information and research descriptions of Mutong LIU.
+rss-description: >-
+  Mutong LIU — PhD student in Computer Science at Hong Kong Baptist University.
+  Research on machine learning and reinforcement learning for infectious disease
+  modeling, epidemic dynamics prediction and multi-agent systems.
 
 ###########################
 # --- General options --- #
@@ -135,8 +147,12 @@ navbar-var-length: false
 
 # custom-css: "custom.css"
 
-# The keywords to associate with your website, for SEO purposes
-#keywords: "Mutong LIU,Personal,Website"
+# Search-engine keywords. Rendered into <meta name="keywords"> by head.html.
+# Keep these to the terms people actually search for (name variants + field).
+keywords: "Mutong LIU, Mutong Liu HKBU, 刘牧桐, Hong Kong Baptist University, machine learning, reinforcement learning, infectious disease modeling, epidemic prediction, multi-agent reinforcement learning, personal homepage"
+
+# Longer site description, used in the RSS feed and as a fallback description.
+description: "Mutong LIU is a PhD student in Computer Science at Hong Kong Baptist University working on machine learning and reinforcement learning for infectious disease modeling, epidemic prediction and multi-agent systems."
 
 ######################################
 # --- Colours / background image --- #
