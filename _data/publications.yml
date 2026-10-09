@@ -57,6 +57,7 @@
   status: published
   links:
     pdf: "/papers/2023-Assessing-IDM.pdf"
+    supp: "/papers/2023-Assessing-IDM-supp.pdf"
     doi: "https://www.sciencedirect.com/science/article/pii/S2468042723000064"
   img: "/assets/img/papers/2023-Assessing-IDM.png"
 
