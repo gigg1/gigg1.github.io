@@ -10,6 +10,7 @@
     # doi: "https://www.sciencedirect.com/science/article/pii/S0004370226001293"
     doi: "https://doi.org/10.1016/j.artint.2026.104603"
     pdf: "/papers/2026-Probing-AIJ.pdf"
+    code: "https://github.com/gigg1/DiaCoG"
   img: "/assets/img/papers/2026-Probing-AIJ.png"
 
 - key: wi
