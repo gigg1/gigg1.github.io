@@ -16,12 +16,13 @@
 - key: wi
   title: "Empowering Epidemic Response: The Role of Reinforcement Learning in Infectious Disease Control"
   authors: "Mutong Liu, Yang Liu, and Jiming Liu"
-  venue: "2025 IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT) (Accepted)"
+  venue: "Proceedings of the 2025 IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT)"
   year: 2025
   status: published
   links:
     pdf: "/papers/2026-Empowering-WI.pdf"
-    doi: "https://arxiv.org/abs/2603.25771"
+    doi: "https://doi.ieeecomputersociety.org/10.1109/WI-IAT67162.2025.00118"
+    link: "https://www.computer.org/csdl/proceedings-article/wi-iat/2025/741100a745/2jFpB2MmeFa"
   img: "/assets/img/papers/2026-Empowering-WI.png"
 
 - key: csursurvey
@@ -39,7 +40,7 @@
 
 - key: epidl
   title: "Epidemiology-aware Deep Learning for Infectious Disease Dynamics Prediction"
-  authors: "Mutong Liu, Yang Liu, Jiming Liu"
+  authors: "Mutong Liu, Yang Liu, and Jiming Liu"
   venue: "Proceedings of the 32nd ACM International Conference on Information and Knowledge Management (CIKM '23)"
   year: 2023
   status: published
