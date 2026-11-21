@@ -39,6 +39,7 @@ full list on the About Me page and the curated topic sections on the Research pa
      status: published          # published | under_review
      links:
        pdf: "/papers/2026-ShortSlug-VENUE.pdf"
+       slides: "/papers/2026-ShortSlug-VENUE-slides.pdf"
        doi: "https://doi.org/..."
        code: "https://github.com/..."
      img: "/assets/img/papers/2026-ShortSlug-VENUE.png"
@@ -48,9 +49,10 @@ full list on the About Me page and the curated topic sections on the Research pa
    `<strong>`. Keep that spelling exact so the highlighting works.
 
    Which suffix links appear is driven purely by which `links.*` keys exist:
-   `pdf` → `[paper]`, `supp` → `[supplementary]`, `poster` → `[poster]`,
-   `code` → `[code]`. There is **no** `[doi]` button — `links.doi` is used as the
-   href of the title itself. Omit a key and its link simply disappears.
+   `pdf` → `[paper]`, `supp` → `[supplementary]`, `slides` → `[slides]`,
+   `poster` → `[poster]`, `code` → `[code]`. They render in that order. There is
+   **no** `[doi]` button — `links.doi` is used as the href of the title itself.
+   Omit a key and its link simply disappears.
 
    `img` is optional; without it the card renders text-only (no thumbnail column).
 

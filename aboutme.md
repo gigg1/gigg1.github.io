@@ -94,7 +94,7 @@ My work aims to solve complex real-world problems such as infectious disease tra
 <div class="research-card">
   <div class="research-card__title">MLs &amp; RLs for Infectious Disease Control</div>
   <div class="research-card__links">
-<a href="/papers/2026-Empowering-WI.pdf">RLs in Infectious Disease Control (WI‑IAT’25)</a>
+<a href="/papers/2025-Empowering-WI.pdf">RLs in Infectious Disease Control (WI‑IAT’25)</a>
 <a href="/papers/2022-Optimal-IDP.pdf">Resource Allocation for Effective Disease Control (IDP’22)</a>
   
   </div>

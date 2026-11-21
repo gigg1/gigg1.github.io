@@ -25,6 +25,7 @@
   <p class="pub-venue">{{ pub.venue }} <span class="pub-links">
     {%- if pub.links.pdf %} [<a href="{{ pub.links.pdf }}">paper</a>]{% endif %}
     {%- if pub.links.supp %} [<a href="{{ pub.links.supp }}">supplementary</a>]{% endif %}
+    {%- if pub.links.slides %} [<a href="{{ pub.links.slides }}">slides</a>]{% endif %}
     {%- if pub.links.poster %} [<a href="{{ pub.links.poster }}">poster</a>]{% endif %}
     {%- if pub.links.code %} [<a href="{{ pub.links.code }}">code</a>]{% endif %}
   </span></p>
